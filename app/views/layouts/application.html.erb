@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eplpicks</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <div id="navbar" class="">
+  <ul class="">
+    <li>Standings<%#= link_to('Schedule', schedule_path) %></li>
+    <li>EPL Table<%#= link_to('EPL Table', epl_table_path) %></li>
+    <li>Schedule<%#= link_to('', '#') %></li>
+  </ul>
+  <ul class="">
+    <% if user_signed_in? %>
+      <li>My Picks<%#= link_to 'My Picks',  picks_mypicks_path%></li>
+      <li><%= link_to('My Account', edit_user_registration_path) %></li>
+      <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+    <% else %>
+      <li><%= link_to('Sign in', new_user_session_path) %></li>
+      <li><%= link_to('Sign up', new_user_registration_path) %></li>
+    <% end %>
+  </ul>
+</div>
+    <%= yield %>
+  </body>
+</html>
