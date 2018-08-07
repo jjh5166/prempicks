@@ -1,0 +1,14 @@
+.firsthalf_table, .sechalf_table{
+  border: 1px solid black;
+  tr{
+    th, td{
+      border: 1px solid black;
+    }
+  }
+}
+.sechalf_table{
+  display: none;
+}
+.mypicks_top .mypicks_line{
+  border: 1px solid black;
+}

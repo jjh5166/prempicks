@@ -1,0 +1,104 @@
+[
+      {
+        "61":{
+          "name": "Chelsea",
+          "short": "Chelsea",
+          "code": "CHE"
+        },
+        "57":{
+          "name": "Arsenal",
+          "short": "Arsenal",
+          "code": "ARS"
+        },
+        "73":{
+          "name": "Tottenham Hotspur",
+          "short": "Spurs",
+          "code": "TOT"
+        },
+        "563":{
+          "name": "West Ham United",
+          "short": "West Ham",
+          "code": "WHU"
+        },
+        "354":{
+          "name": "Crystal Palace",
+          "short": "Crystal Palace",
+          "code": "CRY"
+        },
+        "66":{
+          "name": "Manchester United",
+          "short": "Man United",
+          "code": "MUN"
+        },
+        "65":{
+          "name": "Manchester City",
+          "short": "Man City",
+          "code": "MCI"
+        },
+        "62":{
+          "name": "Everton",
+          "short": "Everton",
+          "code": "EVE"
+        },
+        "64":{
+        "name": "Liverpool",
+        "short": "Liverpool",
+        "code": "LIV"
+        },
+      "67":{
+        "name": "Newcastle United",
+        "short": "Newcastle",
+        "code": "NEW"
+      },
+      "340":{
+        "name": "Southampton",
+        "short": "Southampton",
+        "code": "SOU"
+      },
+      "338":{
+        "name": "Leicester City",
+        "short": "Leicester",
+        "code": "LEI"
+      },
+      "1044":{
+        "name": "Bournemouth",
+        "short": "Bournemouth",
+        "code": "BOU"
+      },
+      "346":{
+        "name": "Watford",
+        "short": "Watford",
+        "code": "WAT"
+      },
+      "397":{
+        "name": "Brighton & Hove Albion",
+        "short": "Brighton",
+        "code": "BRH"
+      },
+      "328":{
+        "name": "Burnley",
+        "short": "Burnley",
+        "code": "BUR"
+      },
+      "394":{
+        "name": "Huddersfield Town",
+        "short": "Huddersfield",
+        "code": "HDD"
+      },
+      "76":{
+        "name": "Wolverhampton Wanderers",
+        "short": "Wolves",
+        "code": "WLV"
+      },
+      "63":{
+        "name": "Fulham",
+        "short": "Fulham",
+        "code": "FUL"
+      },
+      "715":{
+        "name": "Cardiff City",
+        "short": "Cardiff",
+        "code": "CDF"
+      }
+    }
+]
