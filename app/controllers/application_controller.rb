@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  
+
   FootballData.configure do |config|
     # get api key at 'http://api.football-data.org/register'
     config.api_key = '34cddfbc8f4a4b67acafbdc8b5db300d'
@@ -11,7 +13,6 @@ class ApplicationController < ActionController::Base
     config.response_control = 'full'
     # config.response_control = 'minified'
   end
+  #create a pick for each matchday on first log in
 
-  $epl_table = FootballData.fetch(:competitions, :matches, id: 2021)
-  # :leagueTable, id: 445
 end

@@ -2,6 +2,14 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :user_authenticated, only: [:new]
+
+  # from stack for login page
+  # def user_authenticated
+  #   if logged_in?
+  #     return redirect_to user_profiles_path
+  #   end
+  # end
 
   # GET /resource/sign_in
   # def new

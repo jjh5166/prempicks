@@ -1,0 +1,142 @@
+[
+      {
+        "key": "chelsea",
+        "name": "Chelsea",
+        "short": "Chelsea",
+        "code": "CHE",
+        "id": 61
+      },
+      {
+        "key": "arsenal",
+        "name": "Arsenal",
+        "short": "Arsenal",
+        "code": "ARS",
+        "id": 57
+      },
+      {
+        "key": "tottenham",
+        "name": "Tottenham Hotspur",
+        "short": "Spurs",
+        "code": "TOT",
+        "id": 73
+      },
+      {
+        "key": "westham",
+        "name": "West Ham United",
+        "short": "West Ham",
+        "code": "WHU",
+        "id": 563
+      },
+      {
+        "key": "crystalpalace",
+        "name": "Crystal Palace",
+        "short": "Crystal Palace",
+        "code": "CRY",
+        "id": 354
+      },
+      {
+        "key": "manutd",
+        "name": "Manchester United",
+        "short": "Man United",
+        "code": "MUN",
+        "id": 66
+      },
+      {
+        "key": "mancity",
+        "name": "Manchester City",
+        "short": "Man City",
+        "code": "MCI",
+        "id": 65
+      },
+      {
+        "key": "everton",
+        "name": "Everton",
+        "short": "Everton",
+        "code": "EVE",
+        "id": 62
+      },
+      {
+        "key": "liverpool",
+        "name": "Liverpool",
+        "short": "Liverpool",
+        "code": "LIV",
+        "id": 64
+      },
+      {
+        "key": "newcastle",
+        "name": "Newcastle United",
+        "short": "Newcastle",
+        "code": "NEW",
+        "id": 67
+      },
+      {
+        "key": "southampton",
+        "name": "Southampton",
+        "short": "Southampton",
+        "code": "SOU",
+        "id": 340
+      },
+      {
+        "key": "leicester",
+        "name": "Leicester City",
+        "short": "Leicester",
+        "code": "LEI",
+        "id": 338
+      },
+      {
+        "key": "bournemouth",
+        "name": "Bournemouth",
+        "short": "Bournemouth",
+        "code": "BOU",
+        "id": 1044
+      },
+      {
+        "key": "watford",
+        "name": "Watford",
+        "short": "Watford",
+        "code": "WAT",
+        "id": 346
+      },
+      {
+        "key": "brightonhovealbion",
+        "name": "Brighton & Hove Albion",
+        "short": "Brighton",
+        "code": "BRH",
+        "id": 397
+      },
+      {
+        "key": "burnley",
+        "name": "Burnley",
+        "short": "Burnley",
+        "code": "BUR",
+        "id": 328
+      },
+      {
+        "key": "huddersfieldtown",
+        "name": "Huddersfield Town",
+        "short": "Huddersfield",
+        "code": "HDD",
+        "id": 394
+      },
+      {
+        "key": "wolves",
+        "name": "Wolverhampton Wanderers",
+        "short": "Wolves",
+        "code": "WLV",
+        "id": 76
+      },
+      {
+        "key": "fulham",
+        "name": "Fulham",
+        "short": "Fulham",
+        "code": "FUL",
+        "id": 63
+      },
+      {
+        "key": "cardiff",
+        "name": "Cardiff City",
+        "short": "Cardiff",
+        "code": "CDF",
+        "id": 715
+      }
+    ]

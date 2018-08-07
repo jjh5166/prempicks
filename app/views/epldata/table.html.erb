@@ -1,0 +1,30 @@
+<h2>EPL Table</h2>
+<table class="epl_table">
+  <tr class="table_top">
+    <th></th>
+    <th></th>
+    <th>GP</th>
+    <th>Points</th>
+    <th>GD</th>
+    <th>Wins</th>
+    <th>Draws</th>
+    <th>Losses</th>
+
+  </tr>
+
+<%@epl_table.each do |s|%>
+<tr>
+  <th><%= s['position']%></th>
+  <th><%= s['team']['name']%></th>
+  <th><%= s['playedGames']%></th>
+  <th><%= s['points']%></th>
+  <th><%= s['goalDifference']%></th>
+  <th><%= s['won']%></th>
+  <th><%= s['draw']%></th>
+  <th><%= s['lost']%></th>
+
+
+
+</tr>
+<%end%>
+</table>
