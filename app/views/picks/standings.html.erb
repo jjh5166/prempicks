@@ -12,7 +12,6 @@
   <tr>
   <td class="team_cell"><%= u.team_name%></td>
   <td><%= Pick.where(:id => u.id ).sum(:points) %></td>
-  <!-- DB query -->
   <% Pick.where(:user_id => u.id).order('matchday asc').each do |t|%>
   <td class="th_match"><%= t.team_id %></td>
   <%end%>

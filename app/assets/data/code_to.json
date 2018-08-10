@@ -73,7 +73,7 @@
       "397":{
         "name": "Brighton & Hove Albion",
         "short": "Brighton",
-        "code": "BRH"
+        "code": "BHA"
       },
       "328":{
         "name": "Burnley",
@@ -83,12 +83,12 @@
       "394":{
         "name": "Huddersfield Town",
         "short": "Huddersfield",
-        "code": "HDD"
+        "code": "HUD"
       },
       "76":{
         "name": "Wolverhampton Wanderers",
         "short": "Wolves",
-        "code": "WLV"
+        "code": "WOL"
       },
       "63":{
         "name": "Fulham",
@@ -98,7 +98,7 @@
       "715":{
         "name": "Cardiff City",
         "short": "Cardiff",
-        "code": "CDF"
+        "code": "CAR"
       }
     }
 ]
