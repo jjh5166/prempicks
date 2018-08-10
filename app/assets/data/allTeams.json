@@ -101,7 +101,7 @@
         "key": "brightonhovealbion",
         "name": "Brighton & Hove Albion",
         "short": "Brighton",
-        "code": "BRH",
+        "code": "BHA",
         "id": 397
       },
       {
@@ -115,14 +115,14 @@
         "key": "huddersfieldtown",
         "name": "Huddersfield Town",
         "short": "Huddersfield",
-        "code": "HDD",
+        "code": "HUD",
         "id": 394
       },
       {
         "key": "wolves",
         "name": "Wolverhampton Wanderers",
         "short": "Wolves",
-        "code": "WLV",
+        "code": "WOL",
         "id": 76
       },
       {
@@ -136,7 +136,7 @@
         "key": "cardiff",
         "name": "Cardiff City",
         "short": "Cardiff",
-        "code": "CDF",
+        "code": "CAR",
         "id": 715
       }
     ]
