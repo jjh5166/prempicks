@@ -1,6 +1,6 @@
-<h2>Picks Standings</h2>
-
-<table>
+<div class="page_container">
+<h2>Standings</h2>
+<table class="picks_standings">
   <tr>
     <th></th>
     <th>Points</th>
@@ -8,14 +8,18 @@
       <th class="th_match"><%=n+1%></th>
     <%end%>
   </tr>
-<% @allusers.each do |u|%>
-<tr>
-<th><%= u.team_name%></th>
-<th><%= Pick.where(:id => u.id ).sum(:points) %></th>
-<!-- DB query -->
-<% Pick.where(:user_id => u.id).order('matchday asc').each do |t|%>
-<th class="th_match"><%= t.team_id %></th>
-<%end%>
-</tr>
-<%end%>
+  <% @allusers.each do |u|%>
+  <tr>
+  <td class="team_cell"><%= u.team_name%></td>
+  <td><%= Pick.where(:id => u.id ).sum(:points) %></td>
+  <!-- DB query -->
+  <% Pick.where(:user_id => u.id).order('matchday asc').each do |t|%>
+  <td class="th_match"><%= t.team_id %></td>
+  <%end%>
+  </tr>
+  <%end%>
 </table>
+</div>
+<script type="text/javascript">
+
+</script>
