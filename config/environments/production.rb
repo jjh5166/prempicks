@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Might need this line if error in prod missing host link
+  Rails.application.routes.default_url_options[:host] = 'http://prempicks.herokuapp.com'
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -74,15 +77,14 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: 'gmail.com',
+    domain: ENV["GMAIL_DOMAIN"],
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"]
   }
 
-  # Might need this line if error in prod missing host link
-  Rails.application.routes.default_url_options[:host] = 'prempicks.herokuapp.com'
+
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
