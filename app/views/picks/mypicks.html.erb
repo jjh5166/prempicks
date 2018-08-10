@@ -1,6 +1,12 @@
 <div class="page_container">
 
 <h2>My Picks</h2>
+<%=@avail_teams%>
+<div class="">
+
+</div>
+<%=@pickteams%>
+
 <table class="firsthalf_table">
 <tr class="mypicks_top">
   <th></th>
@@ -17,7 +23,6 @@
     <%= f.hidden_field :user_id, :value => current_user.id, :required => true %>
     <%= f.hidden_field :matchday, :value => n, :required => true %>
     <%= f.input :team_id, as: :select,label: false, collection: @pickteams.sort, :disabled => @user_picks %>
-    <!-- <%#= f.button :submit %> -->
     <% end %>
   </td>
   <td>Yo</td>

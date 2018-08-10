@@ -1,12 +1,29 @@
 class PicksController < ApplicationController
-  before_action :pick_initialization
+  before_action :pick_initialization, :authenticate_user!
 
   def standings
     @allusers = User.all
+
+    @check = Pick.where(user_id: current_user.id).count
+
   end
 
   def mypicks
-    @matches = FootballData.fetch(:competitions,:matches, id: 2021)['matches']
+    # If first sign in and no picks exist for user, create a pick for each matchday
+    if (current_user.sign_in_count == 1)
+      if Pick.where(user_id: current_user.id).count == 0
+        (1..38).each do |n|
+          h = 2
+          if n < 20
+            h = 1
+          end
+          Pick.new(user_id: current_user.id, matchday: n, half: h).save
+        end
+      end
+    end
+
+    # @matches = FootballData.fetch(:competitions,:matches, id: 2021)['matches']
+
     @user_picks = []
     Pick.where(user_id: current_user.id).each do |p|
       @user_picks.push(p.team_id)
@@ -21,9 +38,9 @@ class PicksController < ApplicationController
   @pick = Pick.where(user_id: current_user.id, matchday: params[:matchday])[0]
   @pick = Pick.find_by_id(params[:pick_id])
     if @pick.update(pick_params)
-      flash[:message] = 'Pick Made'
+      flash[:alert] = 'Pick Made'
     else
-      flash[:message] = 'Pick Unsuccesful'
+      flash[:alert] = 'Pick Unsuccesful'
     end
   redirect_back fallback_location: mypicks_path
   end
