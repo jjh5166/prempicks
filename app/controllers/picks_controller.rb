@@ -4,7 +4,29 @@ class PicksController < ApplicationController
   def standings
     @allusers = User.all
 
-    @check = Pick.where(user_id: current_user.id).count
+    matches = FootballData.fetch(:competitions,:matches, id: 2021)['matches']
+    @matchtimes = {}
+    (1..38).each do |m|
+      @matchtimes[m] = []
+      matches.each do |t|
+        if t['matchday'] == m
+          @matchtimes[m].push(t['utcDate'])
+        end
+      end
+    end
+    # number of matchdays to reveal in standings
+    @md_count = 0
+    (1..38).each do |t|
+      if Time.now.utc > @matchtimes[t].min.in_time_zone('UTC')
+        @md_count += 1
+      end
+    end
+
+
+
+
+
+    @nowtime = Time.now.utc
 
   end
 
@@ -22,7 +44,7 @@ class PicksController < ApplicationController
       end
     end
 
-    # @matches = FootballData.fetch(:competitions,:matches, id: 2021)['matches']
+
 
     @user_picks = []
     Pick.where(user_id: current_user.id).each do |p|

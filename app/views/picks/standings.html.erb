@@ -1,19 +1,40 @@
 <div class="page_container">
 <h2>Standings</h2>
+<%#= @nowtime %>
+<%#= @md_count%>
+
+<!-- <#%@matchtimes.each do |m|%> -->
+
+<!-- <div class=""> -->
+  <!-- <#%if @nowtime > m[1].min.in_time_zone('UTC')%> -->
+
+   <%#=m[1].min.in_time_zone('UTC')%>
+
+  <%#else%>
+
+<%#=m[1].min.in_time_zone('UTC')%>
+  <%#end%>
+<!-- </div> -->
+<%#end%>
+
+
 <table class="picks_standings">
   <tr>
     <th></th>
     <th>Points</th>
     <% 38.times do |n|%>
-      <th class="th_match"><%=n+1%></th>
+    <th class="th_match"><%=n+1%></th>
     <%end%>
   </tr>
   <% @allusers.each do |u|%>
   <tr>
   <td class="team_cell"><%= u.team_name%></td>
   <td><%= Pick.where(:id => u.id ).sum(:points) %></td>
-  <% Pick.where(:user_id => u.id).order('matchday asc').each do |t|%>
+  <% Pick.where(:user_id => u.id).order('matchday asc').first(@md_count).each do |t|%>
   <td class="th_match"><%= t.team_id %></td>
+  <%end%>
+  <% (38-@md_count).times do%>
+  <td class="th_match"></td>
   <%end%>
   </tr>
   <%end%>
