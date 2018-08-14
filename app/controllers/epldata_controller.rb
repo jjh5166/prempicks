@@ -4,7 +4,7 @@ class EpldataController < ApplicationController
   def table
   @epl_table = FootballData.fetch(:competitions,:standings, id: 2021)['standings'][0]['table']
 # MUST MOVE TO one time welcome page
-    
+
   end
   def schedule
     @matches = FootballData.fetch(:competitions,:matches, id: 2021)['matches']
@@ -20,7 +20,7 @@ class EpldataController < ApplicationController
   def team_initialization
     path = Rails.root.join "app", "assets", "data", "code_to.json"
     file = File.read(path)
-    @allteams = JSON.parse(file)
+    @teamcodes = JSON.parse(file)
     # @pickteams = []
     # @allteams.each do |t|
     #   @pickteams.push(t["code"])

@@ -12,3 +12,43 @@
 .mypicks_top .mypicks_line{
   border: 1px solid black;
 }
+.mp_container{
+  display: grid;
+  grid-template-columns: 10% 90%;
+  grid-auto-rows: 50px;
+  outline: 2px solid black;
+}
+.mp_col1{
+  grid-column-start: 1;
+  grid-column-end: span 1;
+  grid-row-start: 1;
+  grid-row-end: 20;
+}
+.mp_matches{
+  grid-column-start: 2;
+  grid-column-end: span 1;
+  grid-row-start: 1;
+  grid-row-end: 20;
+  outline: 1px solid black;
+}
+.mp_matchday{
+  height: 50px;
+  outline: 1px solid black;
+}
+.mp_col1_unit{
+  height: 50px;
+  position: relative;
+  outline: 1px solid black;
+}
+.mp_match{
+  height: 50%;
+  width: 20%;
+  float: left;
+  font-size: 12px
+}
+.mp_form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
