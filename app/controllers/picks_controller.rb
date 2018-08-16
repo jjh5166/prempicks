@@ -6,7 +6,6 @@ class PicksController < ApplicationController
   end
 
   def mypicks
-     :team_codes_init
     # If first sign in and no picks exist for user, create a pick for each matchday
     if (current_user.sign_in_count == 1)
       if Pick.where(user_id: current_user.id).count == 0
@@ -46,25 +45,25 @@ class PicksController < ApplicationController
     end
   redirect_back fallback_location: mypicks_path
   end
-  private
-    def pick_timer
-      matches = FootballData.fetch(:competitions,:matches, id: 2021)['matches']
-      @matchtimes = {}
-      (1..38).each do |m|
-        @matchtimes[m] = []
-        matches.each do |t|
-          if t['matchday'] == m
-            @matchtimes[m].push(t['utcDate'])
-          end
-        end
-      end
-      @md_count = 0
-      (1..38).each do |t|
-        if Time.now.utc > @matchtimes[t].min.in_time_zone('UTC')
-          @md_count += 1
-        end
-      end
-    end
+  # private
+  #   def pick_timer
+  #     matches = FootballData.fetch(:competitions,:matches, id: 2021)['matches']
+  #     @matchtimes = {}
+  #     (1..38).each do |m|
+  #       @matchtimes[m] = []
+  #       matches.each do |t|
+  #         if t['matchday'] == m
+  #           @matchtimes[m].push(t['utcDate'])
+  #         end
+  #       end
+  #     end
+  #     @md_count = 0
+  #     (1..38).each do |t|
+  #       if Time.now.utc > @matchtimes[t].min.in_time_zone('UTC')
+  #         @md_count += 1
+  #       end
+  #     end
+  #   end
     def team_codes_init
       path = Rails.root.join "app", "assets", "data", "code_to.json"
       file = File.read(path)
