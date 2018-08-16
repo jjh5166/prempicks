@@ -1,5 +1,5 @@
 class EpldataController < ApplicationController
-  before_action :team_initialization, :pick_timer, :authenticate_user!
+  before_action :team_initialization, :authenticate_user!
 
   def table
   @epl_table = FootballData.fetch(:competitions,:standings, id: 2021)['standings'][0]['table']

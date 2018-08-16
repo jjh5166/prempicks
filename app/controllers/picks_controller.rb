@@ -1,5 +1,5 @@
 class PicksController < ApplicationController
-  before_action :pick_timer, :pick_initialization, :authenticate_user!, :team_codes_init
+  before_action :pick_initialization, :authenticate_user!, :team_codes_init
 
   def standings
     @allusers = User.all

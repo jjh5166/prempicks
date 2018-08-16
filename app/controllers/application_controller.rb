@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  before_action :pick_timer
   FootballData.configure do |config|
     # get api key at 'http://api.football-data.org/register'
     config.api_key = '***REMOVED***'
