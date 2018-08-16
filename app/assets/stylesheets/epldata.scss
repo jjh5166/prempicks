@@ -6,7 +6,16 @@ position: absolute;
 left: 0;
 right: 0;
 margin: auto;
-width: 80%
+width: 80%;
+border-collapse: collapse;
+font-size: 14px;
+tr{
+  border: 1px solid black;
+  td{
+    border: inherit;
+    text-align: center;
+  }
+}
 
 }
 .table_top{

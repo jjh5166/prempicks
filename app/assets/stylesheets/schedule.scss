@@ -1,44 +1,49 @@
-.page_container{
-  height: auto;
-  width: auto;
-  // position: absolute;
-}
-.matchday_container{
-  position: relative;
-  margin: 0;
-  height: 200px;
-  outline: 2px solid red;
-  overflow: hidden;
-}
-.match_header{
-  position: relative;
-  height: 10%;
-  margin-top: 0;
-  width: 100%
-}
-.matches{
-  position: relative;
-  height: 90%;
-  width: 100%
-
-}
-.match_box{
-  outline: 2px solid lightgreen;
-  float: left;
-  position: relative;
-  width: 20%;
-  height: 50%;
-  // margin: 3px
-}
-.match_score{
-  float: right;
-}
-.match_team{
-  left: 2px
-}
-.score_line{
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  line-height: 0
-}
+// .page_container{
+//   height: auto;
+//   width: auto;
+//   // position: absolute;
+// }
+// .all_matchdays_container{
+//   display: grid;
+//   grid-template-columns: 20% 20% 20% 20% 20%;
+//   grid-auto-rows: 50px;
+//   // outline: 2px solid green;
+// }
+// .matchday_container{
+//   grid-column-start: 1;
+//   grid-column-end: span 5;
+//   // height: 200px;
+//   // overflow: hidden;
+//   outline: 1px solid purple;
+// }
+// // .match_header{
+// //   position: relative;
+// //   height: 10%;
+// //   margin-top: 0;
+// //   width: 100%
+// // }
+// .matches{
+//
+// //
+// }
+// // .match_box{
+// //
+// //   outline: 2px solid lightgreen;
+// //   // float: left;
+// //   // position: relative;
+// //   // width: 20%;
+// //   // height: 50%;
+// //   // margin: 3px
+// // }
+// // .match_score{
+// //   float: right;
+// // }
+// // .match_team{
+// //   left: 2px
+// // }
+// // .score_line{
+// //   position: relative;
+// //   display: inline-block;
+// //   width: 100%;
+// //   line-height: 0
+// // }

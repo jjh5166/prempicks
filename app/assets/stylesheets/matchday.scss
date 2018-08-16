@@ -1,0 +1,59 @@
+.md_head_cont{
+  position: relative;
+}
+.matchday_header{
+  margin: 0 auto;
+  width: 25%;
+  text-align: center;
+  display: inline-grid;
+  grid-template-columns: 20% 60% 20%;
+  position: absolute;
+  margin-top: 6%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 50%;
+  h2{
+    grid-column-start: 2;
+    margin-top: 14px;
+  }
+}
+#arrow_right{
+  grid-column-start: 3;
+}
+.matchday_arrow{
+  grid-column-start: 1;
+  width: 100%;
+  i{
+    font-size: 35px;
+  }
+}
+.matchday_container{
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 25%;
+  outline: 2px solid black;
+}
+.match_container{
+  width: 20%;
+  height: 50%;
+  outline: 2px solid black;
+  float: left;
+  position: relative;
+}
+.match_score{
+  float: right;
+  margin-right: 5px;
+}
+.score_line{
+  line-height: 38px;
+  display: inline-block;
+  width: 100%;
+}
+.match_team{
+  display: inline-block;
+  margin-left: 5px;
+}
