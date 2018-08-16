@@ -4,7 +4,7 @@
     <title>Prempicks</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <script src="https://use.fontawesome.com/6b64edde02.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Kanit:400,900i" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -23,7 +23,7 @@
           <button class="dropbtn">EPL</button>
           <div class="drop-cont">
             <%= link_to('EPL Table', epl_table_path) %>
-            <%= link_to('Schedule', epl_sched_path) %>
+            <%= render "epldata/matchday_link" %>
           </div>
         </div>
         <%= link_to('My Account', edit_user_registration_path) %>

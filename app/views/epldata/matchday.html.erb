@@ -1,0 +1,40 @@
+<div class="page_container">
+  <div class="md_head_cont">
+    <div class="matchday_header">
+    <%= link_to(matchday_path((params[:matchday].to_i-1)), :method => "get", class: "matchday_arrow") do %>
+    <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+    <%end%>
+    <h2>Matchday <%=params[:matchday]%></h2>
+    <%= link_to(matchday_path((params[:matchday].to_i+1)), :method => "get", class: "matchday_arrow", id: "arrow_right") do %>
+    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+    <%end%>
+    </div>
+  </div>
+
+
+<div class="matchday_container">
+  <%@md_matches.each do |m|%>
+    <div class="match_container">
+      <div class="score_line">
+        <div class="match_team"><%=@teamcodes[0].fetch(m['homeTeam']['id'].to_s)['short']%></div>
+        <%if m['status'] == 'FINISHED'%>
+        <div class="match_score"><%=m['score']['fullTime']['homeTeam']%></div>
+        <%else%>
+        <div class="match_score"><%=Date.parse(m['utcDate']).strftime("%m-%d")%></div>
+        <%end%>
+      </div>
+        <br>
+      <div class="score_line">
+        <div class="match_team"><%=@teamcodes[0].fetch(m['awayTeam']['id'].to_s)['short']%></div>
+        <%if m['status'] == 'FINISHED'%>
+        <div class="match_score"><%=m['score']['fullTime']['awayTeam']%></div>
+        <%end%>
+      </div>
+    </div>
+  <%end%>
+</div>
+
+
+
+
+</div>
