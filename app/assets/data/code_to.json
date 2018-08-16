@@ -11,7 +11,7 @@
           "code": "ARS"
         },
         "73":{
-          "name": "Tottenham Hotspur",
+          "name": "Tottenham",
           "short": "Spurs",
           "code": "TOT"
         },
@@ -27,7 +27,7 @@
         },
         "66":{
           "name": "Manchester United",
-          "short": "Man United",
+          "short": "Man Utd",
           "code": "MUN"
         },
         "65":{
@@ -46,7 +46,7 @@
         "code": "LIV"
         },
       "67":{
-        "name": "Newcastle United",
+        "name": "Newcastle",
         "short": "Newcastle",
         "code": "NEW"
       },

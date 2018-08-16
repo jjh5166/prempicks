@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get '/table' => "epldata#table", as: :epl_table
   get '/schedule' => "epldata#schedule", as: :epl_sched
+  get '/schedule/:matchday' => "epldata#matchday", as: :matchday
 
   get '/standings' => 'picks#standings', as: :standings
   get '/mypicks' => 'picks#mypicks', as: :mypicks
