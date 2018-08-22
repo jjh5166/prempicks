@@ -2,7 +2,7 @@ class PicksController < ApplicationController
   before_action :pick_timer, :authenticate_user!, :team_codes_init, :pick_initialization
 
   def standings
-    @allusers = User.all
+    @allusers = User.joins(:picks).group("users.id").order("SUM(picks.points) DESC")
   end
 
   def mypicks
