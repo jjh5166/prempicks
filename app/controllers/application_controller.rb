@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  before_action :pick_timer
   FootballData.configure do |config|
     # get api key at 'http://api.football-data.org/register'
     config.api_key = '***REMOVED***'
@@ -32,5 +32,11 @@ class ApplicationController < ActionController::Base
           @md_count += 1
         end
       end
+    end
+
+    def team_codes_init
+      path = Rails.root.join "app", "assets", "data", "code_to.json"
+      file = File.read(path)
+      @teamcodes = JSON.parse(file)
     end
 end
