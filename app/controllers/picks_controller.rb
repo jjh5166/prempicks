@@ -1,5 +1,5 @@
 class PicksController < ApplicationController
-  before_action :pick_initialization, :authenticate_user!, :team_codes_init
+  before_action :pick_timer, :authenticate_user!, :team_codes_init, :pick_initialization
 
   def standings
     @allusers = User.all
@@ -64,11 +64,11 @@ class PicksController < ApplicationController
   #       end
   #     end
   #   end
-    def team_codes_init
-      path = Rails.root.join "app", "assets", "data", "code_to.json"
-      file = File.read(path)
-      @teamcodes = JSON.parse(file)
-    end
+    # def team_codes_init
+    #   path = Rails.root.join "app", "assets", "data", "code_to.json"
+    #   file = File.read(path)
+    #   @teamcodes = JSON.parse(file)
+    # end
     def pick_params
       params.require(:pick).permit(:user_id, :matchday, :team_id)
     end

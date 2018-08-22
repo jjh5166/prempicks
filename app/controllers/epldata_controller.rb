@@ -1,5 +1,5 @@
 class EpldataController < ApplicationController
-  before_action :team_initialization, :authenticate_user!
+  before_action :pick_timer, :team_codes_init, :authenticate_user!
 
   def table
   @epl_table = FootballData.fetch(:competitions,:standings, id: 2021)['standings'][0]['table']
@@ -16,9 +16,9 @@ class EpldataController < ApplicationController
   end
 
   private
-  def team_initialization
-    path = Rails.root.join "app", "assets", "data", "code_to.json"
-    file = File.read(path)
-    @teamcodes = JSON.parse(file)
-  end
+  # def team_initialization
+  #   path = Rails.root.join "app", "assets", "data", "code_to.json"
+  #   file = File.read(path)
+  #   @teamcodes = JSON.parse(file)
+  # end
 end

@@ -33,4 +33,10 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+
+    def team_codes_init
+      path = Rails.root.join "app", "assets", "data", "code_to.json"
+      file = File.read(path)
+      @teamcodes = JSON.parse(file)
+    end
 end
