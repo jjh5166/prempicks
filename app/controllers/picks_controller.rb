@@ -36,7 +36,7 @@ class PicksController < ApplicationController
 
   def make
 
-  @pick = Pick.where(user_id: current_user.id, matchday: params[:matchday])[0]
+  # @pick = Pick.where(user_id: current_user.id, matchday: params[:matchday])[0]
   @pick = Pick.find_by_id(params[:pick_id])
     if @pick.update(pick_params)
       flash[:alert] = 'Pick Made'
@@ -45,30 +45,7 @@ class PicksController < ApplicationController
     end
   redirect_back fallback_location: mypicks_path
   end
-  # private
-  #   def pick_timer
-  #     matches = FootballData.fetch(:competitions,:matches, id: 2021)['matches']
-  #     @matchtimes = {}
-  #     (1..38).each do |m|
-  #       @matchtimes[m] = []
-  #       matches.each do |t|
-  #         if t['matchday'] == m
-  #           @matchtimes[m].push(t['utcDate'])
-  #         end
-  #       end
-  #     end
-  #     @md_count = 0
-  #     (1..38).each do |t|
-  #       if Time.now.utc > @matchtimes[t].min.in_time_zone('UTC')
-  #         @md_count += 1
-  #       end
-  #     end
-  #   end
-    # def team_codes_init
-    #   path = Rails.root.join "app", "assets", "data", "code_to.json"
-    #   file = File.read(path)
-    #   @teamcodes = JSON.parse(file)
-    # end
+  private
     def pick_params
       params.require(:pick).permit(:user_id, :matchday, :team_id)
     end

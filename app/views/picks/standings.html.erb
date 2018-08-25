@@ -28,7 +28,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
   $('.pt_cell').each(function() {
-    if (parseInt($(this).text()) > 2){
+    if (parseInt($(this).text()) >= 2){
       $(this).addClass('pt_cell_w');
     }else if(parseInt($(this).text()) < 0){
       $(this).addClass('pt_cell_l');
