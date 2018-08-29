@@ -1,11 +1,11 @@
 <div class="page_container">
 <h2>Standings</h2>
 
-<table class="picks_standings">
-  <tr>
+<table class="picks_standings" id="standings_first">
+  <tr class="table_top">
     <th></th>
     <th>Points</th>
-    <% 38.times do |n|%>
+    <% 19.times do |n|%>
     <th class="th_match" colspan="2"><%=n+1%></th>
     <%end%>
   </tr>
@@ -17,7 +17,7 @@
   <td><%= t.team_id %></td>
   <td class="pt_cell"><%= t.points%></td>
   <%end%>
-  <% (38-@md_count).times do%>
+  <% (19-@md_count).times do%>
   <td>-</td>
   <td>-</td>
   <%end%>
@@ -28,7 +28,10 @@
 <script type="text/javascript">
 $(document).ready(function() {
   $('.pt_cell').each(function() {
-    if (parseInt($(this).text()) >= 2){
+
+    if (parseInt($(this).text()) == 0){
+      return;
+    }else if(parseInt($(this).text()) >= 2){
       $(this).addClass('pt_cell_w');
     }else if(parseInt($(this).text()) < 0){
       $(this).addClass('pt_cell_l');

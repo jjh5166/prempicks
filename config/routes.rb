@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   root :to => 'application#home'
 
+  get '/rules' => 'application#rules', as: :rules
   get '/table' => "epldata#table", as: :epl_table
   get '/schedule' => "epldata#schedule", as: :epl_sched
   get '/schedule/:matchday' => "epldata#matchday", as: :matchday
