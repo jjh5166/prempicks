@@ -35,16 +35,14 @@ class PicksController < ApplicationController
   end
 
   def make
-
-  # @pick = Pick.where(user_id: current_user.id, matchday: params[:matchday])[0]
-  @pick = Pick.find_by_id(params[:pick_id])
-    if @pick.update(pick_params)
-      flash[:alert] = 'Pick Made'
-    else
-      flash[:alert] = 'Pick Unsuccesful'
+    @pick = Pick.find_by_id(params[:pick_id])
+      if @pick.update(pick_params)
+        flash[:alert] = 'Pick Saved'
+      else
+        flash[:alert] = 'Pick Unsuccesful'
+      end
+    redirect_back fallback_location: mypicks_path
     end
-  redirect_back fallback_location: mypicks_path
-  end
   private
     def pick_params
       params.require(:pick).permit(:user_id, :matchday, :team_id)

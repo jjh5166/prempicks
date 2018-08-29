@@ -16,3 +16,16 @@
 body{
   font-family: 'Kanit', sans-serif;
 }
+h2 {
+  font-style: oblique;
+  text-align: center;
+}
+.table_top {
+  background-color: #717274;
+  color: #00ace6;
+  text-shadow: black 0 0 10px;
+}
+.page_container{
+  height: 100%;
+  width: 100%;
+  }
