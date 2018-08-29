@@ -4,6 +4,11 @@
 .picks_standings{
   border: 1px solid black;
   table-layout: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
   // display: none;
   tr{
     th, td{

@@ -12,8 +12,6 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
     <div class="navbar">
       <% if user_signed_in? %>
@@ -26,14 +24,22 @@
             <%= render "epldata/matchday_link" %>
           </div>
         </div>
-        <%= link_to('My Account', edit_user_registration_path) %>
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-
+        <%= link_to 'Rules', rules_path %>
       <% else %>
       <%= link_to('Sign in', new_user_session_path) %>
       <%= link_to('Sign up', new_user_registration_path) %>
       <% end %>
-
+      <div class="nav_title">Prem Picks</div>
+      <div class="nav_right">
+      <% if user_signed_in? %>
+        <%= link_to('My Account', edit_user_registration_path) %>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+      <% end %>
+      </div>
+    </div>
+    <div class="nav_msg">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     </div>
     <%= yield %>
   </body>
