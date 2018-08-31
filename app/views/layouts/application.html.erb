@@ -27,9 +27,12 @@
         <%= link_to 'Rules', rules_path %>
       <% else %>
       <%= link_to('Sign in', new_user_session_path) %>
-      <%= link_to('Sign up', new_user_registration_path) %>
+      <button class="dummy_btn">Sign Up</button>
+      <!-- <%#= link_to_('Sign up', new_user_registration_path) %> -->
       <% end %>
+      <% if user_signed_in? %>
       <div class="nav_title">Prem Picks</div>
+      <%end%>
       <div class="nav_right">
       <% if user_signed_in? %>
         <%= link_to('My Account', edit_user_registration_path) %>
