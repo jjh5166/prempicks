@@ -1,0 +1,27 @@
+.home_header{
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  vertical-align: middle;
+  font-style: italic;
+  font-size: 5em;
+  color: #00ace6;
+  text-shadow: 2px 2px #00394d;
+}
+.home_page{
+  background: image-url('blur.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: rgba(81, 81, 159, 0.5);
+  background-blend-mode: multiply;
+}
+.home_notice{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00ace6;
+  text-shadow: 2px 2px #00394d;
+}
