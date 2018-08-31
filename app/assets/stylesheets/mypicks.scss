@@ -13,10 +13,15 @@
   border: 1px solid black;
 }
 .mp_container{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
   display: grid;
   grid-template-columns: 10% 90%;
   grid-auto-rows: 50px;
   outline: 2px solid black;
+  width: 85%;
 }
 .mp_col1{
   grid-column-start: 1;
