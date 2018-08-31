@@ -1,0 +1,41 @@
+.rules_cnt{
+  position: relative;
+  // outline: 2px solid red;
+  margin: 0 auto;
+  width: 85%;
+  height: auto;
+  h4{
+    position: relative;
+    font-style: oblique;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  p{
+    position: relative;
+  }
+}
+.rules_tb{
+  position: relative;
+  table-layout: auto;
+  // left: 0;
+  // right: 0;
+  // margin: auto;
+  border: 1px solid black;
+  border-collapse: collapse;
+  float: left;
+  margin-right: 32px;
+  tr, th, td{
+    border: 1px solid black;
+    text-align: center;
+  }
+}
+.rules_sec{
+  position: relative;
+  // outline: 2px solid purple;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.points_list{
+  position: relative;
+}
