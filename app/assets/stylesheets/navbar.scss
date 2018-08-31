@@ -19,7 +19,22 @@
     border-radius: 30px;
   }
 }
-.dropdown {
+.dummy_btn{
+  float: left;
+  font-size: 16px;
+  color: #00ace6;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-radius: 30px;
+  background-color: inherit;
+  border: none;
+  text-shadow: black 0px 0px 10px;
+}
+.dummy_btn:focus{
+  outline: none
+}
+.dropdown{
     float: left;
     overflow: hidden;
 }
@@ -56,7 +71,7 @@ font-size: 16px;
 .dropdown:hover .drop-cont {
     display: block;
 }
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar a:hover, .dropdown:hover .dropbtn, .dummy_btn:hover {
     background-color: #B5B7BC;
 }
 .nav_right, {
