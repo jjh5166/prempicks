@@ -57,7 +57,7 @@
   left: 50%;
   transform: translate(-50%, -50%)
 }
-@media all and (max-width: 44em) {
+@media all and (max-width: 480px) {
 .mp_container{
   grid-template-columns: 15% 85%;
 }
