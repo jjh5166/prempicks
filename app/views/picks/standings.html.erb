@@ -11,7 +11,7 @@
   </tr>
   <% @allusers.each do |u|%>
   <tr>
-  <td class="team_cell"><%= u.team_name%></td>
+  <td class="team_cell" title="<%=u.fname%> <%=u.lname%>"><%= u.team_name%></td>
   <td><%= Pick.where(:user_id => u.id ).sum(:points) %></td>
   <% Pick.where(:user_id => u.id).order('matchday asc').first(@md_count).each do |t|%>
   <td><%= t.team_id %></td>
