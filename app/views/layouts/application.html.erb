@@ -39,8 +39,8 @@
       </button>
       <!-- <div class="nav_right"> -->
       <% if user_signed_in? %>
-        <%= link_to 'My Account', edit_user_registration_path, :class => "nav_right" %>
         <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "nav_right" %>
+        <%= link_to 'My Account', edit_user_registration_path, :class => "nav_right" %>
       <% end %>
       <!-- </div> -->
     </nav>
@@ -53,11 +53,31 @@
     <%= yield %>
   </body>
   <script type="text/javascript">
+  function showLinks(){
+    if($(window).width() > 480){
+      $('.navbar').children("a").show();
+    }
+  }
+  function showTitle(){
+    if($(window).width() >= 620){
+      $('.nav_title').show();
+    }else if ($(window).width() > 480) {
+      $('.nav_title').hide();
+    }else{
+      $('.nav_title').show();
+    }
+  };
+
   $(document).ready(function() {
     $('.ex_button').click(function() {
       $('.navbar').children("a").toggle();
-      // $('.dropdown').toggle()
     })
+    showLinks();
+    showTitle();
   })
+  $( window ).resize(function() {
+       showLinks();
+       showTitle();
+  });
   </script>
 </html>
