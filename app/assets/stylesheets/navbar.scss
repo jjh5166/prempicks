@@ -1,18 +1,24 @@
+:root{
+--nav_font_sz: 16px;
+--nav_text_clr: #00ace6;
+--nav_bkgd_clr: #717274;
+--nav_title_ft_sz: 40px;
+}
 .navbar{
   position: static;
   left: 50%;
   padding-left: 15px;
   padding-right: 15px;
   overflow: hidden;
-  background-color: #717274;
+  background-color: nav(--nav_bkgd_clr);
   background: linear-gradient(90deg, rgba(77,77,78,1) 0%, rgba(129,131,135,1) 35%, rgba(70,70,71,1) 100%);
   color: #00ace6;
   text-shadow: black 0px 0px 10px;
   border-radius: 0 0 180px 180px;
   a {
     float: left;
-    font-size: 16px;
-    color: #00ace6;
+    font-size: var(--nav_font_sz);
+    color: var(--nav_text_clr);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -22,8 +28,8 @@
 }
 .dummy_btn{
   float: left;
-  font-size: 16px;
-  color: #00ace6;
+  font-size: var(--nav_font_sz);
+  color: var(--nav_text_clr);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -40,7 +46,7 @@
   text-decoration: none;
   background-color: inherit;
   border: none;
-  color: #00ace6;
+  color: var(--nav_text_clr);
   text-align: center;
   display: none;
   right: 0;
@@ -56,10 +62,10 @@
     overflow: hidden;
 }
 .dropdown .dropbtn{
-font-size: 16px;
+font-size: var(--nav_font_sz);
  border: none;
  outline: none;
- color: #00ace6;
+ color: var(--nav_text_clr);
  padding: 14px 16px;
  background-color: inherit;
  font-family: inherit;
@@ -102,7 +108,7 @@ font-size: 16px;
   margin: auto;
   text-align: center;
   font-style: oblique;
-  font-size: 40px;
+  font-size: var(--nav_title_ft_sz);
   margin-top: -4px;
   width: 25%;
 }
@@ -110,61 +116,8 @@ font-size: 16px;
   position: relative;
   left: 0;
   right: 0;
-  // height: 3%;
-  // margin: auto;
   text-align: center;
   p{
-    // height: auto;
     margin: 0 auto;
   }
-}
-
-@media all and (max-width: 480px) {
-.navbar{
-  border-radius: 0;
-  width: 100%;
-  left: auto;
-  padding-left: 0;
-  padding-right: 0;
-  z-index: 2;
-  min-height: 36px;
-  .nav_title{
-  font-size: 35px;
-  }
-  a, .dropdown, .dummy_btn{
-    display: none;
-    width: 100%;
-    text-align: center;
-    border-radius: 0;
-    padding: 14px 0px
-  }
-  .nav_title{
-    width: 35%;
-  }
-  .dropdown{
-    padding: 0;
-    .dropbtn{
-      width: 100%;
-      border-radius: 0;
-    }
-  }
-  .drop-cont{
-    border-radius: 0;
-    position: relative;
-    background: linear-gradient(90deg, rgba(77,77,78,1) 0%, rgba(129,131,135,1) 35%, rgba(70,70,71,1) 100%);
-    a{
-      color: #00ace6;
-      text-shadow: black 0px 0px 10px;
-    }
-  }
-  i{
-    display: block;
-  }
-}
-.nav_top{
-  margin-top: 30px;
-}
-.ex_button{
-  display: block;
-}
 }
