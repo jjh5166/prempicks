@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
-  before_action :pick_timer
+  include AuthorizationHelper
+
+  protect_from_forgery
+
+  # before_action :pick_timer
+
   FootballData.configure do |config|
     # get api key at 'http://api.football-data.org/register'
     config.api_key = '***REMOVED***'
@@ -12,9 +17,9 @@ class ApplicationController < ActionController::Base
     config.response_control = 'full'
     # config.response_control = 'minified'
   end
-  #create a pick for each matchday on first log in
 
   private
+
     def pick_timer
       all_matches = FootballData.fetch(:competitions,:matches, id: 2021)['matches']
       @matchtimes = {}
