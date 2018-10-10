@@ -14,42 +14,8 @@
 
   <body>
 
-    <nav class="navbar">
-      <% if user_signed_in? || session[:guest_user_id] %>
-        <%= link_to 'Standings', standings_path, :class => "nav_top" %>
-        <%= link_to 'My Picks', mypicks_path %>
-        <div class="dropdown">
-          <button class="dropbtn">EPL</button>
-          <div class="drop-cont">
-            <%= link_to('EPL Table', epl_table_path) %>
-            <!-- <%#= render "epldata/matchday_link" %> -->
-          </div>
-        </div>
-        <%= link_to 'Rules', rules_path %>
-      <% else %>
-      <%= link_to('Sign in', new_user_session_path) %>
-      <button class="dummy_btn">Sign Up</button>
-      <!-- <%#= link_to_('Sign up', new_user_registration_path) %> -->
-      <% end %>
-      <% if user_signed_in? || session[:guest_user_id]%>
-      <span class="nav_title">Prem Picks</span>
-      <%end%>
-      <button class="ex_button">
-      <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-      </button>
-
-      <% if user_signed_in?%>
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "nav_right" %>
-        <%= link_to 'My Account', edit_user_registration_path, :class => "nav_right" %>
-      <% elsif session[:guest_user_id]%>
-        <%= link_to 'Sign in', new_user_session_path, :class => "nav_right" %>
-      <% end %>
-
-    </nav>
-    <div class="nav_msg">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
+    <%= render 'layouts/navbar'%>
+    <%= render 'layouts/flash'%>
 
 
     <%= yield %>
@@ -76,12 +42,7 @@
     })
     showLinks();
     showTitle();
-    $('.dummy_btn').mouseover(function(){
-      $('.home_notice').text('Registration is closed for the season');
-    }).mouseout(function(){
-      $('.home_notice').text('');
-    });
-  })
+  });
 
   $( window ).resize(function() {
        showLinks();

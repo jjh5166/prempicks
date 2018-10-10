@@ -10,3 +10,12 @@
     </div>
   </body>
 </html>
+<script>
+$(document).ready(function() {
+  $('.dummy_btn').mouseover(function(){
+  $('.home_notice').text('Registration is closed for the season');
+  }).mouseout(function(){
+  $('.home_notice').text('');
+  });
+})
+</script>

@@ -1,2 +1,20 @@
-<div>
+<div class="flashes">
+
+  <% if flash[:notice] %>
+    <p id="flash_notice" class="messages notice"><%= flash[:notice] %></p>
+  <% end %>
+
+  <% if flash[:alert] %>
+    <p id="flash_alert" class="messages notice"><%= flash[:alert] %></p>
+  <% end %>
+
+  <% if flash[:error] || flash[:errors] %>
+    <p id="flash_errors" class="messages errors"><%= flash[:error] || flash[:errors] %></p>
+  <% end %>
+
 </div>
+<script>
+$(function() {
+$(".messages").show().delay( 30000 ).hide();
+});
+</script>
