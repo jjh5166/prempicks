@@ -1,7 +1,14 @@
 class PicksController < ApplicationController
-  before_action :pick_timer, :authenticate_user!, :team_codes_init, :pick_initialization
+  before_action :pick_timer, only: [:standings, :mypicks]
+  before_action :authenticate_user!, only: [:mypicks, :make]
+  before_action :team_codes_init, only: [:mypicks]
+  before_action :pick_initialization, only: [:mypicks]
+
 
   def standings
+    if !user_signed_in?
+      create_guest_user
+    end
     @allusers = User.joins(:picks).group("users.id").order("SUM(picks.points) DESC")
   end
 
