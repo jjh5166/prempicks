@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   authenticated :user do
   root :to => 'picks#standings', as: :authenticated_root
   end
-  root :to => 'application#home'
+  root :to => 'static_pages#home'
 
-  get '/rules' => 'application#rules', as: :rules
+  get '/rules' => 'static_pages#rules', as: :rules
   get '/table' => "epldata#table", as: :epl_table
   get '/schedule' => "epldata#schedule", as: :epl_sched
   get '/schedule/:matchday' => "epldata#matchday", as: :matchday
@@ -19,4 +19,5 @@ Rails.application.routes.draw do
 
   # Pick form
   patch '/mypicks/:pick_id' => "picks#make", :as => :pick
+
 end
