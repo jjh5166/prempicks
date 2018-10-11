@@ -28,6 +28,7 @@
     <h4>Picking</h4>
     <p>Picks must be in by kick off of the first match of the matchday. Any time a pick is not made by this time, the team that finished highest in the last years standings that is still available will be assigned. Any matches postponed still count for that same matchday and points will be tallied once the match is completed. You cannot pick the same team twice in a half of the season, the pool of available teams resets at match 20.</p>
   </div>
+<% if user_signed_in? %>
   <div class="rules_sec">
     <h4>Payouts</h4>
     <table class="rules_tb">
@@ -38,5 +39,6 @@
     </table>
     <p>The pot is $1,020. There are payouts for placing in the first half, second half and full season.</p>
   </div>
+<%end%>
 </div>
 </div>
