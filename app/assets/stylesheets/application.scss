@@ -10,22 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
-body{
-  font-family: 'Kanit', sans-serif;
-}
-h2 {
-  font-style: oblique;
-  text-align: center;
-}
-.table_top {
-  background-color: #717274;
-  color: #00ace6;
-  text-shadow: black 0 0 10px;
-}
-.page_container{
-  height: 100%;
-  width: 100%;
-  }
+ @import "bootstrap";
+ @import "epltable";
+ @import "home";
+ @import "login";
+ @import "matchday";
+ @import "mypicks";
+ @import "navbar";
+ @import "normalize";
+ @import "rules";
+ @import "schedule";
+ @import "standings";
+ @import "static_pages";
+ @import "layout"
