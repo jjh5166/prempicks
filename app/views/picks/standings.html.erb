@@ -39,5 +39,12 @@ $(document).ready(function() {
       $(this).addClass('pt_cell_d');
     }
   });
-})
+});
+  $(document).ready(function () {
+    $('.team_cell').click(function(){
+      var tou = this.title;
+      $(this).attr('title', $(this).text())
+      $(this).text(tou)
+    });
+  });
 </script>
