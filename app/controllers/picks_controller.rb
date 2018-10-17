@@ -49,7 +49,7 @@ class PicksController < ApplicationController
         flash[:alert] = 'Pick Unsuccesful'
       end
     redirect_back fallback_location: mypicks_path
-    end
+  end
   private
     def pick_params
       params.require(:pick).permit(:user_id, :matchday, :team_id)
