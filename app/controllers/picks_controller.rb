@@ -1,4 +1,5 @@
 class PicksController < ApplicationController
+  include PicksHelper
   before_action :pick_timer, only: [:standings, :mypicks]
   before_action :authenticate_user!, only: [:mypicks, :make]
   before_action :team_codes_init, only: [:mypicks]
@@ -10,8 +11,10 @@ class PicksController < ApplicationController
       create_guest_user
     end
     @allusers = User.joins(:picks).group("users.id").order("SUM(picks.points) DESC")
+    if users_no_pick(@md_count).any?
+      auto_pick(@md_count, @no_pick_users)
+    end
   end
-
   def mypicks
     # If first sign in and no picks exist for user, create a pick for each matchday
     if (current_user.sign_in_count == 1)

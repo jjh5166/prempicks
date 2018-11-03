@@ -9,6 +9,7 @@ class Pick < ApplicationRecord
   #restricts picks so only 38 per user
 
   attribute :points, :integer, default: 0
+  default_scope { order(matchday: :asc) }
   # def set_defaults
   #   self.points  ||= 'some value'
   # end
