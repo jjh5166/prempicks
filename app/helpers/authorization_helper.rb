@@ -16,7 +16,7 @@ module AuthorizationHelper
 
  # find guest_user object associated with the current session,
  # creating one as needed
- def guest_user
+  def guest_user
    # Cache the value the first time it's gotten.
    @cached_guest_user ||= User.find(session[:guest_user_id] ||= create_guest_user.id)
 
