@@ -10,7 +10,7 @@ class PicksController < ApplicationController
     if !user_signed_in?
       create_guest_user
     end
-    @allusers = User.joins(:picks).group("users.id").order("SUM(picks.points) DESC")
+    @allusers = User.joins(:picks).group("users.id").order(Arel.sql("SUM(picks.points) DESC"))
     if users_no_pick(@md_count).any?
       auto_pick(@md_count, @no_pick_users)
     end
