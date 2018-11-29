@@ -9,8 +9,8 @@
         <span>Owner</span>
         </th>
         <th>Points</th>
-        <% 19.times do |n|%>
-        <th class="th_match" colspan="2"><%=n+1%></th>
+        <% (-@md_count..-1).each do |n|%>
+        <th class="th_match" colspan="2"><%= -n %></th>
         <%end%>
       </tr>
     </thead>
@@ -19,13 +19,9 @@
       <tr>
       <td class="team_cell" title="<%=u.fname%> <%=u.lname%>"><%= u.team_name%></td>
       <td><%= Pick.where(:user_id => u.id ).sum(:points) %></td>
-      <% Pick.where(:user_id => u.id).order('matchday asc').first(@md_count).each do |t|%>
+      <% Pick.where(:user_id => u.id).order('matchday asc').first(@md_count).reverse.each do |t|%>
       <td><%= t.team_id %></td>
       <td class="pt_cell"><%= t.points%></td>
-      <%end%>
-      <% (19-@md_count).times do%>
-      <td>-</td>
-      <td>-</td>
       <%end%>
       </tr>
       <%end%>
