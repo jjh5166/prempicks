@@ -1,24 +1,61 @@
-// Place all the styles related to the picks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.picks_standings{
-  border: 1px solid black;
-  table-layout: auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 80%;
-  // display: none;
-  tr{
-    th, td{
-      border: 1px solid black;
-      // width: 8px;
-      // height: 6px;
-      text-align: center;
-    }
-  }
+:root{
+--first_column_sz: 150px;
+--second_column_sz: 60px;
+--standings_col_padding: 218px;
 }
+// .table th, .table td{
+//   padding: .5rem;
+// }
+.standings_table{
+  text-align: center;
+  th, td{
+    padding: .5rem;
+  }
+  th:first-child, td:first-child {
+    width: var(--first_column_sz);
+    // font-size: .75vw;
+  };
+  th:first-child{
+    height: auto;
+    background-color: var(--nav_bkgd_clr);
+    color: var(--nav_bkgd_clr);
+    text-shadow: none;
+    span{
+    }
+  };
+  td:first-child{
+    white-space: nowrap;
+    overflow: scroll;
+  };
+  th:nth-child(-n + 2), td:nth-child(-n + 2) {
+    position: absolute;
+    display: inline-block;
+    z-index: 100;
+  };
+  th:nth-child(-n + 2){
+    background-color: var(--nav_bkgd_clr);
+  };
+  td:nth-child(-n + 2){
+    background-color: #EDEAEA;
+  };
+  th:nth-child(2), td:nth-child(2) {
+    left: var(--first_column_sz);
+    width: var(--second_column_sz);
+    white-space: nowrap;
+    overflow: scroll;
+  };
+}
+
+
+
+.standings_table>thead:first-child>tr:first-child>th:nth-child(3), .table>tbody>tr>td:nth-child(3) {
+  padding-left: var(--standings_col_padding) !important;
+}
+// .table>tbody>tr>td:nth-child(3) {
+//   padding-left: 200px !important;
+// }
+
+
 .pt_cell{
 }
 .pt_cell_w{
@@ -30,3 +67,22 @@
 .pt_cell_d{
   background-color: #FFFF99;
 }
+
+// .picks_standings{
+//   border: 1px solid black;
+//   table-layout: auto;
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   margin: auto;
+//   width: 80%;
+//   // display: none;
+//   tr{
+//     th, td{
+//       border: 1px solid black;
+//       // width: 8px;
+//       // height: 6px;
+//       text-align: center;
+//     }
+//   }
+// }
