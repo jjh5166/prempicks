@@ -1,0 +1,50 @@
+<div class="page_container">
+<h2>Standings</h2>
+
+<table class="picks_standings" id="standings_first">
+  <tr class="table_top">
+    <th>TEST</th>
+    <th>Points</th>
+    <% 19.times do |n|%>
+    <th class="th_match" colspan="2"><%=n+1%></th>
+    <%end%>
+  </tr>
+  <% @allusers.each do |u|%>
+  <tr>
+  <td class="team_cell" title="<%=u.fname%> <%=u.lname%>"><%= u.team_name%></td>
+  <td><%= Pick.where(:user_id => u.id ).sum(:points) %></td>
+  <% Pick.where(:user_id => u.id).order('matchday asc').first(@md_count).each do |t|%>
+  <td><%= t.team_id %></td>
+  <td class="pt_cell"><%= t.points%></td>
+  <%end%>
+  <% (19-@md_count).times do%>
+  <td>-</td>
+  <td>-</td>
+  <%end%>
+  </tr>
+  <%end%>
+</table>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.pt_cell').each(function() {
+
+    if (parseInt($(this).text()) == 0){
+      return;
+    }else if(parseInt($(this).text()) >= 2){
+      $(this).addClass('pt_cell_w');
+    }else if(parseInt($(this).text()) < 0){
+      $(this).addClass('pt_cell_l');
+    }else{
+      $(this).addClass('pt_cell_d');
+    }
+  });
+});
+  $(document).ready(function () {
+    $('.team_cell').click(function(){
+      var tou = this.title;
+      $(this).attr('title', $(this).text())
+      $(this).text(tou)
+    });
+  });
+</script>
