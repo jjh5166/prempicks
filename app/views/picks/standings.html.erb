@@ -1,29 +1,37 @@
 <div class="page_container">
 <h2>Standings</h2>
-
-<table class="picks_standings" id="standings_first">
-  <tr class="table_top">
-    <th></th>
-    <th>Points</th>
-    <% 19.times do |n|%>
-    <th class="th_match" colspan="2"><%=n+1%></th>
-    <%end%>
-  </tr>
-  <% @allusers.each do |u|%>
-  <tr>
-  <td class="team_cell" title="<%=u.fname%> <%=u.lname%>"><%= u.team_name%></td>
-  <td><%= Pick.where(:user_id => u.id ).sum(:points) %></td>
-  <% Pick.where(:user_id => u.id).order('matchday asc').first(@md_count).each do |t|%>
-  <td><%= t.team_id %></td>
-  <td class="pt_cell"><%= t.points%></td>
-  <%end%>
-  <% (19-@md_count).times do%>
-  <td>-</td>
-  <td>-</td>
-  <%end%>
-  </tr>
-  <%end%>
-</table>
+<div class="table-responsive st_table_container">
+  <table class="table table-hover table-bordered standings_table" id="standings_first">
+    <thead>
+      <tr class="table_top">
+        <th>
+        <span>Team</span> / 
+        <span>Owner</span>
+        </th>
+        <th>Points</th>
+        <% 19.times do |n|%>
+        <th class="th_match" colspan="2"><%=n+1%></th>
+        <%end%>
+      </tr>
+    </thead>
+    <tbody>
+      <% @allusers.each do |u|%>
+      <tr>
+      <td class="team_cell" title="<%=u.fname%> <%=u.lname%>"><%= u.team_name%></td>
+      <td><%= Pick.where(:user_id => u.id ).sum(:points) %></td>
+      <% Pick.where(:user_id => u.id).order('matchday asc').first(@md_count).each do |t|%>
+      <td><%= t.team_id %></td>
+      <td class="pt_cell"><%= t.points%></td>
+      <%end%>
+      <% (19-@md_count).times do%>
+      <td>-</td>
+      <td>-</td>
+      <%end%>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
 </div>
 <script type="text/javascript">
 $(document).ready(function() {
