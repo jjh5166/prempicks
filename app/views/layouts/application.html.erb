@@ -11,47 +11,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('football-soccer-ball-48-183228.png'), :rel => 'icon', :type =>  'image/png' %>
   </head>
-
-<body onload="flashMessage()">
-
-    <%= render 'layouts/navbar'%>
-    <%= render 'layouts/flash'%>
-
-
-    <%= yield %>
+  <body  class="hero_img">
+      <%= render 'layouts/navbar'%>
+      <%= render 'layouts/flash'%>
+      <%= yield %>
   </body>
-  <script type="text/javascript">
-  // function showLinks(){
-  //   if($(window).width() > 480){
-  //     $('.navbar').children("a").show();
-  //   }
-  // }
-  // function showTitle(){
-  //   if($(window).width() >= 620){
-  //     $('.nav_title').show();
-  //   }else if ($(window).width() > 480) {
-  //     $('.nav_title').hide();
-  //   }else{
-  //     $('.nav_title').show();
-  //   }
-  // };
-  function flashMessage(){
-    $(".messages").delay(70000).hide();
-  }
-  // $(document).ready(function() {
-  //   $('.ex_button').click(function() {
-  //     $('.navbar').children("a").toggle();
-  //   })
-  //   showLinks();
-  //   showTitle();
-  // });
-// $(document).ready(function() {
-// $(".messages").show().delay(150000).hide();
-// });
-
-  // $( window ).resize(function() {
-  //      showLinks();
-  //      showTitle();
-  // });
-  </script>
 </html>

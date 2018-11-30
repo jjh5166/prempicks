@@ -7,12 +7,9 @@
 .navbar{
   background: linear-gradient(90deg, rgba(77,77,78,1) 0%, rgba(129,131,135,1) 35%, rgba(70,70,71,1) 100%);
   text-shadow: black 0px 0px 10px;
+  border-bottom: 2px ridge grey;
 }
 .nav_title {
-  // position: absolute;
-  // left: 0;
-  // right: 0;
-  // margin: auto;
   text-align: center;
   font-style: oblique;
   font-size: var(--nav_title_ft_sz);

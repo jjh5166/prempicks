@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light navbar-expand-md bg-success justify-content-between py-0">
+<nav class="navbar navbar-light navbar-expand-md justify-content-between py-0">
   <div class="container-fluid">
     <!-- Toggler -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".collapseNav">
@@ -16,7 +16,7 @@
         <li class="nav-item">
           <%= link_to 'My Picks', mypicks_path, :class => "nav-link" %>
         </li>
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">EPL
           </a>
@@ -25,7 +25,10 @@
             <a class="dropdown-item" href="#">Schedule</a>
             <!-- <%#= render "epldata/matchday_link" %> -->
             <!-- <div class="dropdown-divider"></div> -->
-          </div>
+          <!-- </div> -->
+        <!-- </li> -->
+        <li class="nav-item">
+          <%= link_to 'EPL Table', epl_table_path, :class => "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to 'Rules', rules_path, :class => "nav-link" %>
