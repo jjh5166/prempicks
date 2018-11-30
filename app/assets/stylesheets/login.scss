@@ -5,7 +5,61 @@
   margin: 0 auto;
   width: 50%;
   text-align: center;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(77,77,78,1) 0%, rgba(129,131,135,1) 35%, rgba(70,70,71,1) 100%);
+  padding-bottom: 10px;
+  border: 2px groove grey;
+  margin-top: 32%;
+  color: #00ace6;
+  text-shadow: 1px 1px #00394d;
+  form{
+    .field{
+      input{
+        width: 85%;
+      }
+    }
+  }
 }
-@media all and (max-width: 480px) {
-
+.login-btn{
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  background-color:#00ace6;
+  color: white;
+}
+.guest_btn{
+  @extend .login-btn;
+  background-color:#5BBF78;
+  width: fit-content;
+}
+.btn-break{
+  display: block;
+  height: 2px;
+}
+.pword_link{
+  color: #00ace6;
+  font-size: small;
+}
+.edit_form{
+  @extend .dev_cnt;
+  margin-top: 0;
+  width: 80%;
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+  .dev_cnt{
+    width: 23%;
+    margin-top: 10%;
+    form{
+      .field{
+        input{
+          width: auto;
+        }
+      }
+    }
+  }
+  .edit_form{
+    margin-top: 2%;
+    width: 36%;
+  }
 }
