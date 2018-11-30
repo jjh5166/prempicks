@@ -1,35 +1,37 @@
-<h2>EPL Table</h2>
-
-<table class="epl_table">
-  <tr class="table_top">
-    <th>#</th>
-    <th></th>
-    <th>GP</th>
-    <th>Points</th>
-    <th>+/-</th>
-    <th>GF</th>
-    <th>GA</th>
-    <th>Wins</th>
-    <th>Draws</th>
-    <th>Losses</th>
-
-  </tr>
-
+<div class="page_container">
+<h2 class="page_header" >EPL Standings</h2>
+<div class="table-responsive table_container">
+<table class="table table-hover table-bordered epl_table">
+  <thead>
+    <tr class="table_top">
+      <th>#</th>
+      <th></th>
+      <th>GP</th>
+      <th>Points</th>
+      <th>+/-</th>
+      <th>GF</th>
+      <th>GA</th>
+      <th>Wins</th>
+      <th>Draws</th>
+      <th>Losses</th>
+    </tr>
+  </thead>
+  <tbody>
 <%@epl_table.each do |s|%>
-<tr>
-  <td><%= s['position']%></td>
-  <td><%= s['team']['name']%></td>
-  <td><%= s['playedGames']%></td>
-  <td><%= s['points']%></td>
-  <td><%= s['goalDifference']%></td>
-  <td><%= s['goalsFor']%></td>
-  <td><%= s['goalsAgainst']%></td>
-  <td><%= s['won']%></td>
-  <td><%= s['draw']%></td>
-  <td><%= s['lost']%></td>
-
-
-
-</tr>
+    <tr>
+      <td><%= s['position']%></td>
+      <td><%= s['team']['name']%></td>
+      <td><%= s['playedGames']%></td>
+      <td><%= s['points']%></td>
+      <td><%= s['goalDifference']%></td>
+      <td><%= s['goalsFor']%></td>
+      <td><%= s['goalsAgainst']%></td>
+      <td><%= s['won']%></td>
+      <td><%= s['draw']%></td>
+      <td><%= s['lost']%></td>
+    </tr>
+  </tbody>
 <%end%>
 </table>
+</div>
+</div>

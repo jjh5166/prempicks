@@ -1,6 +1,7 @@
-<h2>Log in</h2>
-<div class="dev_cnt">
+<!-- <body class="hero_img"> -->
 
+<div class="dev_cnt">
+<h2 class="page_header">Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -13,17 +14,15 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
+  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "pword_link" %>
+ 
+  <%= f.button "Log in", class: "btn login-btn" %>
+  
+  <div class="btn-break"></div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+  <%= link_to "Log in as guest", standings_path, class: "btn guest_btn"%>
+  
 <% end %>
 
-<%= render "devise/shared/links" %>
 </div>
+<!-- </body> -->

@@ -1,6 +1,6 @@
 .rules_cnt{
   position: relative;
-  // outline: 2px solid red;
+  color: white;
   margin: 0 auto;
   width: 85%;
   height: auto;
@@ -20,18 +20,18 @@
   // left: 0;
   // right: 0;
   // margin: auto;
-  border: 1px solid black;
+  border: 1px solid white;
   border-collapse: collapse;
   float: left;
   margin-right: 32px;
   tr, th, td{
-    border: 1px solid black;
+    border: 1px solid white;
     text-align: center;
   }
 }
 .rules_sec{
   position: relative;
-  // outline: 2px solid purple;
+  // background: white;
   height: auto;
   overflow: hidden;
   margin-bottom: 12px;
