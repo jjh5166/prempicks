@@ -6,8 +6,14 @@
 // .table th, .table td{
 //   padding: .5rem;
 // }
+.table_container{
+  width: 90%;
+  position: relative;
+  margin: 0 auto;
+}
 .standings_table{
   text-align: center;
+  background: white;
   th, td{
     padding: .5rem;
   }
@@ -48,7 +54,7 @@
 
 
 
-.standings_table>thead:first-child>tr:first-child>th:nth-child(3), .table>tbody>tr>td:nth-child(3) {
+.standings_table>thead:first-child>tr:first-child>th:nth-child(3), .standings_table>tbody>tr>td:nth-child(3) {
   padding-left: var(--standings_col_padding) !important;
 }
 // .table>tbody>tr>td:nth-child(3) {
