@@ -7,8 +7,10 @@
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>    
-    <%= f.button "Reset Password", class: "btn login-btn" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Reset Password", class: "btn login-btn" %>
+    </div>
   <% end %>
   <div class="btn-break"></div>
   <%= link_to "Log in as guest", standings_path, class: "btn guest_btn"%>
