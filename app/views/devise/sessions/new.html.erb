@@ -8,7 +8,7 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
+      
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
@@ -20,7 +20,7 @@
   
   <div class="btn-break"></div>
 
-  <%= link_to "Log in as guest", standings_path, class: "btn guest_btn"%>
+  <%= link_to "Log in as guest", welcome_path, class: "btn guest_btn"%>
   
 <% end %>
 
