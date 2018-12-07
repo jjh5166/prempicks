@@ -47,7 +47,7 @@ module AuthorizationHelper
    # u.skip_validate!
    u.save!(:validate => false)
    session[:guest_user_id] = u.id
-   flash[:alert] = "You have logged in as a guest!"
+  #  flash[:alert] = "You have logged in as a guest!"
    u
  end
 
