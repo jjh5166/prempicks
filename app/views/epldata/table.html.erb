@@ -1,37 +1,50 @@
 <div class="page_container">
-<h2 class="page_header" >EPL Standings</h2>
-<div class="table-responsive table_container">
-<table class="table table-hover table-bordered epl_table">
-  <thead>
-    <tr class="table_top">
-      <th>#</th>
-      <th></th>
-      <th>GP</th>
-      <th>Points</th>
-      <th>+/-</th>
-      <th>GF</th>
-      <th>GA</th>
-      <th>Wins</th>
-      <th>Draws</th>
-      <th>Losses</th>
-    </tr>
-  </thead>
-  <tbody>
-<%@epl_table.each do |s|%>
-    <tr>
-      <td><%= s['position']%></td>
-      <td><%= s['team']['name']%></td>
-      <td><%= s['playedGames']%></td>
-      <td><%= s['points']%></td>
-      <td><%= s['goalDifference']%></td>
-      <td><%= s['goalsFor']%></td>
-      <td><%= s['goalsAgainst']%></td>
-      <td><%= s['won']%></td>
-      <td><%= s['draw']%></td>
-      <td><%= s['lost']%></td>
-    </tr>
-  </tbody>
-<%end%>
-</table>
+    <!-- <div><%#=@teamcodes[0][65]%></div> -->
+  <h2 class="page_header" >EPL Standings</h2>
+  <div class="table-responsive table_container">
+    <table class="table table-hover table-bordered epl_table">
+      <thead>
+        <tr class="table_top">
+          <th>#</th>
+          <th></th>
+          <th>GP</th>
+          <th>Points</th>
+          <th>Goals</th>
+          <th class="no_phone">Diff.</th>
+          <th class="no_phone">Wins</th>
+          <th class="no_phone">Draws</th>
+          <th class="no_phone">Losses</th>
+        </tr>
+      </thead>
+      <tbody>
+    <%@epl_table.each do |s|%>
+        <tr>
+          <td><%= s['position']%></td>
+          <td class = "team_cell" title="<%= @teamcodes[0].fetch(s['team']['id'].to_s)['name']%>"><%= @teamcodes[0].fetch(s['team']['id'].to_s)['code']%></td>
+          <td><%= s['playedGames']%></td>
+          <td><%= s['points']%></td>
+          <td><%= s['goalsFor']%>:<%= s['goalsAgainst']%></td>
+          <td class="no_phone"><%= s['goalDifference']%></td>
+          <td class="no_phone"><%= s['won']%></td>
+          <td class="no_phone"><%= s['draw']%></td>
+          <td class="no_phone"><%= s['lost']%></td>
+        </tr>
+      </tbody>
+    <%end%>
+    </table>
+  </div>
 </div>
-</div>
+<script>
+  if (window.matchMedia("(min-width: 768px)").matches) {
+    $(document).ready(function () {
+        $('.team_cell').each(function() {
+          let tou = this.title;
+          $(this).attr('title', $(this).text())
+          $(this).text(tou)
+          $(this).attr('text-align', 'left')
+        });
+      });
+    } else {
+      /* the viewport is less than 400 pixels wide */
+    };
+</script>
