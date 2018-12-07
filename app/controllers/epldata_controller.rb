@@ -1,6 +1,6 @@
 class EpldataController < ApplicationController
   # before_action :pick_timer,
-  before_action :team_codes_init, only: [:matchday]
+  before_action :team_codes_init
 
   def table
   @epl_table = FootballData.fetch(:competitions,:standings, id: 2021)['standings'][0]['table']

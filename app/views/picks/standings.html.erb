@@ -8,7 +8,7 @@
         <span>Team</span> / 
         <span>Owner</span>
         </th>
-        <th>Points</th>
+        <th class="secondColumn">Points</th>
         <% (-@md_count..-1).each do |n|%>
         <th class="th_match" colspan="2"><%= -n %></th>
         <%end%>
@@ -18,7 +18,7 @@
       <% @allusers.each do |u|%>
       <tr>
       <td class="team_cell" title="<%=u.fname%> <%=u.lname%>"><%= u.team_name%></td>
-      <td><%= Pick.where(:user_id => u.id ).sum(:points) %></td>
+      <td class="secondColumn" ><%= Pick.where(:user_id => u.id ).sum(:points) %></td>
       <% Pick.where(:user_id => u.id).order('matchday asc').first(@md_count).reverse.each do |t|%>
       <td><%= t.team_id %></td>
       <td class="pt_cell"><%= t.points%></td>
@@ -30,25 +30,13 @@
 </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function() {
-  $('.pt_cell').each(function() {
-
-    if (parseInt($(this).text()) == 0){
-      return;
-    }else if(parseInt($(this).text()) >= 2){
-      $(this).addClass('pt_cell_w');
-    }else if(parseInt($(this).text()) < 0){
-      $(this).addClass('pt_cell_l');
-    }else{
-      $(this).addClass('pt_cell_d');
-    }
-  });
-});
-  $(document).ready(function () {
-    $('.team_cell').click(function(){
-      var tou = this.title;
-      $(this).attr('title', $(this).text())
-      $(this).text(tou)
+highlightCells();
+teamOrName();
+  var tableContainer = document.getElementsByClassName('table_container')[0];
+  tableContainer.onLoad = setSecondColumn();
+  $(function () {
+    $(window).resize(function () {
+      setSecondColumn();
     });
   });
 </script>
