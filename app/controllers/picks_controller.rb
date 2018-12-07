@@ -7,9 +7,7 @@ class PicksController < ApplicationController
 
 
   def standings
-    if !user_signed_in?
-      create_guest_user
-    end
+  
     @allusers = User.joins(:picks).group("users.id").order(Arel.sql("SUM(picks.points) DESC"))
     if users_no_pick(@md_count).any?
       auto_pick(@md_count, @no_pick_users)
@@ -32,7 +30,6 @@ class PicksController < ApplicationController
     @matches = FootballData.fetch(:competitions,:matches, id: 2021)['matches']
     # Call for matches specific team by code
     # @matches = FootballData.fetch(:teams,:matches, id: 73)
-
 
     @user_picks = []
     Pick.where(user_id: current_user.id).each do |p|
