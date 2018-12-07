@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include AuthorizationHelper
 
   protect_from_forgery
-
+  before_action { flash.clear }
   # before_action :pick_timer
 
   FootballData.configure do |config|

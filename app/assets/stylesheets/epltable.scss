@@ -3,21 +3,33 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .epl_table {
-  // position: absolute;
-  // left: 0;
-  // right: 0;
-  // margin: auto;
-  // width: 80%;
-  // border-collapse: collapse;
-  // font-size: 14px;
   text-align: center;
-  background: white;
+  line-height: 1;
+  // background: white;
+  background: var(--table_bkgd_color);
+  border: 1px solid black;
+  border-bottom: 1px solid black;
   tr {
     border: 1px solid black;
-
-    td {
+    td, th {
       border: inherit;
-      // text-align: center;
+      border-bottom: 1px solid black;
+    }
+    .no_phone{
+      display: none;
     }
   }
+  td:nth-child(-n + 2){
+  background-color: #EDEAEA;
+  }
+}
+
+@media only screen and (min-width: 667px) {
+    /* For landscape mobile: */
+  .no_phone{
+    display: table-cell !important;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop mobile: */
 }
