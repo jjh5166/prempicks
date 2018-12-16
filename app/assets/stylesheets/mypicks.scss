@@ -9,20 +9,22 @@
 .sechalf_table{
   display: none;
 }
-.mypicks_top .mypicks_line{
-  border: 1px solid black;
+.picked_span{
+  color: #5E5E5D;
 }
 .mp_container{
   position: absolute;
   left: 0;
   right: 0;
-  margin: auto;
   display: grid;
-  grid-template-columns: 10% 90%;
+  grid-template-columns: 20% 80%;
   grid-auto-rows: 50px;
   outline: 2px solid black;
-  width: 85%;
+  width: 99%;
   background: var(--table_bkgd_color);
+  margin: 0 .5% 2% .5%;
+  color: black;
+  
 }
 .mp_col1{
   grid-column-start: 1;
@@ -36,10 +38,15 @@
   grid-row-start: 1;
   grid-row-end: 20;
   outline: 1px solid black;
+  overflow: scroll;
 }
 .mp_matchday{
   height: 50px;
   outline: 1px solid black;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 0 2%;
 }
 .mp_col1_unit{
   height: 50px;
@@ -47,19 +54,99 @@
   outline: 1px solid black;
 }
 .mp_match{
-  height: 50%;
-  width: 20%;
-  float: left;
-  font-size: 12px
+  width: 93px;
+  font-size: 12px;
+  text-align: left;
+  display: inline-block;
+  position: relative;
+  margin: 0 2%;
 }
+.mp_match_gr{
+  width:100%;
+  display: inline-grid;
+  grid-template-columns: 25% 15% 20% 15% 25%;
+  img{
+    height:12px;
+    width:12px;
+    place-self: center;
+    // position: relative;
+  }
+  .score_span{
+    grid-column-start: 3;
+    position: relative;
+    margin: 0 auto;
+    justify-self: center;
+  }
+  .hteam{
+    grid-column-start: 1;
+    justify-self: center;
+  }
+  .ateam{
+    grid-column-start: 5;
+    justify-self: center;
+  }
+  .himage{
+    grid-column-start: 2;
+  }
+  .aimage{
+    grid-column-start: 4;
+  }
+}
+// .mp_match_row{
+//   height: 50%;
+//   overflow: scroll;
+//   white-space: nowrap;
+// }
 .mp_form{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
+  // outline: red solid 2px;
+  color: black;
+  form{
+    margin: 18%;
+  }
 }
-@media all and (max-width: 480px) {
-.mp_container{
-  grid-template-columns: 15% 85%;
+@media only screen and (min-width: 667px) {
+  /* For iPhone landscape: */
+  .mp_matchday{
+        // padding: 0 6%;
+  }
 }
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .mp_container{
+    width: 90%;
+    margin-bottom: 5%;
+    grid-template-columns: 13% 87%;
+    margin: 0 auto;
+  }
+  .mp_matchday{
+    max-width: none ;
+    margin: 0 auto ;
+    padding: 0;
+  }
+  .mp_match{
+    width: 17.5%;
+    text-align: center;
+    margin: 0 1%;
+  }
+  .mp_form{
+    form{
+      margin-left: 4%;
+    }
+  }
+  .mp_match_gr{
+    img{
+      height:18px;
+      width:18px;
+    }
+    .hteam{
+      justify-self: end;
+    }
+    .ateam{
+      justify-self: start;
+    }
+  }
 }
