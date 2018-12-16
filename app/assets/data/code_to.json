@@ -3,102 +3,122 @@
         "61":{
           "name": "Chelsea",
           "short": "Chelsea",
-          "code": "CHE"
+          "code": "CHE",
+          "crestURI": "http://upload.wikimedia.org/wikipedia/de/5/5c/Chelsea_crest.svg"
         },
         "57":{
           "name": "Arsenal",
           "short": "Arsenal",
-          "code": "ARS"
+          "code": "ARS",
+          "crestURI": "http://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg"
         },
         "73":{
           "name": "Tottenham",
           "short": "Spurs",
-          "code": "TOT"
+          "code": "TOT",
+          "crestURI": "http://upload.wikimedia.org/wikipedia/de/b/b4/Tottenham_Hotspur.svg"
         },
         "563":{
           "name": "West Ham United",
           "short": "West Ham",
-          "code": "WHU"
+          "code": "WHU",
+          "crestURI": "http://upload.wikimedia.org/wikipedia/de/e/e0/West_Ham_United_FC.svg"
         },
         "354":{
           "name": "Crystal Palace",
           "short": "Crystal Palace",
-          "code": "CRY"
+          "code": "CRY",
+          "crestURI": "http://upload.wikimedia.org/wikipedia/de/b/bf/Crystal_Palace_F.C._logo_%282013%29.png"
         },
         "66":{
           "name": "Manchester United",
           "short": "Man Utd",
-          "code": "MUN"
+          "code": "MUN",
+          "crestURI": "http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg"
         },
         "65":{
           "name": "Manchester City",
           "short": "Man City",
-          "code": "MCI"
+          "code": "MCI",
+          "crestURI": "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
         },
         "62":{
           "name": "Everton",
           "short": "Everton",
-          "code": "EVE"
+          "code": "EVE",
+          "crestURI": "http://upload.wikimedia.org/wikipedia/de/f/f9/Everton_FC.svg"
         },
         "64":{
         "name": "Liverpool",
         "short": "Liverpool",
-        "code": "LIV"
+        "code": "LIV",
+        "crestURI": "http://upload.wikimedia.org/wikipedia/de/0/0a/FC_Liverpool.svg"
         },
       "67":{
         "name": "Newcastle",
         "short": "Newcastle",
-        "code": "NEW"
+        "code": "NEW",
+        "crestURI": "http://upload.wikimedia.org/wikipedia/de/5/56/Newcastle_United_Logo.svg"
       },
       "340":{
         "name": "Southampton",
         "short": "Southampton",
-        "code": "SOU"
+        "code": "SOU",
+        "crestURI": "http://upload.wikimedia.org/wikipedia/de/c/c9/FC_Southampton.svg"
       },
       "338":{
         "name": "Leicester City",
         "short": "Leicester",
-        "code": "LEI"
+        "code": "LEI",
+        "crestURI": "http://upload.wikimedia.org/wikipedia/en/6/63/Leicester02.png"
       },
       "1044":{
         "name": "Bournemouth",
         "short": "Bournemouth",
-        "code": "BOU"
+        "code": "BOU",
+        "crestURI": "https://upload.wikimedia.org/wikipedia/de/4/41/Afc_bournemouth.svg"
       },
       "346":{
         "name": "Watford",
         "short": "Watford",
-        "code": "WAT"
+        "code": "WAT",
+        "crestURI": "https://upload.wikimedia.org/wikipedia/en/e/e2/Watford.svg"
       },
       "397":{
         "name": "Brighton & Hove Albion",
         "short": "Brighton",
-        "code": "BRI"
+        "code": "BRI",
+        "crestURI": "https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg"
       },
       "328":{
         "name": "Burnley",
         "short": "Burnley",
-        "code": "BUR"
+        "code": "BUR",
+        "crestURI": "https://upload.wikimedia.org/wikipedia/en/0/02/Burnley_FC_badge.png"
       },
       "394":{
         "name": "Huddersfield Town",
         "short": "Huddersfield",
-        "code": "HUD"
+        "code": "HUD",
+        "crestURI": "https://upload.wikimedia.org/wikipedia/en/5/5a/Huddersfield_Town_A.F.C._logo.svg"
       },
       "76":{
         "name": "Wolverhampton Wanderers",
         "short": "Wolves",
-        "code": "WOL"
+        "code": "WOL",
+        "crestURI": "https://upload.wikimedia.org/wikipedia/en/f/fc/Wolverhampton_Wanderers.svg"
       },
       "63":{
         "name": "Fulham",
         "short": "Fulham",
-        "code": "FUL"
+        "code": "FUL",
+        "crestURI": "http://upload.wikimedia.org/wikipedia/de/a/a8/Fulham_fc.svg"
       },
       "715":{
         "name": "Cardiff City",
         "short": "Cardiff",
-        "code": "CAR"
+        "code": "CAR",
+        "crestURI": "https://upload.wikimedia.org/wikipedia/en/3/3c/Cardiff_City_crest.svg"
       }
     }
 ]

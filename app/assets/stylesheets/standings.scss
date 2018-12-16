@@ -33,7 +33,7 @@
     overflow: scroll;
   };
   th:nth-child(-n + 2), td:nth-child(-n + 2) {
-    position: fixed;
+    position: absolute;
     display: inline-block;
     z-index: 100;
   };
