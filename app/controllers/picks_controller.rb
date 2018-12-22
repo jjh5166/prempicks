@@ -4,11 +4,12 @@ class PicksController < ApplicationController
   before_action :authenticate_user!, only: [:mypicks, :make]
   before_action :team_codes_init, only: [:mypicks]
   before_action :pick_initialization, only: [:mypicks]
-
+  before_action :get_picks, only: [:standings]
 
   def standings
-  
-    @allusers = User.joins(:picks).group("users.id").order(Arel.sql("SUM(picks.points) DESC"))
+    (@md_count < 20) ? @first_timer = @md_count : @first_timer = 19
+    @second_timer = @md_count - @first_timer
+
     if users_no_pick(@md_count).any?
       auto_pick(@md_count, @no_pick_users)
     end
@@ -51,17 +52,18 @@ class PicksController < ApplicationController
     redirect_back fallback_location: mypicks_path
   end
   private
-    def pick_params
-      params.require(:pick).permit(:user_id, :matchday, :team_id)
-    end
 
-    def pick_initialization
-      path = Rails.root.join "app", "assets", "data", "allTeams.json"
-      file = File.read(path)
-      @allteams = JSON.parse(file)
-      @pickteams = []
-      @allteams.each do |t|
-      @pickteams.push(t["code"])
-      end
+  def pick_params
+    params.require(:pick).permit(:user_id, :matchday, :team_id)
+  end
+
+  def pick_initialization
+    path = Rails.root.join 'app', 'assets', 'data', 'allTeams.json'
+    file = File.read(path)
+    @allteams = JSON.parse(file)
+    @pickteams = []
+    @allteams.each do |t|
+    @pickteams.push(t['code'])
     end
+  end
 end
