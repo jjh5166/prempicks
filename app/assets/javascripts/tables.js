@@ -1,5 +1,6 @@
 //Highlights Points Cells based on results on Standings View
-function highlightCells() {
+
+highlightCells = () => {
   $(document).ready(function () {
     $('.pt_cell').each(function () {
       if (parseInt($(this).text()) == 0) {
