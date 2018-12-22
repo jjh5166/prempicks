@@ -32,11 +32,16 @@ class PicksController < ApplicationController
     # Call for matches specific team by code
     # @matches = FootballData.fetch(:teams,:matches, id: 73)
 
-    @user_picks = []
-    Pick.where(user_id: current_user.id).each do |p|
-      @user_picks.push(p.team_id)
+    @user_picks_1h = []
+    @user_picks_2h = []
+    Pick.where(user_id: current_user.id, half: 1).each do |p|
+      @user_picks_1h.push(p.team_id)
     end
-    @avail_teams = @pickteams - @user_picks
+    Pick.where(user_id: current_user.id, half: 2).each do |p|
+      @user_picks_2h.push(p.team_id)
+    end
+    @avail_teams_1h = @pickteams - @user_picks_1h
+    @avail_teams_2h = @pickteams - @user_picks_2h
 
     @userid = current_user.id
 

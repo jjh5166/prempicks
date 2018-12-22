@@ -9,11 +9,14 @@
     cursor: pointer;
     transition: .3s ease all;
     border: 1px solid white;
+    margin-top: 6%;
+    height: 40px;
+    font-size: 11px;
     &-case{
         // outline: 2px solid red;
         display: inline-block;
         background: none;
-        width: 32.5%;
+        // width: 32.5%;
         height: 100%;
         color: white;
         position: relative;
@@ -30,13 +33,12 @@
             outline: none;
         }
     }
-    .active {
+    .active, .active_mypicks {
         color: #151515;
         background-color: white;
         position: absolute;
         left: 0;
         top: 0;
-        width: 32.5%;
         height: 100%;
         z-index: -1;
         transition: .3s ease-out all;
@@ -44,16 +46,35 @@
             color: #151515;
         }
     }
+    .active{
+        width: 32.5%;
+    }
+    .active_mypicks{
+        width: 50%;
+    }
 }
+
+// .standings_switch{
+//     width: 90%;
+//     margin-top: 6%;
+//     height: 40px;
+//     font-size: 11px;
+// }
 .standings_switch{
     width: 90%;
-    margin-top: 6%;
-    height: 40px;
-    font-size: 11px;
+    margin-top: 4%;
+    button{
+        width: 32.5%
+    }
+}
+.my_picks_switch{
+    button{
+        width: 49%;
+    }
 }
 @media only screen and (min-width: 667px) {
     /* For landscape mobile: */
-  .standings_switch{
+  .switch-button{
     margin-top: 2.5%
   }
 
