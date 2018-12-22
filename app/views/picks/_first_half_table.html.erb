@@ -1,0 +1,36 @@
+<table class="table table-hover table-bordered standings_table" id="standings_first" <% unless @md_count < 20 %>style="display:none;"<%end%>>
+  <thead>
+    <tr class="table_top">
+      <th>
+        <span>Team</span> /
+        <span>Owner</span>
+      </th>
+      <th class="secondColumn">Points</th>
+      <% (-@first_timer..-1).each do |n|%>
+      <th class="th_match" colspan="2">
+        <%= -n %>
+      </th>
+      <%end%>
+    </tr>
+  </thead>
+  <tbody>
+    <% @firsthalftotals.each do |u|%>
+    <tr>
+      <td class="team_cell" title="<%=u.fname%> <%=u.lname%>">
+        <%= u.team_name%>
+      </td>
+      <td class="secondColumn">
+        <%= u.firsthalf %>
+      </td>
+      <% u.picks.first(@first_timer).reverse.each do |t|%>
+      <td>
+        <%= t.team_id %>
+      </td>
+      <td class="pt_cell">
+        <%= t.points%>
+      </td>
+      <%end%>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
