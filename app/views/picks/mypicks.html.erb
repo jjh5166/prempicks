@@ -1,6 +1,7 @@
 <div class="page_container">
   <h2 class="page_header" >My Picks</h2>
-  <div class="mp_container" id="mp_cont_1h" <% if (@md_count > 19) %>style="display:none;"<%end%>>
+  <%= render 'picks/my_picks_buttons'%>
+  <div class="mp_container" id="mp_cont_1h" <% unless (@md_count < 20) %>style="display:none;"<%end%>>
     <div class="mp_col1">
     <%(1..19).each do |n|%>
       <%this_pick = Pick.where(user_id: current_user.id, matchday: n)[0]%>
@@ -12,7 +13,7 @@
         <%else%>
           <%this_pick = Pick.where(user_id: current_user.id, matchday: n)[0]%>
           <%= simple_form_for(this_pick) do |f| %>
-          <%= f.input :team_id, as: :select,label: false, include_blank: true, collection: @pickteams.sort, :disabled => @user_picks %>
+          <%= f.input :team_id, as: :select,label: false, include_blank: true, collection: @pickteams.sort, :disabled => @user_picks_1h %>
           <%end%>
         <% end %>
         </div>
@@ -49,7 +50,7 @@
   <%end%>
     </div>
   </div>
-  <div class="mp_container" id="mp_cont_2h" <% if (@md_count < 20) %>style="display:none;"<%end%>>
+  <div class="mp_container" id="mp_cont_2h" <% unless (@md_count > 19) %>style="display:none;"<%end%>>
     <div class="mp_col1">
       <%(20..38).each do |n|%>
       <%this_pick = Pick.where(user_id: current_user.id, matchday: n)[0]%>
@@ -63,7 +64,7 @@
           <%else%>
           <%this_pick = Pick.where(user_id: current_user.id, matchday: n)[0]%>
           <%= simple_form_for(this_pick) do |f| %>
-          <%= f.input :team_id, as: :select,label: false, include_blank: true, collection: @pickteams.sort, :disabled => @user_picks %>
+          <%= f.input :team_id, as: :select,label: false, include_blank: true, collection: @pickteams.sort, :disabled => @user_picks_2h %>
           <%end%>
           <% end %>
         </div>
