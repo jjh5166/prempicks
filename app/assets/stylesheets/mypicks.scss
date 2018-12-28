@@ -13,7 +13,7 @@
   color: #5E5E5D;
 }
 .mp_container{
-  margin-top: 12%;
+  // margin-top: 11%;
   position: absolute;
   left: 0;
   right: 0;
@@ -103,7 +103,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  // outline: red solid 2px;
   color: black;
   form{
     margin: 18%;
@@ -112,10 +111,7 @@
 @media only screen and (min-width: 667px) {
   /* For iPhone landscape: */
   .mp_container{
-    margin-top: 7%;
-  }
-  .mp_matchday{
-        // padding: 0 6%;
+    margin-top: -2%;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -125,7 +121,7 @@
     margin-bottom: 5%;
     grid-template-columns: 13% 87%;
     margin: 0 auto;
-    margin-top: 6.5%;
+    margin-top: - 0.5%;
   }
   .mp_matchday{
     max-width: none ;

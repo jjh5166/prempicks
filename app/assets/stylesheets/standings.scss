@@ -8,7 +8,7 @@
 .table_container{
   width: 90%;
   margin: 0 auto;
-  margin-top:16%;
+  margin-top: -1%;
   background:var(--table_bkgd_color);
   overflow-y: hidden;
 }
@@ -29,8 +29,8 @@
     background-color: var(--nav_bkgd_clr);
     color: var(--nav_bkgd_clr);
     text-shadow: none;
-    span{
-    }
+    // span{
+    // }
   };
   td:first-child{
     white-space: nowrap;
@@ -68,19 +68,15 @@
 @media only screen and (min-width: 667px) {
     /* For landscape mobile: */
     .table_container{
-      margin-top: 8%
+      margin-top: 0%
     }
 
 }
 @media only screen and (min-width: 768px) {
   /* For desktop: */
-  .table_container{
-    margin-top: 7%
-  }
+
 }
 
-.pt_cell{
-}
 .pt_cell_w{
   background-color: #00CC33;
 }
