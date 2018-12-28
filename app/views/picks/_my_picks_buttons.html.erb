@@ -1,4 +1,14 @@
-<div class="switch-button mypicks_switch"><span class="active_mypicks"></span>
+<% unless @md_count > 18 %>
+<div class="switch-button mypicks_switch"><span class="active_mypicks active_1h"></span>
+  <button class="switch-button-case first-half-button active-case">
+  1st Half
+</button>
+  <button class="switch-button-case second-half-button">
+  2nd Half
+  </button>
+</div>
+<% else %>
+<div class="switch-button mypicks_switch"><span class="active_mypicks active_2h"></span>
   <button class="switch-button-case first-half-button">
   1st Half
 </button>
@@ -6,3 +16,4 @@
   2nd Half
   </button>
 </div>
+<% end %>
