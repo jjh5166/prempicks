@@ -13,7 +13,6 @@
   color: #5E5E5D;
 }
 .mp_container{
-  // margin-top: 11%;
   position: absolute;
   left: 0;
   right: 0;
@@ -43,16 +42,26 @@
 }
 .mp_matchday{
   height: 50px;
+  max-width: none;
   outline: 1px solid black;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
+  overflow: hidden;
   padding: 0 2%;
+  .matchday_scroll{
+    height: 100%;
+    margin-bottom: -50px;
+    padding-bottom: 50px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    .mp_match_row{
+      white-space: nowrap;
+    }
+  }
 }
 .mp_col1_unit{
   height: 50px;
   position: relative;
-  outline: 1px solid black;
+  border-bottom: 1px solid black;
+  // outline: 1px solid black;
 }
 .mp_match{
   width: 93px;
@@ -70,7 +79,6 @@
     height:12px;
     width:12px;
     place-self: center;
-    // position: relative;
   }
   .score_span{
     grid-column-start: 3;
@@ -93,11 +101,6 @@
     grid-column-start: 4;
   }
 }
-// .mp_match_row{
-//   height: 50%;
-//   overflow: scroll;
-//   white-space: nowrap;
-// }
 .mp_form{
   position: absolute;
   top: 50%;
