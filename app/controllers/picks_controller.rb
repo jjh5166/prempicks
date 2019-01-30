@@ -28,7 +28,7 @@ class PicksController < ApplicationController
       end
     end
 
-    @matches = FootballData.fetch(:competitions,:matches, id: 2021)['matches']
+    @matches = FootballData.fetch(:competitions,:matches, id: 2021)['matches'].sort_by { |match| [match['matchday'], match['utcDate']] }
     # Call for matches specific team by code
     # @matches = FootballData.fetch(:teams,:matches, id: 73)
 
