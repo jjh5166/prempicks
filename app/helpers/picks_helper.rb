@@ -24,7 +24,28 @@ module PicksHelper
       selected_ahead.update(team_id: nil)
     end
   end
+  #cycle through unlocked matchdays to find the matchday to lock
+  #breaks once earliest md to lock is found
+  def find_md_to_lock
+    unlocked_mds = Matchday.where(locked: false).pluck(:week)
+    unlocked_mds.each do |w|
+      matches = FootballData.fetch(:competitions,:matches, id: 2021, matchday: w)['matches']
+      matches.each do |m|
+        if Time.now.utc > m['utcDate']
+          Matchday.where(week: w).update(locked: true)
+          return
+        end
+      end
+    end
+  end
 
+  #load reference for which matchdays are locked
+  def locked_matchdays
+    @locked_mds = {}
+    Matchday.all.each do |m|
+      @locked_mds[m.week] = m.locked
+    end
+  end
 # if team is picked for future, needs to assign future pick back to nil
   def auto_pick(matchday, users)
     path = Rails.root.join 'app', 'assets', 'data', 'lastyr.json'
