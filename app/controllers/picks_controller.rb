@@ -2,9 +2,10 @@ class PicksController < ApplicationController
   include PicksHelper
   before_action :pick_timer, only: [:standings, :mypicks]
   before_action :authenticate_user!, only: [:mypicks, :make]
-  before_action :team_codes_init, only: [:mypicks]
-  before_action :pick_initialization, only: [:mypicks]
+  before_action :team_codes_init, :pick_initialization, only: [:mypicks]
   before_action :get_picks, only: [:standings]
+  before_action :find_md_to_lock, only: [:mypicks]
+  before_action :locked_matchdays, only: [:mypicks]
 
   def standings
     (@md_count < 20) ? @first_timer = @md_count : @first_timer = 19

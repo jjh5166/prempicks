@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_01_042059) do
+ActiveRecord::Schema.define(version: 2019_02_08_231456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "matchdays", force: :cascade do |t|
+    t.integer "week", null: false
+    t.boolean "locked", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "picks", force: :cascade do |t|
     t.integer "user_id"
