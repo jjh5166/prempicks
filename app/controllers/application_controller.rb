@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   include AuthorizationHelper
 
@@ -40,7 +42,7 @@ class ApplicationController < ActionController::Base
     end
 
     def team_codes_init
-      path = Rails.root.join "app", "assets", "data", "code_to.json"
+      path = Rails.root.join 'app', 'assets', 'data', 'code_to.json'
       file = File.read(path)
       @teamcodes = JSON.parse(file)
     end
