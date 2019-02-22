@@ -2,12 +2,17 @@
 
 class PicksController < ApplicationController
   include PicksHelper
+  include AutopickHelper
   before_action :pick_timer, only: %i[standings mypicks]
   before_action :authenticate_user!, only: %i[mypicks make]
   before_action :seed_picks, :team_codes_init, :pick_initialization, only: [:mypicks]
-  before_action :load_standings, only: [:standings]
 
   def standings
+    all_standings = load_standings
+    @seasontotals = all_standings.order('SUM(picks.points) DESC')
+    @firsthalftotals = all_standings.order('firsthalf DESC')
+    @secondhalftotals = all_standings.order('secondhalf DESC')
+
     @first_timer = @md_count < 20 ? @md_count : 19
     @second_timer = @md_count - @first_timer
 
@@ -19,7 +24,9 @@ class PicksController < ApplicationController
   def mypicks
     @locked_mds = locked_mds
     @test_times = unlocked_matchday_times
-    @matches = FootballData.fetch(:competitions, :matches, id: 2021)['matches'].sort_by { |match| [match['matchday'], match['utcDate']] }
+    @matches = FootballData
+                .fetch(:competitions, :matches, id: 2021)['matches']
+                .sort_by { |match| [match['matchday'], match['utcDate']] }
     @user_picks_1h = []
     @user_picks_2h = []
     Pick.where(user_id: current_user.id, half: 1).each do |p|
@@ -36,15 +43,18 @@ class PicksController < ApplicationController
 
   def make
     @pick = Pick.find_by_id(params[:pick_id])
-    if @pick.update(pick_params)
-      flash[:alert] = 'Pick Saved'
-    else
-      flash[:alert] = 'Pick Unsuccesful'
-    end
+    flash[:alert] = @pick.update(pick_params) ? 'Pick Saved' : 'Pick Unsuccesful'
     redirect_back fallback_location: mypicks_path
   end
 
   private
+
+  def load_standings
+    points_query = 'users.*, sum(case when half = 1 then points else 0 end)'\
+    ' as firsthalf, sum(case when half = 2 then points else 0 end)'\
+    ' as secondhalf'
+    User.joins(:picks).group('users.id').select(points_query)
+  end
 
   def pick_params
     params.require(:pick).permit(:user_id, :matchday, :team_id)
