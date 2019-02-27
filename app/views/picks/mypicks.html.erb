@@ -23,6 +23,7 @@
     <div class="mp_matches">
   <%@matches.first(190).each_slice(10) do |slice|%>
       <div class="mp_matchday ">
+        <div class="matchday_scroll">
     <% slice.each_slice(5) do |r| %>
         <div class="mp_match_row ">
           <% r.each do |m|%>
@@ -46,6 +47,7 @@
           <%end%>
         </div>
     <%end%>
+        </div>
       </div>
   <%end%>
     </div>
@@ -74,32 +76,31 @@
     <div class="mp_matches">
       <%@matches.last(190).each_slice(10) do |slice|%>
       <div class="mp_matchday ">
-        <div class="matchday_scroll"/>
+        <div class="matchday_scroll">
         <% slice.each_slice(5) do |r| %>
-        <div class="mp_match_row ">
-          <% r.each do |m|%>
-          <div class="mp_match">
-            <div class="mp_match_gr">
-              <%hometeam = @teamcodes[0].fetch(m['homeTeam']['id'].to_s)%>
-              <%awayteam = @teamcodes[0].fetch(m['awayTeam']['id'].to_s)%>
-              <span class="hteam">
-                <%=hometeam['code']%></span>
-              <img class="himage" src="<%=hometeam['crestURI']%>" alt="Home Logo">
-              <span class="score_span">
-                <%if m['status'] == 'FINISHED'%>
-                <%=m['score']['fullTime']['homeTeam']%>:
-                <%=m['score']['fullTime']['awayTeam']%>
-                <%else%>
-                vs.
-                <%end%>
-              </span>
-              <img class="aimage" src="<%=awayteam['crestURI']%>" alt="Away Logo">
-              <span class="ateam">
-                <%=awayteam['code']%></span>
+          <div class="mp_match_row ">
+            <% r.each do |m|%>
+            <div class="mp_match">
+              <div class="mp_match_gr">
+                <%hometeam = @teamcodes[0].fetch(m['homeTeam']['id'].to_s)%>
+                <%awayteam = @teamcodes[0].fetch(m['awayTeam']['id'].to_s)%>
+                <span class="hteam">
+                  <%=hometeam['code']%></span>
+                <img class="himage" src="<%=hometeam['crestURI']%>" alt="Home Logo">
+                <span class="score_span">
+                  <%if m['status'] == 'FINISHED'%>
+                  <%=m['score']['fullTime']['homeTeam']%>:
+                  <%=m['score']['fullTime']['awayTeam']%>
+                  <%else%>
+                  vs.
+                  <%end%>
+                </span>
+                <img class="aimage" src="<%=awayteam['crestURI']%>" alt="Away Logo">
+                <span class="ateam"><%=awayteam['code']%></span>
+              </div>
             </div>
+            <%end%>
           </div>
-          <%end%>
-        </div>
         <%end%>
         </div>
       </div>
@@ -112,7 +113,6 @@
 $(document).ready(function() {
   $('.select.optional').change(function() {
     $(this).closest('form').submit();
-
   });
 })
 </script>
