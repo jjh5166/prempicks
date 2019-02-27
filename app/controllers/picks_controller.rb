@@ -3,22 +3,19 @@
 class PicksController < ApplicationController
   include PicksHelper
   include AutopickHelper
-  before_action :pick_timer, :lock_matchdays, only: %i[standings mypicks]
+  before_action :lock_matchdays, only: %i[standings mypicks]
   before_action :authenticate_user!, only: %i[mypicks make]
-  before_action :seed_picks, :team_codes_init, :pick_initialization, only: [:mypicks]
+  before_action :seed_picks, :pick_initialization, only: [:mypicks]
 
   def standings
     all_standings = load_standings
     @seasontotals = all_standings.order(Arel.sql('SUM(picks.points) DESC'))
     @firsthalftotals = all_standings.order(Arel.sql('firsthalf DESC'))
     @secondhalftotals = all_standings.order(Arel.sql('secondhalf DESC'))
-
+    @unlocked_mds = unlocked_mds
+    @md_count = matchday_count
     @first_timer = @md_count < 20 ? @md_count : 19
     @second_timer = @md_count - @first_timer
-
-    # # if users_no_pick(@md_count).any?
-    #   auto_pick(@md_count, @no_pick_users)
-    # end
   end
 
   def mypicks
@@ -36,8 +33,9 @@ class PicksController < ApplicationController
     end
     @avail_teams_1h = @pickteams - @user_picks_1h
     @avail_teams_2h = @pickteams - @user_picks_2h
-
+    @md_count = matchday_count
     @userid = current_user.id
+    @teamcodes = team_codes
   end
 
   def make

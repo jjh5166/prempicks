@@ -14,6 +14,10 @@ module PicksHelper
     end
   end
 
+  def matchday_count
+    unlocked_mds.min - 1
+  end
+
   def lock_matchdays
     time_now = Time.now.utc
     matchdays = unlocked_matchday_times
