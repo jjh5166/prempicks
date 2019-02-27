@@ -4,10 +4,11 @@
 module AutopickHelper
   # Determines users who have not picked for specific matchday
   def users_no_pick(matchday)
-    @no_pick_users = []
+    no_pick_users = []
     Pick.where(matchday: matchday, team_id: nil).each do |pick|
-      @no_pick_users.push(pick.user_id)
+      no_pick_users.push(pick.user_id)
     end
+    no_pick_users
   end
 
   # Check if team has been selected in future matchday, set variable to md
