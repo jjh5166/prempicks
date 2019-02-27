@@ -3,27 +3,26 @@
 class PicksController < ApplicationController
   include PicksHelper
   include AutopickHelper
-  before_action :pick_timer, only: %i[standings mypicks]
+  before_action :pick_timer, :lock_matchdays, only: %i[standings mypicks]
   before_action :authenticate_user!, only: %i[mypicks make]
   before_action :seed_picks, :team_codes_init, :pick_initialization, only: [:mypicks]
 
   def standings
     all_standings = load_standings
-    @seasontotals = all_standings.order('SUM(picks.points) DESC')
-    @firsthalftotals = all_standings.order('firsthalf DESC')
-    @secondhalftotals = all_standings.order('secondhalf DESC')
+    @seasontotals = all_standings.order(Arel.sql('SUM(picks.points) DESC'))
+    @firsthalftotals = all_standings.order(Arel.sql('firsthalf DESC'))
+    @secondhalftotals = all_standings.order(Arel.sql('secondhalf DESC'))
 
     @first_timer = @md_count < 20 ? @md_count : 19
     @second_timer = @md_count - @first_timer
 
-    if users_no_pick(@md_count).any?
-      auto_pick(@md_count, @no_pick_users)
-    end
+    # # if users_no_pick(@md_count).any?
+    #   auto_pick(@md_count, @no_pick_users)
+    # end
   end
 
   def mypicks
     @locked_mds = locked_mds
-    @test_times = unlocked_matchday_times
     @matches = FootballData
                 .fetch(:competitions, :matches, id: 2021)['matches']
                 .sort_by { |match| [match['matchday'], match['utcDate']] }
