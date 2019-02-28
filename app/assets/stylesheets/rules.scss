@@ -1,10 +1,12 @@
 .rules_cnt{
   position: relative;
-  color: white;
+  color: black;
   margin: 0 auto;
   width: 85%;
   height: auto;
+  background: var(--table_bkgd_color);
   h4{
+    text-align: center;
     position: relative;
     font-style: oblique;
     margin: 0;
@@ -17,21 +19,20 @@
 .rules_tb{
   position: relative;
   table-layout: auto;
-  // left: 0;
-  // right: 0;
-  // margin: auto;
+  background-color: #EDEAEA;
+  opacity: .7;
   border: 1px solid white;
   border-collapse: collapse;
   float: left;
   margin-right: 32px;
   tr, th, td{
-    border: 1px solid white;
+    border: 1px solid black;
     text-align: center;
   }
 }
 .rules_sec{
   position: relative;
-  // background: white;
+  margin: 0 4%;
   height: auto;
   overflow: hidden;
   margin-bottom: 12px;
