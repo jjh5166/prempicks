@@ -23,12 +23,17 @@
         <%= u.secondhalf %>
       </td>
       <% u.picks[19..38].first(@second_timer).reverse.each do |t|%>
+        <% unless @unlocked_mds.include? t.matchday%>
       <td>
-        <%= t.team_id %>
+          <%= t.team_id %>
       </td>
       <td class="pt_cell">
-        <%= t.points%>
+          <%= t.points%>
       </td>
+        <%else%>
+      <td></td>
+      <td></td>
+        <%end%>
       <%end%>
     </tr>
     <%end%>

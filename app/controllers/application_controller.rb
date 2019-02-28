@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   include AuthorizationHelper
 
@@ -20,28 +22,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def pick_timer
-      all_matches = FootballData.fetch(:competitions,:matches, id: 2021)['matches']
-      @matchtimes = {}
-      (1..38).each do |m|
-        @matchtimes[m] = []
-        all_matches.each do |t|
-          if t['matchday'] == m
-            @matchtimes[m].push(t['utcDate'])
-          end
-        end
-      end
-      @md_count = 0
-      (1..38).each do |t|
-        if Time.now.utc > @matchtimes[t].min.in_time_zone('UTC')
-          @md_count += 1
-        end
-      end
-    end
-
-    def team_codes_init
-      path = Rails.root.join "app", "assets", "data", "code_to.json"
-      file = File.read(path)
-      @teamcodes = JSON.parse(file)
-    end
+  def team_codes
+    path = Rails.root.join 'app', 'assets', 'data', 'code_to.json'
+    file = File.read(path)
+    JSON.parse(file)
+  end
 end
