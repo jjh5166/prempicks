@@ -30,3 +30,5 @@
 /config/master.key
 .DS_Store
 .env
+
+/app/assets/data/scores/*
