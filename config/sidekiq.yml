@@ -1,0 +1,4 @@
+:schedule:
+  scoring_check:
+    cron: '0 * * * * *'
+    class: ScoringCheck
