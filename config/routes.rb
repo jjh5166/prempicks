@@ -21,4 +21,7 @@ Rails.application.routes.draw do
 
   # Pick form
   patch '/mypicks/:pick_id' => 'picks#make', :as => :pick
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end
