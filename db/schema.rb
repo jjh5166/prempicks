@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_08_231456) do
+ActiveRecord::Schema.define(version: 2019_04_16_210347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_02_08_231456) do
     t.boolean "locked", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "scored", default: false
   end
 
   create_table "picks", force: :cascade do |t|
@@ -30,6 +31,19 @@ ActiveRecord::Schema.define(version: 2019_02_08_231456) do
     t.integer "half"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "half"], name: "half_picks"
+    t.index ["user_id", "matchday"], name: "user_pick", unique: true
+    t.index ["user_id"], name: "index_picks_on_user_id"
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.integer "matchday", null: false
+    t.integer "points", default: 0
+    t.string "team_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["points"], name: "index_scores_on_points"
+    t.index ["team_id", "matchday"], name: "score_key", unique: true
   end
 
   create_table "users", force: :cascade do |t|
