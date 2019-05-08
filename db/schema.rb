@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_14_035500) do
+ActiveRecord::Schema.define(version: 2019_04_16_210347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_04_14_035500) do
     t.boolean "locked", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "scored", default: false
   end
 
   create_table "picks", force: :cascade do |t|
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_04_14_035500) do
     t.string "team_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["points"], name: "index_scores_on_points"
     t.index ["team_id", "matchday"], name: "score_key", unique: true
   end
 
