@@ -2,3 +2,9 @@
   scoring_check:
     cron: '0 * * * * *'
     class: ScoringCheck
+development:
+  :concurrency: 5
+production:
+  :concurrency: 6
+:queues:
+  - default
