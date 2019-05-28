@@ -15,12 +15,18 @@ module PicksHelper
   end
 
   def matchday_count
-    unlocked_mds.min - 1
+    umds =  unlocked_mds
+    unless umds.any?
+      38
+    else
+      umds.min - 1
+    end
   end
 
   def lock_matchdays
     time_now = Time.now.utc
     matchdays = unlocked_matchday_times
+    return if matchdays.nil?
     matchdays.each do |md|
       next unless time_now > md[1].min.in_time_zone('UTC')
 
@@ -58,6 +64,7 @@ module PicksHelper
   # fetch kick off times for each matchday
   def unlocked_matchday_times
     mds = unlocked_mds
+    return unless mds.any?
     all_matches = FootballData
                     .fetch(:competitions, :matches, id: 2021)['matches']
     matchtimes = {}
