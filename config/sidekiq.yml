@@ -1,3 +1,9 @@
+:verbose: false
+:concurrency: 2
+
+:timeout: 8
+:queues:
+  - default
 :schedule:
   scoring_check:
     cron: '0 * * * * *'
