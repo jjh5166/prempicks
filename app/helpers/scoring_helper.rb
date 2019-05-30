@@ -11,7 +11,7 @@ module ScoringHelper
 
   # True if more games finished than scored
   def scoring_needed?
-    finished = FootballData.fetch(:competitions, :matches, id: 2021, status: 'FINISHED')['count']
+    finished = FootballData.fetch(:competitions, :matches, id: 2021, status: 'FINISHED')['count'].to_i
     scored = Score.where.not(points: 0).count / 2
     return false unless finished > scored
 
