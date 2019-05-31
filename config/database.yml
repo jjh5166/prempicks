@@ -23,7 +23,8 @@ test:
 
 
 production:
+  url:  <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
   adapter: postgresql
   database: prempicks_db_production
-  pool: 5
   timeout: 5000
