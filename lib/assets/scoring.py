@@ -1,13 +1,14 @@
-import http.client
-import json
-import os
-import sys
+import http.client, sys, os, json, boto3
 from os.path import join, dirname
 from dotenv import load_dotenv
 
 dotenv_path = join(dirname(__name__), '.env')
 load_dotenv(dotenv_path)
 APIkey = str(os.getenv('FOOTBALL_API_KEY'))
+AwsAccessKeyID = str(os.getenv('AWS_ACCESS_KEY_ID'))
+AwsSecretAccessKey = str(os.getenv('AWS_SECRET_ACCESS_KEY'))
+AwsRegion = str(os.getenv('AWS_REGION'))
+AwsBucket = str(os.getenv('S3_BUCKET'))
 
 matchday = str(sys.argv[1])
 request_string = f'/v2/competitions/PL/matches/?matchday={matchday}'
@@ -77,6 +78,14 @@ for m in response['matches']:
         scores[match.wTeam] = match.wScore
         scores[match.lTeam] = match.lScore
 
-with open('app/assets/data/scores/matchday' + matchday + '.json', "w") as f:
-    json.dump(scores, f)
-    f.close()
+scores_json = json.dumps(scores)
+
+s3 = boto3.resource(
+    's3',
+    region_name=AwsRegion,
+    aws_access_key_id=AwsAccessKeyID,
+    aws_secret_access_key=AwsSecretAccessKey
+)
+filename = 'scores/matchday' + matchday + '.json'
+
+s3.Object(AwsBucket, filename).put(Body=scores_json)
