@@ -23,11 +23,12 @@ module ScoringHelper
     Matchday.where(locked: true, scored: false).pluck(:week)
   end
 
-  # updates scores using saved files
+  # updates scores using saved files on s3
   def update_scores(*matchdays)
+    s3 = Aws::S3::Client.new
     matchdays.each do |m|
-      file = File.read("app/assets/data/scores/matchday#{m}.json")
-      scores = JSON.parse(file)
+      file = s3.get_object({bucket:ENV['S3_BUCKET'],key:"scores/matchday#{m}.json",})
+      scores = JSON.parse(file.body.read)
       records = scores_to_score(m)
       records.each do |r|
         r.update(points: scores[r.team_id])
