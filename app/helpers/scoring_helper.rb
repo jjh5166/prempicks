@@ -48,12 +48,4 @@ module ScoringHelper
     Score.where(matchday: matchday).where(points: 0)
   end
 
-  # creates hash of match scores from file
-  def matchday_scores(matchday)
-    path = Rails.root.join 'app',
-                           'assets', 'data', 'scores',
-                           "matchday#{matchday}.json"
-    file = File.read(path)
-    JSON.parse(file)
-  end
 end
