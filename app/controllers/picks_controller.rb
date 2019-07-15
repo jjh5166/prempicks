@@ -21,8 +21,8 @@ class PicksController < ApplicationController
   def mypicks
     @locked_mds = locked_mds
     @matches = FootballData
-                .fetch(:competitions, :matches, id: 2021)['matches']
-                .sort_by { |match| [match['matchday'], match['utcDate']] }
+               .fetch(:competitions, :matches, id: 2021)['matches']
+               .sort_by { |match| [match['matchday'], match['utcDate']] }
     @user_picks_1h = []
     @user_picks_2h = []
     Pick.where(user_id: current_user.id, half: 1).each do |p|
@@ -58,12 +58,12 @@ class PicksController < ApplicationController
   end
 
   def pick_initialization
-    path = Rails.root.join 'app', 'assets', 'data', 'allTeams.json'
-    file = File.read(path)
-    @allteams = JSON.parse(file)
+    s3 = Aws::S3::Client.new
+    file = s3.get_object(bucket: ENV['S3_BUCKET'], key: 'lastyr.json')
+    @allteams = JSON.parse(file.body.read)['standings']
     @pickteams = []
     @allteams.each do |t|
-      @pickteams.push(t['code'])
+      @pickteams.push(t)
     end
   end
 end
