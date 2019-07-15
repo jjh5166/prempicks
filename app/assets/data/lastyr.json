@@ -1,24 +1,24 @@
 {
   "standings": [
     "MCI",
-    "MUN",
-    "TOT",
     "LIV",
     "CHE",
+    "TOT",
     "ARS",
-    "BUR",
+    "MUN",
+    "WOL",
     "EVE",
     "LEI",
-    "NEW",
-    "CRY",
-    "BOU",
     "WHU",
     "WAT",
-    "BRI",
-    "HUD",
+    "CRY",
+    "NEW",
+    "BOU",
+    "BUR",
     "SOU",
-    "WOL",
-    "CAR",
-    "FUL"
+    "BRI",
+    "NOR",
+    "SHU",
+    "AVL"
   ]
 }
