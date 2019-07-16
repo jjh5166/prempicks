@@ -14,8 +14,21 @@ module PicksHelper
     end
   end
 
+  def set_my_picks
+    @user_picks_1h = []
+    @picks_first_half = Pick.where(user_id: current_user.id, half: 1)
+    @picks_first_half.each do |p|
+      @user_picks_1h.push(p.team_id)
+    end
+    @user_picks_2h = []
+    @picks_second_half = Pick.where(user_id: current_user.id, half: 2)
+    @picks_second_half.each do |p|
+      @user_picks_2h.push(p.team_id)
+    end
+  end
+
   def matchday_count
-    umds =  unlocked_mds
+    umds = unlocked_mds
     unless umds.any?
       38
     else
@@ -27,6 +40,7 @@ module PicksHelper
     time_now = Time.now.utc
     matchdays = unlocked_matchday_times
     return if matchdays.nil?
+
     matchdays.each do |md|
       next unless time_now > md[1].min.in_time_zone('UTC')
 
@@ -65,6 +79,7 @@ module PicksHelper
   def unlocked_matchday_times
     mds = unlocked_mds
     return unless mds.any?
+    
     all_matches = FootballData
                     .fetch(:competitions, :matches, id: 2021)['matches']
     matchtimes = {}

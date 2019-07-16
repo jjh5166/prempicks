@@ -1,15 +1,15 @@
 <div class="page_container">
   <h2 class="page_header">Standings</h2>
   <% unless @second_timer < 1%>
-    <%= render 'picks/standings_buttons' %>
+    <%= render 'picks/standings/standings_buttons' %>
   <%end%>
 
   <div class="table-responsive table_container">
     
-    <%= render 'picks/first_half_table' %>
+    <%= render 'picks/standings/first_half_table' %>
     <% unless @second_timer < 1%>
-    <%= render 'picks/seasontable' %>
-    <%= render 'picks/second_half_table' %>
+    <%= render 'picks/standings/seasontable' %>
+    <%= render 'picks/standings/second_half_table' %>
     <%end%>
   </div>
 

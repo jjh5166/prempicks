@@ -5,7 +5,7 @@ class PicksController < ApplicationController
   include AutopickHelper
   before_action :lock_matchdays, only: %i[standings mypicks]
   before_action :authenticate_user!, only: %i[mypicks make]
-  before_action :seed_picks, :pick_initialization, only: [:mypicks]
+  before_action :seed_picks, :set_my_picks, :pick_initialization, only: [:mypicks]
 
   def standings
     all_standings = load_standings
@@ -23,25 +23,13 @@ class PicksController < ApplicationController
     @matches = FootballData
                .fetch(:competitions, :matches, id: 2021)['matches']
                .sort_by { |match| [match['matchday'], match['utcDate']] }
-    @user_picks_1h = []
-    @user_picks_2h = []
-    Pick.where(user_id: current_user.id, half: 1).each do |p|
-      @user_picks_1h.push(p.team_id)
-    end
-    Pick.where(user_id: current_user.id, half: 2).each do |p|
-      @user_picks_2h.push(p.team_id)
-    end
+    
     @avail_teams_1h = @pickteams - @user_picks_1h
-    @avail_teams_2h = @pickteams - @user_picks_2h
+    # @avail_teams_2h = @pickteams - @user_picks_2h
     @md_count = matchday_count
     @userid = current_user.id
     @teamcodes = team_codes
-  end
-
-  def make
-    @pick = Pick.find_by_id(params[:pick_id])
-    flash[:alert] = @pick.update(pick_params) ? 'Pick Saved' : 'Pick Unsuccesful'
-    redirect_back fallback_location: mypicks_path
+    @user = User.find(current_user.id)
   end
 
   private
