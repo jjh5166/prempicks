@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
   # Pick form
   patch '/mypicks/:pick_id' => 'picks#make', :as => :pick
-
+  devise_scope :user do
+    patch '/mypicks_update' => 'users/update_picks#update_picks', :as => :update_picks
+  end
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 end
