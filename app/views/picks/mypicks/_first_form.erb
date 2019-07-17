@@ -1,15 +1,15 @@
 <div class="mp_col1">
-  <%= simple_form_for @user, :url => update_picks_path, :method => :patch do |f|%>
+  <%= simple_form_for @user, :url => update_picks_path, :method => :patch, html: {class: :mypicks_form} do |f|%>
   <% @picks_first_half.each do |picksf| %>
   <%= f.simple_fields_for :picks, picksf do |p|%>
   <div class="mp_col1_unit">
     <span class="mp_mdcount"><%=p.index+1%></span>
     <div class="mp_form">
-      <%= p.input :team_id, as: :select,label: false, include_blank: true, collection: @pickteams.sort, :disabled => @user_picks_1h %>
+      <%= p.input :team_id, as: :select,label: false, include_blank: true, collection: @pickteams.sort, :readonly => @user_picks_1h, input_html: {class: :mp_select} %>
     </div>
   </div>
   <% end %>
   <% end %>
 </div>
-<%= f.button :submit, 'Update Picks'%>
+<%= f.button :submit, 'Update Picks', class: "mypicks_sub" %>
 <% end %>
