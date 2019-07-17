@@ -1,16 +1,14 @@
-<nav class="navbar navbar-light navbar-expand-md justify-content-between py-0">
+<nav class="navbar navbar-dark navbar-expand-md bg-success justify-content-between">
   <div class="container-fluid">
     <!-- Toggler -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".collapseNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- left side -->
-    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
     <div class="navbar-collapse collapse collapseNav w-50 order-1 order-md-0">
       <ul class="nav navbar-nav">
         <% if user_signed_in? || session[:guest_user_id] %>
         <li class="nav-item">
-          <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
           <%= link_to 'Standings', standings_path, :class => "nav-link" %>
         </li>
         <li class="nav-item">
@@ -20,52 +18,42 @@
           <%= link_to 'My Picks', gpicks_path, :class => "nav-link" %>
           <%end%>
         </li>
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">EPL
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to 'EPL Table', epl_table_path, :class => "dropdown-item" %>
-            <a class="dropdown-item" href="#">Schedule</a>
-            <!-- <%#= render "epldata/matchday_link" %> -->
-            <!-- <div class="dropdown-divider"></div> -->
-          <!-- </div> -->
-        <!-- </li> -->
         <li class="nav-item">
           <%= link_to 'EPL Table', epl_table_path, :class => "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Rules', rules_path, :class => "nav-link" %>
         </li>
       </ul>
     </div>
     <!-- Title -->
-    <span class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25 nav_title">PremPicks</span>
+    <a href="/" class="navbar-brand d-block text-center order-0 order-md-1 nav_title">PremPicks</a>
     <!-- right side -->
     <% if user_signed_in? %>
     <div class="navbar-collapse collapse w-50 order-2 collapseNav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle dropdown-menu-right" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">My Account</a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to 'Settings', edit_user_registration_path, :class => "dropdown-item" %>
-            <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, :class => "dropdown-item" %>
-          </div>
-        </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Rules">
+            <%= link_to rules_path, :class => "nav-link" do %>
+              <i class="fa fa-gavel fa-2x"></i>
+            <% end %>
+          </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Account">
+            <%= link_to edit_user_registration_path, :class => "nav-link" do %>
+              <i class="fa fa-user fa-2x"></i>
+            <% end %>
+          </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Sign Out">
+            <%= link_to destroy_user_session_path, :method => :delete, :class => "nav-link" do %>
+              <i class="fa fa-sign-out fa-2x"></i>
+            <% end %>
+          </li>
       </ul>
     </div>
     <% else %>
-    <div class="w-50 order-2"></div>
     <%end%>
       <%else%>
       <li class="nav-item"></li>
         <%= link_to 'Sign in', new_user_session_path, :class => "nav-link" %>
       </li>
-      <li class="nav-item disabled"></li>
-      <a class="nav-link dummy_sign_up" href="#">Sign Up</a>
-        <!-- <button class="nav-link dummy_btn">Sign Up</button> -->
-        <!-- <#%= link_to 'Sign up', new_user_registration_path, :class => "nav-link" %> -->
+      <li class="nav-item"></li>
+        <%= link_to 'Sign up', new_user_registration_path, :class => "nav-link" %>
       </li>
       <%end%>
   </div>

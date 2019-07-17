@@ -1,20 +1,18 @@
 :root{
 --nav_font_sz: 16px;
---nav_text_clr: #00ace6;
+--nav_text_clr: rgba(231, 241, 241, 0.808);
 --nav_bkgd_clr: #717274;
 --nav_title_ft_sz: 40px;
 }
 .navbar{
-  background: linear-gradient(90deg, rgba(77,77,78,1) 0%, rgba(129,131,135,1) 35%, rgba(70,70,71,1) 100%);
-  text-shadow: black 0px 0px 10px;
-  border-bottom: 2px ridge grey;
+  background: linear-gradient(90deg, rgba(31,89,47,1) 0%, rgb(41, 161, 111) 35%, rgb(8, 78, 31) 100%);
+  border-bottom: 2px ridge rgb(78, 107, 91);
 }
 .nav_title {
-  text-align: center;
   font-style: oblique;
   font-size: var(--nav_title_ft_sz);
   color: var(--nav_text_clr) !important;
-}
-.nav-link {
-  color: var(--nav_text_clr) !important
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
 }
