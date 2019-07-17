@@ -32,6 +32,11 @@
   background-color:#5BBF78;
   width: fit-content;
 }
+.signup_btn{
+  @extend .login-btn;
+  background-color:rgb(137, 67, 184);
+  width: fit-content;
+}
 .btn-break{
   display: block;
   height: 2px;
