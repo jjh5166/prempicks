@@ -20,11 +20,11 @@ class PicksController < ApplicationController
   end
 
   def mypicks
-    @locked_mds = locked_mds
+    # @locked_mds = locked_mds
     matches_data = fetch_matches
     @matches = matches_data.sort_by { |match| [match['matchday'], match['utcDate']] }
     @md_count = matchday_count
-    @userid = current_user.id
+    # @userid = current_user.id
     @teamcodes = team_codes
     @user = User.find(current_user.id)
   end
