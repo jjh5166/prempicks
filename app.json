@@ -1,0 +1,88 @@
+{
+  "addons": [
+    "heroku-postgresql",
+    "heroku-redis"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "env": {
+    "AWS_ACCESS_KEY_ID": {
+      "required": true
+    },
+    "AWS_REGION": {
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "required": true
+    },
+    "FOOTBALL_API_KEY": {
+      "required": true
+    },
+    "GMAIL_DOMAIN": {
+      "required": true
+    },
+    "GMAIL_PASSWORD": {
+      "required": true
+    },
+    "GMAIL_USERNAME": {
+      "required": true
+    },
+    "HEROKU_DEBUG_RAILS_RUNNER": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "MALLOC_ARENA_MAX": {
+      "required": true
+    },
+    "MIN_THREADS": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    },
+    "RAILS_MAX_THREADS": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "REDIS_PROVIDER": {
+      "required": true
+    },
+    "REDIS_URL": {
+      "required": true
+    },
+    "S3_BUCKET": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1
+    },
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "prempicks",
+  "scripts": {
+  },
+  "stack": "heroku-16"
+}
