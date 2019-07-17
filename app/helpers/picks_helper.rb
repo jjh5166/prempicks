@@ -60,6 +60,10 @@ module PicksHelper
     auto_pick(matchday, no_pick_users)
   end
 
+  def disable_pick(matchday)
+    locked = locked_mds
+    return locked[matchday]
+  end
   private
 
   # hash for building mypicks view
