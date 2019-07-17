@@ -3,6 +3,7 @@
 class PicksController < ApplicationController
   include PicksHelper
   include AutopickHelper
+  include EpldataHelper
   before_action :lock_matchdays, only: %i[standings mypicks]
   before_action :authenticate_user!, only: %i[mypicks make]
   before_action :seed_picks, :set_my_picks, :pick_initialization, only: [:mypicks]
@@ -20,12 +21,8 @@ class PicksController < ApplicationController
 
   def mypicks
     @locked_mds = locked_mds
-    @matches = FootballData
-               .fetch(:competitions, :matches, id: 2021)['matches']
-               .sort_by { |match| [match['matchday'], match['utcDate']] }
-    
-    @avail_teams_1h = @pickteams - @user_picks_1h
-    # @avail_teams_2h = @pickteams - @user_picks_2h
+    matches_data = fetch_matches
+    @matches = matches_data.sort_by { |match| [match['matchday'], match['utcDate']] }
     @md_count = matchday_count
     @userid = current_user.id
     @teamcodes = team_codes
@@ -48,9 +45,9 @@ class PicksController < ApplicationController
   def pick_initialization
     s3 = Aws::S3::Client.new
     file = s3.get_object(bucket: ENV['S3_BUCKET'], key: 'lastyr.json')
-    @allteams = JSON.parse(file.body.read)['standings']
+    allteams = JSON.parse(file.body.read)['standings']
     @pickteams = []
-    @allteams.each do |t|
+    allteams.each do |t|
       @pickteams.push(t)
     end
   end
