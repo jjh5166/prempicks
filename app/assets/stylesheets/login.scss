@@ -6,11 +6,12 @@
   width: 50%;
   text-align: center;
   border-radius: 10px;
-  background: linear-gradient(90deg, rgba(77,77,78,1) 0%, rgba(129,131,135,1) 35%, rgba(70,70,71,1) 100%);
+  background: linear-gradient(90deg, rgba(31,89,47,1) 0%, rgb(41, 161, 111) 35%, rgb(8, 78, 31) 100%);
+  background: linear-gradient(90deg, rgba(31,89,47,1) 0%, rgb(41, 161, 111) 35%, rgb(8, 78, 31) 100%);
   padding-bottom: 10px;
   border: 2px groove grey;
   margin-top: 32%;
-  color: #00ace6;
+  color: rgba(231, 241, 241, 1);
   text-shadow: 1px 1px #00394d;
   form{
     .field{
@@ -20,20 +21,23 @@
     }
   }
 }
-.login-btn{
+.btn-std{
   position: relative;
   display: block;
   margin: 0 auto;
-  background-color:#00ace6;
   color: white;
 }
+.login-btn{
+  color: rgba(231, 241, 241, 1);
+  background-color: #0f8bb8
+}
 .guest_btn{
-  @extend .login-btn;
+  @extend .btn-std;
   background-color:#5BBF78;
   width: fit-content;
 }
 .signup_btn{
-  @extend .login-btn;
+  @extend .btn-std;
   background-color:rgb(137, 67, 184);
   width: fit-content;
 }
@@ -42,8 +46,9 @@
   height: 2px;
 }
 .pword_link{
-  color: #00ace6;
-  font-size: small;
+  color: #76cfec;
+  text-decoration: underline
+  // font-size: small;
 }
 .edit_form{
   @extend .dev_cnt;
@@ -68,3 +73,16 @@
     width: 36%;
   }
 }
+.ptip{
+  .ptip_text{
+  display:block;
+  position: absolute;
+  padding: 6px;
+  height:40px;
+  width: 40px;
+  }
+}
+// .ptip:hover .ptip_text{
+//   display: block;
+//   text-align: center;
+// }
