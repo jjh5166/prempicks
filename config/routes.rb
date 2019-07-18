@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root to: 'picks#standings', as: :authenticated_root
   end
-  root to: 'static_pages#home'
+  root to: 'landing#landing_page'
 
   get '/rules' => 'static_pages#rules', as: :rules
   get '/table' => 'epldata#table', as: :epl_table
