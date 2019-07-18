@@ -6,4 +6,12 @@ class User < ApplicationRecord
   has_many :picks, inverse_of: :user
   accepts_nested_attributes_for :picks
   validates_associated :picks
+  validate :password_complexity
+  private
+    def password_complexity
+    # Regexp extracted from https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
+    return if password.blank? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/
+
+    errors.add :password, 'Complexity requirement not met. Length should be at least 8 and include: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
+    end
 end
