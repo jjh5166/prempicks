@@ -113,11 +113,15 @@
     margin: 18%;
   }
 }
-@media only screen and (min-width: 667px) {
+@media only screen and (max-width: 667px) {
   /* For iPhone landscape: */
   .mp_container{
     margin-top: -2%;
   }
+  .mp_select{
+    width: 100% !important;
+  }
+  
 }
 @media only screen and (min-width: 768px) {
   /* For desktop: */
