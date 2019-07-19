@@ -4,9 +4,20 @@
 }
 .nav_title {
   font-style: oblique;
-  font-size: var(--nav_title_ft_sz);
+  // font-size: var(--nav_title_ft_sz);
   color: var(--theme_text_clr) !important;
   text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
              0px 18px 23px rgba(0,0,0,0.1);
+}
+
+@media only screen and (min-width: 640px) {
+    /* For landscape mobile: */
+
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .nav_title {
+    font-size: var(--nav_title_ft_sz);
+  }
 }
