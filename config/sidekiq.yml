@@ -8,3 +8,6 @@
   scoring_check:
     cron: '0 * * * * *'
     class: ScoringCheck
+  guest_clear:
+    cron: '* * 1 * * *'
+    class: GuestClear
