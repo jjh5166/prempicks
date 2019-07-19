@@ -1,3 +1,5 @@
-$(function () {
-  $('.tool_tip').tooltip();
-});
+document.addEventListener("turbolinks:load", (e) => {
+  $(function () {
+    $('.tool_tip').tooltip();
+  });
+})
