@@ -11,10 +11,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('football-soccer-ball-48-183228.png'), :rel => 'icon', :type =>  'image/png' %>
   </head>
-  <body  class="hero_img">
+  <body  class="hero_img d-flex flex-column">
     <% unless controller_name == "landing" %>
       <%= render 'layouts/navbar'%>
     <% end %>
       <%= yield %>
+    <% unless controller_name == "picks" %>
+    <%= render 'layouts/footer'%>
+    <%end%>
   </body>
 </html>
