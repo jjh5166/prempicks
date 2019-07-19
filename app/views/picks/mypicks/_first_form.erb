@@ -6,7 +6,7 @@
     <span class="mp_mdcount"><%=p.index+1%></span>
     <div class="mp_form">
       
-      <%= p.input :team_id, as: :select,label: false, include_blank: true, collection: @pickteams.sort, input_html: {class: :mp_select, disabled: (disable_pick(p.index+1))} %>
+      <%= p.input :team_id, as: :select,label: false, include_blank: true, collection: @pickteams.sort, input_html: {class: :mp_select, disabled: (@locked_mds[p.index+1])} %>
     </div>
   </div>
   <% end %>
