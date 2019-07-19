@@ -6,7 +6,7 @@
         <span>Owner</span>
       </th>
       <th class="secondColumn">Points</th>
-      <% (-@md_count..-1).each do |n|%>
+      <% (-@currentMatchday..-1).each do |n|%>
       <th class="th_match" colspan="2">
         <%= -n %>
       </th>
@@ -22,7 +22,7 @@
       <td class="secondColumn">
         <%= u.picks.sum(:points) %>
       </td>
-      <% u.picks.first(@md_count).reverse.each do |t|%>
+      <% u.picks.first(@currentMatchday).reverse.each do |t|%>
         <% unless @unlocked_mds.include? t.matchday%>
       <td>
           <%= t.team_id %>
