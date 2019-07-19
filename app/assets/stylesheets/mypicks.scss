@@ -59,6 +59,9 @@
       white-space: nowrap;
     }
   }
+  .matchday_scroll::-webkit-scrollbar {
+    display:none;
+}
 }
 .mp_col1_unit{
   height: 50px;
