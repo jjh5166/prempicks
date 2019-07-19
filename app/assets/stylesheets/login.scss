@@ -7,7 +7,6 @@
   text-align: center;
   border-radius: 10px;
   background: linear-gradient(90deg, rgba(31,89,47,1) 0%, rgb(41, 161, 111) 35%, rgb(8, 78, 31) 100%);
-  background: linear-gradient(90deg, rgba(31,89,47,1) 0%, rgb(41, 161, 111) 35%, rgb(8, 78, 31) 100%);
   padding-bottom: 10px;
   border: 2px groove grey;
   margin-top: 32%;
@@ -26,20 +25,20 @@
   display: block;
   margin: 0 auto;
   color: white;
+  width: fit-content;
 }
 .login-btn{
+  @extend .btn-std;
   color: rgba(231, 241, 241, 1);
-  background-color: #0f8bb8
+  background-color: #0f8bb8;
 }
 .guest_btn{
   @extend .btn-std;
   background-color:#5BBF78;
-  width: fit-content;
 }
 .signup_btn{
   @extend .btn-std;
   background-color:rgb(137, 67, 184);
-  width: fit-content;
 }
 .btn-break{
   display: block;
@@ -73,15 +72,7 @@
     width: 36%;
   }
 }
-.ptip{
-  .ptip_text{
-  display:block;
-  position: absolute;
-  padding: 6px;
-  height:40px;
-  width: 40px;
-  }
-}
+
 .tip_asterisk{
   font-size: .8em;
 }
