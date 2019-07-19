@@ -1,10 +1,12 @@
 # frozen_string_literal: true
+require 'sidekiq/web'
 
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # root to: "application#index"
-
+  
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
   authenticated :user do
     root to: 'picks#standings', as: :authenticated_root
   end
@@ -24,6 +26,5 @@ Rails.application.routes.draw do
   devise_scope :user do
     patch '/mypicks_update' => 'users/update_picks#update_picks', :as => :update_picks
   end
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+
 end
