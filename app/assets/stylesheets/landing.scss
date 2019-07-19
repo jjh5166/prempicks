@@ -1,11 +1,48 @@
 .home_header{
   position: absolute;
-  top: 44%;
+  top: 21%;
   left: 50%;
   transform: translate(-50%, -50%);
   vertical-align: middle;
   font-style: italic;
-  font-size: 5em;
-  color: #00ace6;
+  font-size: 7em;
+  color: rgb(31, 154, 192);
   text-shadow: 2px 2px #00394d;
+  text-align: center
+}
+.landing_buttons{
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.landing-btn{
+  @extend .btn-std;
+  border: solid white 1px;
+  margin: 5% !important;
+  font-size: 2em
+}
+@media only screen and (min-width: 640px) {
+    /* For landscape mobile: */
+  .home_header{
+    top: 13%;
+  }
+  .landing_buttons{
+    top: 80%
+  }
+
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .home_header{
+    top: 30%;
+    font-size: 10em;
+  }
+  .landing_buttons{
+    top: 80%;
+    font-size: 1em;
+  }
 }
