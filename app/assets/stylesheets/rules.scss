@@ -3,7 +3,8 @@
   color: black;
   margin: 0 auto;
   width: 85%;
-  height: auto;
+  height: 100%;
+  overflow: scroll;
   background: var(--table_bkgd_color);
   h4{
     text-align: center;
@@ -34,7 +35,7 @@
   position: relative;
   margin: 0 4%;
   height: auto;
-  overflow: hidden;
+  overflow: scroll;
   margin-bottom: 12px;
 }
 .points_list{
