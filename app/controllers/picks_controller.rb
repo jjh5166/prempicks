@@ -7,6 +7,7 @@ class PicksController < ApplicationController
   before_action :lock_matchdays, only: %i[standings mypicks]
   before_action :authenticate_user!, only: %i[mypicks make]
   before_action :seed_picks, :set_my_picks, :pick_initialization, only: [:mypicks]
+  before_action :set_current_matchday, only: :standings
 
   def standings
     all_standings = load_standings
@@ -14,17 +15,14 @@ class PicksController < ApplicationController
     @firsthalftotals = all_standings.order(Arel.sql('firsthalf DESC'))
     @secondhalftotals = all_standings.order(Arel.sql('secondhalf DESC'))
     @unlocked_mds = unlocked_mds
-    @md_count = matchday_count
-    @first_timer = @md_count < 20 ? @md_count : 19
-    @second_timer = @md_count - @first_timer
+    @first_timer = @currentMatchday < 20 ? @currentMatchday : 19
+    @second_timer = @currentMatchday - @first_timer
   end
 
   def mypicks
-    # @locked_mds = locked_mds
-    matches_data = fetch_matches
+    @locked_mds = locked_mds
+    matches_data = matches_and_current
     @matches = matches_data.sort_by { |match| [match['matchday'], match['utcDate']] }
-    @md_count = matchday_count
-    # @userid = current_user.id
     @teamcodes = team_codes
     @user = User.find(current_user.id)
   end
