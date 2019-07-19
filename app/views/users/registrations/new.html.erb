@@ -1,3 +1,4 @@
+<br>
 <div class="edit_form">
   <h2 class="page_header">Sign up</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -25,9 +26,8 @@
 
   <div class="field">
     <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <i class="fa fa-question-circle-o tool_tip" title="Password must be at least 8 characters and include: 1 uppercase, 1 lowercase, 1 number and 1 special character" aria-hidden="true"></i>
+    <br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
