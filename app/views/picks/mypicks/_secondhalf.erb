@@ -1,4 +1,4 @@
-<div class="mp_container" id="mp_cont_2h" <% unless (@md_count > 18) %>style="display:none;" <%end%>>
+<div class="mp_container" id="mp_cont_2h" <% unless (@currentMatchday > 18) %>style="display:none;" <%end%>>
 <%= render 'picks/mypicks/second_form'%>
   <div class="mp_matches">
     <%@matches.last(190).each_slice(10) do |slice|%>
