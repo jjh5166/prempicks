@@ -1,25 +1,25 @@
 <div class="dev_cnt">
-<h2 class="page_header">Log in</h2>
+  <h2 class="page_header">Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-      
+
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <%= link_to "Forgot your password?", new_password_path(resource_name), class: "pword_link" %>
- 
+  <div class="btn-break"></div>
   <%= f.button "Log in", class: "btn login-btn" %>
-  
+
   <div class="btn-break"></div>
 
   <%= link_to "Log in as guest", welcome_path, class: "btn guest_btn"%>
-  
-<% end %>
+
+  <% end %>
 
 </div>
