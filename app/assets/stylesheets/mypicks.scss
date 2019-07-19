@@ -24,7 +24,8 @@
   background: var(--table_bkgd_color);
   margin: 0 .5% 2% .5%;
   color: black;
-  
+  max-height: 100%;
+  overflow: scroll;
 }
 .mp_col1{
   grid-column-start: 1;
