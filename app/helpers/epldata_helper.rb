@@ -4,12 +4,20 @@ module EpldataHelper
   def fetch_matches
     FootballData.fetch(:competitions, :matches, id: 2021)['matches']
   end
+
   def matches_and_current
     match_data = fetch_matches
-    @currentMatchday = match_data[0]['season']['currentMatchday']
-    return match_data
+    @current_matchday = match_data[0]['season']['currentMatchday']
+    match_data
   end
+
   def set_current_matchday
-    @currentMatchday = fetch_matches[0]['season']['currentMatchday']
+    @current_matchday = fetch_matches[0]['season']['currentMatchday']
+  end
+
+  def last_yr_standings
+    s3 = Aws::S3::Client.new
+    file = s3.get_object(bucket: ENV['S3_BUCKET'], key: 'lastyr.json')
+    JSON.parse(file.body.read)['standings']
   end
 end

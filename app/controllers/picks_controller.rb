@@ -5,9 +5,8 @@ class PicksController < ApplicationController
   include AutopickHelper
   include EpldataHelper
   before_action :lock_matchdays, only: %i[standings mypicks]
-  before_action :authenticate_user!, only: %i[mypicks make]
-  before_action :seed_picks, :set_my_picks, :pick_initialization, only: [:mypicks]
-  before_action :set_current_matchday, only: :standings
+  before_action :authenticate_user!, :seed_picks, :set_my_picks, :pick_initialization, only: [:mypicks]
+  # before_action :set_current_matchday, only: :standings
 
   def standings
     all_standings = load_standings
@@ -15,8 +14,9 @@ class PicksController < ApplicationController
     @firsthalftotals = all_standings.order(Arel.sql('firsthalf DESC'))
     @secondhalftotals = all_standings.order(Arel.sql('secondhalf DESC'))
     @unlocked_mds = unlocked_mds
-    @first_timer = @currentMatchday < 20 ? @currentMatchday : 19
-    @second_timer = @currentMatchday - @first_timer
+    @current_matchday = 38 # testing
+    @first_timer = @current_matchday < 20 ? @current_matchday : 19
+    @second_timer = @current_matchday - @first_timer
   end
 
   def mypicks
@@ -41,9 +41,7 @@ class PicksController < ApplicationController
   end
 
   def pick_initialization
-    s3 = Aws::S3::Client.new
-    file = s3.get_object(bucket: ENV['S3_BUCKET'], key: 'lastyr.json')
-    allteams = JSON.parse(file.body.read)['standings']
+    allteams = last_yr_standings
     @pickteams = []
     allteams.each do |t|
       @pickteams.push(t)
