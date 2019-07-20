@@ -2,6 +2,7 @@
 
 # Autopicking for picks past deadline
 module AutopickHelper
+  include EpldataHelper
   # Determines users who have not picked for specific matchday
   def users_no_pick(matchday)
     no_pick_users = []
@@ -23,7 +24,7 @@ module AutopickHelper
 
   # if team is picked for future, needs to assign future pick back to nil
   def auto_pick(matchday, users)
-    lastyr = lastyr_standings
+    lastyr = last_yr_standings
     # creates array of picked teams for each user
     users.each do |user|
       pickedteams = []
@@ -51,12 +52,6 @@ module AutopickHelper
   end
 
   private
-
-  def lastyr_standings
-    path = Rails.root.join 'app', 'assets', 'data', 'lastyr.json'
-    file = File.read(path)
-    JSON.parse(file)['standings']
-  end
 
   def picked_teams_for_auto(user, matchday)
     s = matchday < 20 ? 1 : 20
