@@ -1,3 +1,9 @@
+:root{
+--mp_row_height: 80px;
+--mp_half_row_height: calc(var(--mp_row_height)/2);
+--mp_row_height_desktop: 50px;
+--mp_half_row_height_desktop: calc(var(--mp_row_height_desktop)/2);
+}
 .firsthalf_table, .sechalf_table{
   border: 1px solid black;
   tr{
@@ -14,11 +20,11 @@
 }
 .mp_container{
   position: absolute;
+  height: 70%;
   left: 0;
   right: 0;
   display: grid;
-  grid-template-columns: 20% 80%;
-  grid-auto-rows: 50px;
+  grid-template-columns: 25% 75%;
   outline: 2px solid black;
   width: 99%;
   background: var(--table_bkgd_color);
@@ -42,7 +48,6 @@
   overflow: scroll;
 }
 .mp_matchday{
-  height: 50px;
   max-width: none;
   outline: 1px solid black;
   overflow: hidden;
@@ -57,48 +62,55 @@
     -ms-overflow-style: none;
     .mp_match_row{
       white-space: nowrap;
+      height: var(--mp_half_row_height);
     }
   }
   .matchday_scroll::-webkit-scrollbar {
     display:none;
 }
 }
+.mp_matchday, .mp_col1_unit{
+  height: var(--mp_row_height);
+}
 .mp_col1_unit{
-  height: 50px;
   position: relative;
   border-bottom: 1px solid black;
-  // outline: 1px solid black;
 }
 .mp_match{
-  width: 93px;
-  font-size: 12px;
+  width: 48%;
   text-align: left;
   display: inline-block;
   position: relative;
-  margin: 0 2%;
+  margin: 0 1%;
+  height: 100%
 }
 .mp_match_gr{
+  height: 100%;
   width:100%;
   display: inline-grid;
   grid-template-columns: 25% 15% 20% 15% 25%;
   img{
-    height:12px;
-    width:12px;
+    height:22px;
+    width:22px;
     place-self: center;
   }
   .score_span{
+    place-self: center;
     grid-column-start: 3;
     position: relative;
     margin: 0 auto;
-    justify-self: center;
+  }
+  .tspan{
+    place-self: center;
+    font-size: 16px;
   }
   .hteam{
+    @extend .tspan;
     grid-column-start: 1;
-    justify-self: center;
   }
   .ateam{
+    @extend .tspan;
     grid-column-start: 5;
-    justify-self: center;
   }
   .himage{
     grid-column-start: 2;
@@ -117,17 +129,35 @@
     margin: 18%;
   }
 }
-@media only screen and (max-width: 667px) {
-  /* For iPhone landscape: */
+.mypicks_sub{
+    position: absolute;
+    left: 50%;
+    transform: translate3D(-50%, -50%, 0);
+    bottom:0;
+    background-color: white;
+    height: 40px;
+    font-size: 20px;
+    width: 90%
+}
+@media only screen and (min-width: 640px) {
+  /* For mobile landscape: */
   .mp_container{
     margin-top: -2%;
+    height: 72%
   }
   .mp_select{
     width: 100% !important;
   }
-  
+  .mypicks_sub{
+    bottom: -4%
+  }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-height: 668px) {
+  .mp_container{
+    height: 75%;
+  }
+}
+@media only screen and (min-width: 813px) {
   /* For desktop: */
   .mp_container{
     width: 90%;
@@ -135,6 +165,16 @@
     grid-template-columns: 13% 87%;
     margin: 0 auto;
     margin-top: - 0.5%;
+    height: 72%
+  }
+  .mypicks_sub{
+    bottom: -2%
+  }
+  .mp_matchday, .mp_col1_unit{
+  height: var(--mp_row_height_desktop);
+  }
+  .mp_match_row{
+    height: var(--mp_half_row_height_desktop) !important;
   }
   .mp_matchday{
     max-width: none ;
