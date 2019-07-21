@@ -1,14 +1,12 @@
 <nav class="navbar navbar-dark navbar-expand-md bg-success justify-content-between">
   <div class="container-fluid">
-    <!-- Toggler -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".collapseNav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- left side -->
-    <div class="navbar-collapse collapse collapseNav w-50 order-1 order-md-0">
-      <ul class="nav navbar-nav">
+    <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
+      <ul class="navbar-nav">
         <% if user_signed_in? || session[:guest_user_id] %>
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to 'Standings', standings_path, :class => "nav-link" %>
         </li>
         <li class="nav-item">
@@ -23,39 +21,35 @@
         </li>
       </ul>
     </div>
-    <!-- Title -->
-    <a href="/" class="navbar-brand d-block text-center order-0 order-md-1 nav_title">PremPicks</a>
-    <!-- right side -->
-    
-    <div class="navbar-collapse collapse w-50 order-2 collapseNav">
-      <ul class="navbar-nav ml-auto">
-          <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Rules">
-            <%= link_to rules_path, :class => "nav-link" do %>
-              <i class="fa fa-gavel fa-2x"></i>
-            <% end %>
-          </li>
-          <% if user_signed_in? %>
-          <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Account">
-            <%= link_to edit_user_registration_path, :class => "nav-link" do %>
-              <i class="fa fa-user fa-2x"></i>
-            <% end %>
-          </li>
+    <a href="/" class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25 nav_title">PremPicks</a>
+    <div class="navbar-collapse collapse dual-nav w-50 order-2">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Rules">
+          <%= link_to rules_path, :class => "nav-link" do %>
+          <i class="fa fa-gavel fa-2x"></i>
           <% end %>
-          <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Sign Out">
-            <%= link_to destroy_user_session_path, :method => :delete, :class => "nav-link" do %>
-              <i class="fa fa-sign-out fa-2x"></i>
-            <% end %>
-          </li>
+        </li>
+        <% if user_signed_in? %>
+        <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Account">
+          <%= link_to edit_user_registration_path, :class => "nav-link" do %>
+          <i class="fa fa-user fa-2x"></i>
+          <% end %>
+        </li>
+        <% end %>
+        <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Sign Out">
+          <%= link_to destroy_user_session_path, :method => :delete, :class => "nav-link" do %>
+          <i class="fa fa-sign-out fa-2x"></i>
+          <% end %>
+        </li>
       </ul>
     </div>
-   
-      <%else%>
-      <li class="nav-item"></li>
-        <%= link_to 'Sign in', new_user_session_path, :class => "nav-link" %>
-      </li>
-      <li class="nav-item"></li>
-        <%= link_to 'Sign up', new_user_registration_path, :class => "nav-link" %>
-      </li>
-      <%end%>
+    <%else%>
+    <li class="nav-item"></li>
+    <%= link_to 'Sign in', new_user_session_path, :class => "nav-link" %>
+    </li>
+    <li class="nav-item"></li>
+    <%= link_to 'Sign up', new_user_registration_path, :class => "nav-link" %>
+    </li>
+    <%end%>
   </div>
 </nav>
