@@ -32,30 +32,32 @@
             outline: none;
         }
     }
-    .active, .active_mypicks {
+    .active_base {
         color: #151515;
         background-color: white;
         position: absolute;
-        // left: 0;
         top: 0;
         height: 100%;
         z-index: -1;
         transition: .3s ease-out all;
-        &-case{
-            color: #151515;
-        }
     }
-    .active{
+    .active_3_btn{
+        @extend .active_base;
         width: 32.5%;
     }
-    .active_mypicks{
+    .active_2_btn{
+        @extend .active_base;
         width: 50%;
+
+    }
+    .active-case{
+        color: #151515;
     }
 }
-.active_1h{
+.active_2_btn_first{
     left: 0;
 }
-.active_2h{
+.active_2_btn_second{
     left: 50%;
 }
 .active_2h_st{
@@ -67,12 +69,12 @@
 //     height: 40px;
 //     font-size: 11px;
 // }
-.standings_switch{
+.switch_3_btn{
     button{
         width: 32.5%
     }
 }
-.mypicks_switch{
+.switch_2_btn{
     button{
         width: 49%;
     }

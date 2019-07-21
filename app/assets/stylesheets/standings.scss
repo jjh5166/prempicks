@@ -11,6 +11,8 @@
   margin-top: -1%;
   background:var(--table_bkgd_color);
   overflow-y: hidden;
+  max-height: 100%;
+  overflow: scroll;
 }
 .standings_table{
   margin-bottom: 0;
