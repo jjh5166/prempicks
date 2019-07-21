@@ -1,44 +1,45 @@
 document.addEventListener("turbolinks:load", (e) => {
-  const secondStandings = $('#standings_second');
-  const switchFirstHalf = $('.first-half-button')[0];
-  const switchSecondHalf = $('.second-half-button')[0];
-  const firstHalfPicks = $('#mp_cont_1h');
-  const secondHalfPicks = $('#mp_cont_2h');
-  const activePicks = document.querySelector('.active_mypicks');
-  const switchBtnRight = $('.right-button')[0];
-  const switchBtnMiddle = $('.center-button')[0];
-  const switchBtnLeft = $('.left-button')[0];
-  const activeSwitch = document.querySelector('.active');
-  const fullStandings = $('#standings_full');
-  const firstStandings = $('#standings_first');
+  const twoButtonSwitch = $('.switch_2_btn');
+  const threeButtonSwitch = $('.switch_3_btn');
 
-  if (secondHalfPicks.length) {
+  if (twoButtonSwitch.length) {
+    const activeSwitch = document.querySelector('.active_2_btn');
+    const switchFirstHalf = $('.first_2_btn')[0];
+    const switchSecondHalf = $('.second_2_btn')[0];
+    const leftButtonShow = $('#two-button-left-show');
+    const RightButtonShow = $('#two-button-right-show');
     switchSecondHalf.addEventListener('click', function () {
-      switchHalfRight();
-      firstHalfPicks.hide();
-      secondHalfPicks.show();
+      switchTwoBtnRight();
+      leftButtonShow.hide();
+      RightButtonShow.show();
     }, false);
 
     switchFirstHalf.addEventListener('click', function () {
-      switchHalfLeft();
-      firstHalfPicks.show();
-      secondHalfPicks.hide();
+      switchTwoBtnLeft();
+      leftButtonShow.show();
+      RightButtonShow.hide();
     }, false);
 
-    switchHalfLeft = () => {
-      activePicks.style.left = '0%';
+    switchTwoBtnLeft = () => {
+      activeSwitch.style.left = '0%';
       switchFirstHalf.classList.add('active-case');
       switchSecondHalf.classList.remove('active-case');
     }
-    switchHalfRight = () => {
-      activePicks.style.left = '50%';
+    switchTwoBtnRight = () => {
+      activeSwitch.style.left = '50%';
       switchSecondHalf.classList.add('active-case');
       switchFirstHalf.classList.remove('active-case');
     }
   };
 
-  if (secondStandings.length) {
-
+  if (threeButtonSwitch.length) {
+    const activeSwitch = document.querySelector('.active_3_btn');
+    const switchBtnRight = $('.right-button')[0];
+    const switchBtnMiddle = $('.center-button')[0];
+    const switchBtnLeft = $('.left-button')[0];
+    const secondStandings = $('#standings_second');
+    const fullStandings = $('#standings_full');
+    const firstStandings = $('#standings_first');
     switchBtnLeft.addEventListener('click', function () {
       switchLeft();
       firstStandings.show();
