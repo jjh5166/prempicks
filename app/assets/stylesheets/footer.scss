@@ -3,8 +3,10 @@
   text-align: center;
   color: var(--theme_text_clr) !important;
   flex-shrink: none;
-  position: relative;
+  position: absolute;
   font-size: 12px;
+  width: 100%;
+  bottom: 0;
   .foot_link{
     text-decoration: none;
     color: inherit;
