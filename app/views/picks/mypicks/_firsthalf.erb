@@ -1,4 +1,4 @@
-<div class="mp_container" id="mp_cont_1h" <% unless (@current_matchday < 19) %>style="display:none;" <%end%>>
+<div class="mp_container" id="two-button-left-show" <% unless (@current_matchday < 19) %>style="display:none;" <%end%>>
 <%= render 'picks/mypicks/first_form'%>
   <div class="mp_matches">
     <%@matches.first(190).each_slice(10) do |slice|%>
