@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
   authenticated :user do
-    root to: 'picks#standings', as: :authenticated_root
+    root to: 'picks#mypicks', as: :authenticated_root
   end
   root to: 'landing#landing_page'
 
