@@ -7,12 +7,20 @@ html{
 }
 body{
   font-family: 'Kanit', sans-serif;
-  height: 100% !important;
+  // height: 100% !important;
+  position: relative;
+  min-height: 100%;
+  height: auto;
 }
 h2 {
   font-style: oblique;
   text-align: center;
 }
+.page_container{
+  min-height: 100%;
+  height: auto;
+  width: 100%;
+  }
 .hero_img{
   background: image-url('blur.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -21,19 +29,29 @@ h2 {
   background-size: cover;
   background-color: rgba(81, 81, 159, 0.5);
   background-blend-mode: multiply;
-  position: relative;
 }
-
+.foot{
+  background: linear-gradient(90deg, rgba(31,89,47,1) 0%, rgb(41, 161, 111) 35%, rgb(8, 78, 31) 100%) !important;
+  text-align: center;
+  color: var(--theme_text_clr) !important;
+  position: absolute;
+  font-size: 12px;
+  width: 100%;
+  bottom: 0;
+  // transform: translateY(-100%);
+  // bottom: -webkit-calc(-100% + 40px);
+  //  bottom:calc(-100% + 40px);
+  .foot_link{
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit
+  }
+}
 .table_top {
   background-color: #717274;
   color: #00ace6;
   text-shadow: black 0 0 10px;
 }
-.page_container{
-  height: 100%;
-  width: 100%;
-  padding-bottom: 9%
-  }
 .flashes{
   position: relative;
   left: 0;

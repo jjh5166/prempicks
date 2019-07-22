@@ -12,12 +12,14 @@
     <%= favicon_link_tag asset_path('football-soccer-ball-48-183228.png'), :rel => 'icon', :type =>  'image/png' %>
   </head>
   <body  class="hero_img">
-    <% unless controller_name == "landing" %>
-      <%= render 'layouts/navbar'%>
-    <% end %>
+  <% unless controller_name == "landing" %>
+    <%= render 'layouts/navbar'%>
+  <% end %>
+    <div class="page_container">
       <%= yield %>
-    <% unless controller_name == "picks" %>
+    <!-- <%# unless controller_name == "picks" %> -->
     <%= render 'layouts/footer'%>
-    <%end%>
+    <!-- <%#end%> -->
+    </div>
   </body>
 </html>
