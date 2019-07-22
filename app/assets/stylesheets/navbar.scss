@@ -16,7 +16,7 @@ and (min-width: 640px)
 and (max-width: 812px)
 and (orientation: landscape) {
     /* For landscape mobile: */
-.navbar{
+.navbar, .foot{
   display:none;
 }
 
