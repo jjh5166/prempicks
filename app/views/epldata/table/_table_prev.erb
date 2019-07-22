@@ -1,33 +1,31 @@
-<div class="table-responsive table_container prev_table" id="two-button-left-show">
-  <table class="table table-hover table-bordered epl_table">
-    <thead>
-      <tr class="table_top">
-        <th>#</th>
-        <th></th>
-        <th>GP</th>
-        <th>Points</th>
-        <th>Goals</th>
-        <th class="no_phone">Diff.</th>
-        <th class="no_phone">Wins</th>
-        <th class="no_phone">Draws</th>
-        <th class="no_phone">Losses</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%@epl_table_prev.each do |s|%>
-      <tr>
-        <td><%= s['position']%></td>
-        <td class="team_cell" title="<%= @teamcodes.fetch(s['team']['id'].to_s)['name']%>">
-          <%= @teamcodes.fetch(s['team']['id'].to_s)['abv']%></td>
-        <td><%= s['playedGames']%></td>
-        <td><%= s['points']%></td>
-        <td><%= s['goalsFor']%>:<%= s['goalsAgainst']%></td>
-        <td class="no_phone"><%= s['goalDifference']%></td>
-        <td class="no_phone"><%= s['won']%></td>
-        <td class="no_phone"><%= s['draw']%></td>
-        <td class="no_phone"><%= s['lost']%></td>
-      </tr>
-    </tbody>
-    <%end%>
-  </table>
-</div>
+<table class="table table-hover table-bordered epl_table" id="two-button-left-show">
+  <thead>
+    <tr class="table_top">
+      <th>#</th>
+      <th></th>
+      <th>GP</th>
+      <th>Points</th>
+      <th>Goals</th>
+      <th class="no_phone">Diff.</th>
+      <th class="no_phone">Wins</th>
+      <th class="no_phone">Draws</th>
+      <th class="no_phone">Losses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@epl_table_prev.each do |s|%>
+    <tr>
+      <td><%= s['position']%></td>
+      <td class="team_cell" title="<%= @teamcodes.fetch(s['team']['id'].to_s)['name']%>">
+        <%= @teamcodes.fetch(s['team']['id'].to_s)['abv']%></td>
+      <td><%= s['playedGames']%></td>
+      <td><%= s['points']%></td>
+      <td><%= s['goalsFor']%>:<%= s['goalsAgainst']%></td>
+      <td class="no_phone"><%= s['goalDifference']%></td>
+      <td class="no_phone"><%= s['won']%></td>
+      <td class="no_phone"><%= s['draw']%></td>
+      <td class="no_phone"><%= s['lost']%></td>
+    </tr>
+  </tbody>
+  <%end%>
+</table>
