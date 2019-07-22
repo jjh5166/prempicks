@@ -22,7 +22,7 @@
         border: none;
         transition: .3s ease all;
         text-transform: uppercase;
-        letter-spacing: 5px;
+        letter-spacing: 4px;
         padding-bottom: 1px;
         &:hover{
             color: grey;
@@ -43,7 +43,7 @@
     }
     .active_3_btn{
         @extend .active_base;
-        width: 32.5%;
+        width: 32%;
     }
     .active_2_btn{
         @extend .active_base;
@@ -71,7 +71,7 @@
 // }
 .switch_3_btn{
     button{
-        width: 32.5%
+        width: 32%
     }
 }
 .switch_2_btn{
