@@ -11,16 +11,6 @@
              0px 18px 23px rgba(0,0,0,0.1);
 }
 
-@media only screen
-and (min-width: 640px)
-and (max-width: 812px)
-and (orientation: landscape) {
-    /* For landscape mobile: */
-.navbar, .foot{
-  display:none;
-}
-
-}
 @media only screen and (min-width: 814px) {
   /* For desktop: */
   .nav_title {

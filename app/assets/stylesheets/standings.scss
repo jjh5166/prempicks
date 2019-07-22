@@ -14,10 +14,14 @@
   max-height: 100%;
   overflow: scroll;
 }
+.table_top {
+  background-color: #717274;
+  color: #00ace6;
+  text-shadow: black 0 0 10px;
+}
 .standings_table{
   margin-bottom: 0;
   text-align: center;
-  // background:var(--table_bkgd_color);
   th, td{
     padding: .5rem;
   }
@@ -31,8 +35,6 @@
     background-color: var(--nav_bkgd_clr);
     color: var(--nav_bkgd_clr);
     text-shadow: none;
-    // span{
-    // }
   };
   td:first-child{
     white-space: nowrap;
@@ -63,9 +65,6 @@
 #standings_second{
   display: none;
 }
-// #standings_first{
-//   display: none;
-// }
 
 @media only screen and (min-width: 667px) {
     /* For landscape mobile: */
