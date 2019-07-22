@@ -19,7 +19,7 @@
   color: #5E5E5D;
 }
 .mp_container{
-  position: absolute;
+  position: relative;
   height: 70%;
   left: 0;
   right: 0;
@@ -60,6 +60,7 @@
     overflow-x: scroll;
     overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
     .mp_match_row{
       white-space: nowrap;
       height: var(--mp_half_row_height);
@@ -82,7 +83,8 @@
   display: inline-block;
   position: relative;
   margin: 0 1%;
-  height: 100%
+  height: 100%;
+  scroll-snap-align: start
 }
 .mp_match_gr{
   height: 100%;
@@ -130,10 +132,10 @@
   }
 }
 .mypicks_sub{
-    position: absolute;
+    position: relative;
     left: 50%;
-    transform: translate3D(-50%, -50%, 0);
-    bottom:0;
+    // transform: translate3D(-50%, -50%, 0);
+    transform: translate3D(-50%, 0, 0);
     background-color: white;
     height: 40px;
     font-size: 20px;
@@ -148,9 +150,9 @@
   .mp_select{
     width: 100% !important;
   }
-  .mypicks_sub{
-    bottom: -4%
-  }
+  // .mypicks_sub{
+  //   bottom: 3.5%
+  // }
 }
 @media only screen and (min-height: 668px) {
   .mp_container{
@@ -167,9 +169,9 @@
     margin-top: - 0.5%;
     height: 72%
   }
-  .mypicks_sub{
-    bottom: -2%
-  }
+  // .mypicks_sub{
+  //   bottom: -2%
+  // }
   .mp_matchday, .mp_col1_unit{
   height: var(--mp_row_height_desktop);
   }
