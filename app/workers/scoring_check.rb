@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sidekiq-scheduler'
 
 class ScoringCheck
@@ -6,7 +8,8 @@ class ScoringCheck
   sidekiq_options retry: false
   def perform
     return unless scoring_needed?
-      matchday = mds_needing_scoring.first
-      ScoringJob.perform_async(matchday)
+
+    matchday = mds_needing_scoring.first
+    ScoringJob.perform_async(matchday)
   end
 end
