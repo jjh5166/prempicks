@@ -6,8 +6,8 @@ document.addEventListener("turbolinks:load", (e) => {
     const activeSwitch = document.querySelector('.active_2_btn');
     const switchFirstHalf = $('.first_2_btn')[0];
     const switchSecondHalf = $('.second_2_btn')[0];
-    const leftButtonShow = $('#two-button-left-show');
-    const RightButtonShow = $('#two-button-right-show');
+    const leftButtonShow = $('.two-button-left-show');
+    const RightButtonShow = $('.two-button-right-show');
     switchSecondHalf.addEventListener('click', function () {
       switchTwoBtnRight();
       leftButtonShow.hide();

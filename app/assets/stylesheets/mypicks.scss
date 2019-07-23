@@ -134,7 +134,6 @@
 .mypicks_sub{
     position: relative;
     left: 50%;
-    // transform: translate3D(-50%, -50%, 0);
     transform: translate3D(-50%, 0, 0);
     background-color: white;
     height: 40px;
@@ -151,9 +150,6 @@
   .mp_select1, .mp_select2 {
     width: 100% !important;
   }
-  // .mypicks_sub{
-  //   bottom: 3.5%
-  // }
 }
 @media only screen and (min-height: 668px) {
   .mp_container{
