@@ -141,13 +141,14 @@
     font-size: 20px;
     width: 90%
 }
+
 @media only screen and (min-width: 640px) {
   /* For mobile landscape: */
   .mp_container{
     margin-top: -2%;
     height: 72%
   }
-  .mp_select{
+  .mp_select1, .mp_select2 {
     width: 100% !important;
   }
   // .mypicks_sub{
@@ -169,9 +170,9 @@
     margin-top: - 0.5%;
     height: 72%
   }
-  // .mypicks_sub{
-  //   bottom: -2%
-  // }
+  .mypicks_sub{
+    margin-top: 1%;
+  }
   .mp_matchday, .mp_col1_unit{
   height: var(--mp_row_height_desktop);
   }
