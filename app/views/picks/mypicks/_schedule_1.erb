@@ -1,0 +1,31 @@
+<div class="two-button-left-show" <% unless (@current_matchday < 19) %>style="display:none;" <%end%>>
+<%@matches.first(190).each_slice(10) do |slice|%>
+<div class="mp_matchday ">
+  <div class="matchday_scroll">
+    <% slice.each_slice(5) do |r| %>
+    <div class="mp_match_row ">
+      <% r.each do |m|%>
+      <div class="mp_match">
+        <div class="mp_match_gr">
+          <%hometeam = @teamcodes.fetch(m['homeTeam']['id'].to_s)%>
+          <%awayteam = @teamcodes.fetch(m['awayTeam']['id'].to_s)%>
+          <span class="hteam"><%=hometeam['abv']%></span>
+          <img class="himage" src="<%=hometeam['crestURL']%>" alt="Home Logo">
+          <span class="score_span">
+            <%if m['status'] == 'FINISHED'%>
+            <%=m['score']['fullTime']['homeTeam']%>:<%=m['score']['fullTime']['awayTeam']%>
+            <%else%>
+            vs.
+            <%end%>
+          </span>
+          <img class="aimage" src="<%=awayteam['crestURL']%>" alt="Away Logo">
+          <span class="ateam"><%=awayteam['abv']%></span>
+        </div>
+      </div>
+      <%end%>
+    </div>
+    <%end%>
+  </div>
+</div>
+<%end%>
+</div>
