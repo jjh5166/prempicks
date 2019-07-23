@@ -19,11 +19,19 @@ headers = {'X-Auth-Token': APIkey}
 connection.request('GET', request_string, None, headers)
 response = json.loads(connection.getresponse().read().decode())
 
-with open('app/assets/data/code_to.json') as jfile:
-    teamcodes = json.load(jfile)[0]
+s3 = boto3.resource(
+    's3',
+    region_name=AwsRegion,
+    aws_access_key_id=AwsAccessKeyID,
+    aws_secret_access_key=AwsSecretAccessKey
+)
 
-with open('app/assets/data/lastyr.json') as jfile:
-    lastszn = json.load(jfile)['standings']
+with open('app/assets/data/code_to.json') as jfile:
+    teamcodes = json.load(jfile)
+
+content = s3.Object(AwsBucket, 'lastyr.json')
+file_content = content.get()['Body'].read().decode('utf-8')
+lastszn = json.loads(file_content)['standings']
 
 topSix = lastszn[:6]
 newThree = lastszn[17:]
@@ -59,6 +67,7 @@ class ScoreMatch:
     def topSixOrNew(self, winner, loser):
         if loser in topSix:
             self.lScore -= 1
+            self.wScore += 1
         if winner in newThree:
             self.wScore += 1
 
@@ -80,12 +89,6 @@ for m in response['matches']:
 
 scores_json = json.dumps(scores)
 
-s3 = boto3.resource(
-    's3',
-    region_name=AwsRegion,
-    aws_access_key_id=AwsAccessKeyID,
-    aws_secret_access_key=AwsSecretAccessKey
-)
 filename = 'scores/matchday' + matchday + '.json'
 
 s3.Object(AwsBucket, filename).put(Body=scores_json)
