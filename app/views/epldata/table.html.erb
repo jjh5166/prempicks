@@ -1,9 +1,9 @@
-<div class="page_container">
   <%= render 'epldata/table/table_buttons'%>
+<div class="table-responsive table_container">
   <%= render 'epldata/table/table_current'%>
   <%= render 'epldata/table/table_prev'%>
-
 </div>
+
 <script>
   if (window.matchMedia("(min-width: 768px)").matches) {
     $(document).ready(function () {
