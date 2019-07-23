@@ -1,9 +1,14 @@
-<!-- <div class="page_container"> -->
   <%= render 'picks/mypicks/my_picks_buttons'%>
-  <%= render 'picks/mypicks/firsthalf'%>
-  <%= render 'picks/mypicks/secondhalf'%>
-  <input type="submit" value="Submit" class="mypicks_sub" form="edit_user_<%=current_user.id%>">
-<!-- </div> -->
+<div class="mp_container">
+  <div class="mp_col1">
+    <%= render 'picks/mypicks/form'%>
+  </div>
+  <div class="mp_matches">
+    <%= render 'picks/mypicks/schedule_1'%>
+    <%= render 'picks/mypicks/schedule_2'%>
+  </div>
+</div>
+<input type="submit" value="Submit" class="mypicks_sub" form="edit_user_<%=current_user.id%>">
 
 <script type="text/javascript">
   picksForm();
