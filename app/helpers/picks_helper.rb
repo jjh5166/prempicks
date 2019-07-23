@@ -16,14 +16,13 @@ module PicksHelper
 
   def set_my_picks
     @user_picks_1h = []
-    @picks_first_half = Pick.where(user_id: current_user.id, half: 1)
-    @picks_first_half.each do |p|
-      @user_picks_1h.push(p.team_id)
-    end
     @user_picks_2h = []
-    @picks_second_half = Pick.where(user_id: current_user.id, half: 2)
-    @picks_second_half.each do |p|
-      @user_picks_2h.push(p.team_id)
+    @all_picks = Pick.where(user_id: current_user.id)
+    @all_picks.first(19).each do |pick|
+      @user_picks_1h.push(pick.team_id)
+    end
+    @all_picks.last(19).each do |pick|
+      @user_picks_2h.push(pick.team_id)
     end
   end
 
@@ -79,7 +78,7 @@ module PicksHelper
   def unlocked_matchday_times
     mds = unlocked_mds
     return unless mds.any?
-    
+
     all_matches = FootballData
                     .fetch(:competitions, :matches, id: 2021)['matches']
     matchtimes = {}

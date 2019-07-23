@@ -1,0 +1,26 @@
+<%= simple_form_for @user, :url => update_picks_path, :method => :patch, html: {class: :mypicks_form} do |f|%>
+<div class="two-button-left-show"<% unless (@current_matchday < 19) %>style="display:none;" <%end%>>
+  <% @all_picks.first(19).each do |picksf| %>
+  <%= f.simple_fields_for :picks, picksf do |p|%>
+  <div class="mp_col1_unit">
+    <span class="mp_mdcount"><%=p.index+1%></span>
+    <div class="mp_form">
+      <%= p.input :team_id, as: :select,label: false, include_blank: true, collection: @pickteams.sort, disabled: @user_picks_1h, input_html: {class: :mp_select1, disabled: (@locked_mds[p.index+1])} %>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+<div class="two-button-right-show" <% unless (@current_matchday > 18) %>style="display:none;" <%end%>>
+  <% @all_picks.last(19).each do |picksf| %>
+  <%= f.simple_fields_for :picks, picksf do |p|%>
+  <div class="mp_col1_unit">
+    <span class="mp_mdcount"><%=p.index+1%></span>
+    <div class="mp_form">
+      <%= p.input :team_id, as: :select,label: false, include_blank: true, collection: @pickteams.sort, disabled: @user_picks_2h, input_html: {class: :mp_select2, disabled: (@locked_mds[p.index+1])} %>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+<% end %>
