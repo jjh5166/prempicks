@@ -9,5 +9,5 @@
     cron: '0 * * * * *'
     class: ScoringCheck
   guest_clear:
-    cron: '* * 1 * * *'
+    cron: '0 0 1 * * *'
     class: GuestClear
