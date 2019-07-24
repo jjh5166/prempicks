@@ -1,19 +1,17 @@
-<!-- <div class="page_container"> -->
-  <hr>
-  <!-- <%# unless @second_timer < 1%> -->
+  
+  <% unless @second_timer < 1%>
     <%= render 'picks/standings/standings_buttons' %>
-  <!-- <%#end%> -->
+  <%end%>
 
   <div class="table-responsive table_container">
     
     <%= render 'picks/standings/first_half_table' %>
-    <!-- <%# unless @second_timer < 1%> -->
+    <% unless @second_timer < 1%>
     <%= render 'picks/standings/seasontable' %>
     <%= render 'picks/standings/second_half_table' %>
-    <!-- <%#end%> -->
+    <%end%>
   </div>
 
-<!-- </div> -->
 <script type="text/javascript">
 highlightCells();
 teamOrName();

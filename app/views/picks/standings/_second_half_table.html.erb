@@ -22,7 +22,7 @@
       <td class="secondColumn">
         <%= u.secondhalf %>
       </td>
-      <% u.picks[19..38].first(@second_timer).reverse.each do |t|%>
+      <% @upicks[u.id].last(@second_timer).reverse.each do |t|%>
         <% unless @unlocked_mds.include? t.matchday%>
       <td>
           <%= t.team_id %>

@@ -20,9 +20,9 @@
         <%= u.team_name%>
       </td>
       <td class="secondColumn">
-        <%= u.picks.sum(:points) %>
+        <%= u.season %>
       </td>
-      <% u.picks.first(@current_matchday).reverse.each do |t|%>
+      <% @upicks[u.id].first(@current_matchday).reverse.each do |t|%>
         <% unless @unlocked_mds.include? t.matchday%>
       <td>
           <%= t.team_id %>
