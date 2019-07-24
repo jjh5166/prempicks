@@ -14,6 +14,7 @@ class PicksController < ApplicationController
     @firsthalftotals = all_standings.order(Arel.sql('firsthalf DESC'))
     @secondhalftotals = all_standings.order(Arel.sql('secondhalf DESC'))
     @unlocked_mds = unlocked_mds
+    @upicks = Pick.all.group_by(&:user_id)
     @current_matchday = 38 # testing
     @first_timer = @current_matchday < 20 ? @current_matchday : 19
     @second_timer = @current_matchday - @first_timer
@@ -32,7 +33,7 @@ class PicksController < ApplicationController
   def load_standings
     points_query = 'users.*, sum(case when half = 1 then points else 0 end)'\
     ' as firsthalf, sum(case when half = 2 then points else 0 end)'\
-    ' as secondhalf'
+    ' as secondhalf, sum(points) as season'
     User.joins(:picks).group('users.id').select(points_query)
   end
 
