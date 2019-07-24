@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   include AuthorizationHelper
 
   protect_from_forgery
-  before_action { flash.clear }
 
   private
 
