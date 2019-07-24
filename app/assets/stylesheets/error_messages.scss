@@ -1,0 +1,17 @@
+.error_message{
+  ul{
+    li{
+      list-style-type: none;
+    }
+  }
+};
+#flash_alert{
+  animation: txt1-fade 2s 1 ease-in;
+  animation-fill-mode: forwards;
+}
+  @keyframes txt1-fade {
+    0%   {opacity: 1}
+    50%   {opacity: .75}
+    75%   {opacity: .5}
+    100% {opacity: 0}
+  }
