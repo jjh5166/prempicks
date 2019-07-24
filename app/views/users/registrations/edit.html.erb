@@ -3,7 +3,11 @@
   <h2 class="page_header">Account Settings</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
+  <% if flash.alert %>
+  <div class="error_message">
+    <p id="flash_alert"><%= flash.alert %></p>
+  </div>
+  <% end %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
