@@ -9,8 +9,8 @@
     cron: '0 * * * * *'
     class: ScoringCheck
   guest_clear:
-    cron: '0 0 1 * * *'
+    every: '14d'
     class: GuestClear
   set_matchday:
-    cron: '0 0 * * * *'
+    every: '24h'
     class: SetMatchday
