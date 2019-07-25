@@ -8,10 +8,6 @@ class EpldataController < ApplicationController
   end
 
   def schedule
-    @matches = FootballData.fetch(:competitions, :matches, id: 2021)['matches']
-  end
-
-  def matchday
     @md_matches = FootballData.fetch(:competitions, :matches, id: 2021, matchday: params[:matchday])['matches']
   end
 end
