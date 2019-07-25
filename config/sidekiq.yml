@@ -11,3 +11,6 @@
   guest_clear:
     cron: '0 0 1 * * *'
     class: GuestClear
+  set_matchday:
+    cron: '0 0 * * * *'
+    class: SetMatchday
