@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_19_023337) do
+ActiveRecord::Schema.define(version: 2019_07_25_184247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "current_matchdays", force: :cascade do |t|
+    t.integer "singleton_guard"
+    t.integer "matchday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["singleton_guard"], name: "index_current_matchdays_on_singleton_guard", unique: true
+  end
 
   create_table "matchdays", force: :cascade do |t|
     t.integer "week", null: false
@@ -21,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_07_19_023337) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "scored", default: false
+    t.boolean "current", default: false
   end
 
   create_table "picks", force: :cascade do |t|
