@@ -1,0 +1,28 @@
+<h2>Matchday <%=@current_matchday%></h2>
+
+<div class="all_matchdays_container">
+<%@md_matches.each do |match|%>
+    <div class="matchday_container">
+      <div class="matches">
+        <div class="match_box">
+          <div class="score_line">
+            <div class="match_team"><%=match['homeTeam']['name']%></div>
+            <%if match['status'] == 'FINISHED'%>
+            <div class="match_score"><%=match['score']['fullTime']['homeTeam']%></div>
+            <%else%>
+            <div class="match_score"><%#=Date.parse(match['utcDate']).strftime("%F")%></div>
+            <%end%>
+          </div>
+          <br>
+          <div class="score_line">
+          <div class="match_team"><%=match['awayTeam']['name']%></div>
+            <%if match['status'] == 'FINISHED'%>
+            <div class="match_score"><%=match['score']['fullTime']['awayTeam']%></div>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+<%end%>
+  </div>
+
