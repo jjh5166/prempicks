@@ -14,7 +14,6 @@ class PicksController < ApplicationController
     @secondhalftotals = all_standings.order(Arel.sql('secondhalf DESC'))
     @unlocked_mds = unlocked_mds
     @upicks = Pick.all.group_by(&:user_id)
-    @current_matchday = 38 # testing
     @first_timer = @current_matchday < 20 ? @current_matchday : 19
     @second_timer = @current_matchday - @first_timer
   end
