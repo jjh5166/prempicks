@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  
+
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
@@ -14,8 +15,7 @@ Rails.application.routes.draw do
 
   get '/rules' => 'static_pages#rules', as: :rules
   get '/table' => 'epldata#table', as: :epl_table
-  get '/schedule' => 'epldata#schedule', as: :epl_sched
-  get '/schedule/:matchday' => 'epldata#matchday', as: :matchday
+  get '/schedule/:matchday' => 'epldata#schedule', as: :schedule
   get '/welcome' => 'static_pages#guest_welcome', as: :welcome
   get '/mypicks/g' => 'static_pages#guest_mypicks', as: :gpicks
   get '/standings' => 'picks#standings', as: :standings
@@ -26,5 +26,4 @@ Rails.application.routes.draw do
   devise_scope :user do
     patch '/mypicks_update' => 'users/update_picks#update_picks', :as => :update_picks
   end
-
 end
