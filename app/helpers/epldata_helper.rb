@@ -5,14 +5,8 @@ module EpldataHelper
     FootballData.fetch(:competitions, :matches, id: 2021)['matches']
   end
 
-  def matches_and_current
-    match_data = fetch_matches
-    @current_matchday = match_data[0]['season']['currentMatchday']
-    match_data
-  end
-
-  def set_current_matchday
-    @current_matchday = fetch_matches[0]['season']['currentMatchday']
+  def fetch_current_matchday
+    fetch_matches[0]['season']['currentMatchday']
   end
 
   def last_yr_standings
