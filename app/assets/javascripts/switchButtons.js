@@ -56,7 +56,7 @@ document.addEventListener("turbolinks:load", (e) => {
 
     switchBtnMiddle.addEventListener('click', function () {
       switchMiddle();
-      fullStandings.css('display', 'block');
+      fullStandings.show();
       firstStandings.hide();
       secondStandings.hide();
     }, false);
