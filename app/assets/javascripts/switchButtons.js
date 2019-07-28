@@ -40,30 +40,33 @@ document.addEventListener("turbolinks:load", (e) => {
     const secondStandings = $('#standings_second');
     const fullStandings = $('#standings_full');
     const firstStandings = $('#standings_first');
-    switchBtnLeft.addEventListener('click', function (event) {
-      event.stopPropagation();
-      switchLeft();
-      firstStandings.show();
-      fullStandings.hide();
-      secondStandings.hide();
-    }, false);
-
-    switchBtnRight.addEventListener('click', function (event) {
-      event.stopPropagation();
-      switchRight();
-      secondStandings.show();
-      fullStandings.hide();
-      firstStandings.hide();
-    }, false);
-
-    switchBtnMiddle.addEventListener('click', function (event) {
-      event.stopPropagation();
-      switchMiddle();
-      fullStandings.show();
-      firstStandings.hide();
-      secondStandings.hide();
-    }, false);
-
+    if (!$(switchBtnLeft).hasClass("disabled-case")) {
+      switchBtnLeft.addEventListener('click', function (event) {
+        event.stopPropagation();
+        switchLeft();
+        firstStandings.show();
+        fullStandings.hide();
+        secondStandings.hide();
+      }, false);
+    }
+    if (!$(switchBtnRight).hasClass("disabled-case")) { 
+      switchBtnRight.addEventListener('click', function (event) {
+        event.stopPropagation();
+        switchRight();
+        secondStandings.show();
+        fullStandings.hide();
+        firstStandings.hide();
+      }, false);
+    }
+    if (!$(switchBtnMiddle).hasClass("disabled-case")) {
+      switchBtnMiddle.addEventListener('click', function (event) {
+        event.stopPropagation();
+        switchMiddle();
+        fullStandings.show();
+        firstStandings.hide();
+        secondStandings.hide();
+      }, false);
+    }
     switchRight = () => {
       switchBtnRight.classList.add('active-case');
       switchBtnLeft.classList.remove('active-case');
