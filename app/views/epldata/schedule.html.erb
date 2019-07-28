@@ -1,6 +1,6 @@
 <%= render 'epldata/schedule/schedule_buttons'%>
 <div class="schedule_content">
-  <h4 class="sch_date_range"><%= @matchday.min[0] %> - <%= @matchday.max[0] %></h4>
+  <h4 class="sch_date_range"><%= @matchday.keys.first %> - <%= @matchday.keys.last %></h4>
   <div class="container_schedule">
     <%@matchday.each do |match|%>
       <div class="sch_day">

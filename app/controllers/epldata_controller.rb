@@ -12,6 +12,7 @@ class EpldataController < ApplicationController
     md_matches = FootballData.fetch(:competitions, :matches, id: 2021, matchday: params[:matchday])['matches']
     @matchday = {}
     @matchday.default_proc = proc { [] }
+    md_matches.sort_by! {|k| k['utcDate']}
     md_matches.each do |match|
       dtime = DateTime.parse(match['utcDate'])
       @matchday[dtime.strftime("%B #{ dtime.day.ordinalize }")] += [[match['utcDate'], match['status'],\
