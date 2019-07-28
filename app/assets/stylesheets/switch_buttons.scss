@@ -52,6 +52,9 @@
     .active-case{
         color: #151515;
     }
+    .disabled-case{
+        color: grey;
+    }
 }
 .active_start_left{
     left: 0;
@@ -67,6 +70,9 @@
     button{
         width: 32%
     }
+}
+.switch_3_btn_inactive{
+    @extend .switch_3_btn;
 }
 .switch_2_btn{
     button{
