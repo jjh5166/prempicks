@@ -40,21 +40,24 @@ document.addEventListener("turbolinks:load", (e) => {
     const secondStandings = $('#standings_second');
     const fullStandings = $('#standings_full');
     const firstStandings = $('#standings_first');
-    switchBtnLeft.addEventListener('click', function () {
+    switchBtnLeft.addEventListener('click', function (event) {
+      event.stopPropagation();
       switchLeft();
       firstStandings.show();
       fullStandings.hide();
       secondStandings.hide();
     }, false);
 
-    switchBtnRight.addEventListener('click', function () {
+    switchBtnRight.addEventListener('click', function (event) {
+      event.stopPropagation();
       switchRight();
       secondStandings.show();
       fullStandings.hide();
       firstStandings.hide();
     }, false);
 
-    switchBtnMiddle.addEventListener('click', function () {
+    switchBtnMiddle.addEventListener('click', function (event) {
+      event.stopPropagation();
       switchMiddle();
       fullStandings.show();
       firstStandings.hide();
