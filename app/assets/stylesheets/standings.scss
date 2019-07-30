@@ -67,7 +67,13 @@
     overflow: scroll;
   };
 }
-
+.td_spacer, .th_spacer{
+  display: none
+}
+.td_spacer{
+  width:100%;
+  background-color: rgba(165, 165, 165, 0.8);
+}
 .standings_table>thead:first-child>tr:first-child>th:nth-child(3), .standings_table>tbody>tr>td:nth-child(3) {
   padding-left: var(--standings_col_padding) !important;
 }
@@ -80,7 +86,9 @@
     .table_container{
       margin-top: 0%
     }
-
+    .td_spacer, .th_spacer{
+    display: table-cell;
+    }
 }
 @media only screen and (min-width: 768px) {
   /* For desktop: */
