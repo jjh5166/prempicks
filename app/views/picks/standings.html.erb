@@ -1,5 +1,5 @@
   <%= render 'picks/standings/standings_buttons' %>
-  <div class="table-responsive table_container">
+  <div class="table-responsive stdgs_table_container">
     
     <%= render 'picks/standings/first_half_table' %>
     <% unless @second_timer < 1%>
@@ -11,7 +11,7 @@
 <script type="text/javascript">
 highlightCells();
 teamOrName();
-  var tableContainer = document.getElementsByClassName('table_container')[0];
+  var tableContainer = document.getElementsByClassName('stdgs_table_container')[0];
   tableContainer.onLoad = setSecondColumn();
   $(function () {
     $(window).resize(function () {
