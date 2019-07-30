@@ -1,7 +1,10 @@
 // Place all the styles related to the epldata controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.space_holder{
+  width:inherit;
+  height: 880px;
+}
 .epl_table {
   text-align: center;
   line-height: 1;
@@ -9,6 +12,10 @@
   background-color: var(--table_bkgd_color) !important;
   border: 1px solid black;
   border-bottom: 1px solid black;
+  margin-bottom: 0 !important;
+  position: absolute;
+  width:inherit;
+  top:0;
   tr {
     border: 1px solid black;
     td, th {
@@ -25,7 +32,8 @@
   }
 }
 .prev_table{
-  display: none;
+  // display: none;
+  visibility: hidden;
 }
 
 @media only screen and (min-width: 667px) {
