@@ -11,6 +11,9 @@
         <%= -n %>
       </th>
       <%end%>
+      <% if @first_timer < 7 %>
+      <th class="th_spacer"></th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -31,10 +34,13 @@
           <%= t.points%>
       </td>
         <%else%>
-      <td></td>
-      <td></td>
+      <td>TST</td>
+      <td>0</td>
         <%end%>
       <%end%>
+      <% if @first_timer < 7 %>
+      <td class="td_spacer"></td>
+      <% end %>
     </tr>
     <%end%>
   </tbody>
