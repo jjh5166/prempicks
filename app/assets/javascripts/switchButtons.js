@@ -10,13 +10,17 @@ document.addEventListener("turbolinks:load", (e) => {
     const RightButtonShow = $('.two-button-right-show');
     switchSecondHalf.addEventListener('click', function () {
       switchTwoBtnRight();
+      leftButtonShow.css('visibility','hidden');
       leftButtonShow.hide();
+      RightButtonShow.css('visibility','visible');
       RightButtonShow.show();
     }, false);
 
     switchFirstHalf.addEventListener('click', function () {
       switchTwoBtnLeft();
+      leftButtonShow.css('visibility','visible');
       leftButtonShow.show();
+      RightButtonShow.css('visibility','hidden');
       RightButtonShow.hide();
     }, false);
 
