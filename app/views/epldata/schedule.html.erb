@@ -1,0 +1,39 @@
+<%= render 'epldata/schedule/schedule_buttons'%>
+<div class="schedule_content">
+  <h4 class="sch_date_range"><%= @matchday.keys.first %> - <%= @matchday.keys.last %></h4>
+  <div class="container_schedule">
+    <%@matchday.each do |match|%>
+      <div class="sch_day">
+        <h6 class="day_date"><%=Date.parse(match[0]).strftime("%-m/%-d  -  %A")%></h6>
+        <div class="container_day">
+        <% match[1].each do |m| %>
+          <div class="sch_match">
+            <div class="hteam tname" title="<%=@teams[m[2][:home][0].to_s]['short']%>"><%=@teams[m[2][:home][0].to_s]['abv']%></div>
+            <img class="himage" src="<%=@teams[m[2][:home][0].to_s]['crestURL']%>" alt="Home Logo">
+            <div class="score_span">
+            <% if m[1] == 'FINISHED'%>
+            <%= m[2][:home][1]%>:<%= m[2][:away][1]%>
+            <%else%>
+            <%=Date.parse(m[0]).strftime('%l:%M %p')%>
+            <%end%>
+            </div>
+            <img class="aimage" src="<%=@teams[m[2][:away][0].to_s]['crestURL']%>" alt="Away Logo">
+            <div class="ateam tname" title="<%=@teams[m[2][:away][0].to_s]['short']%>"><%=@teams[m[2][:away][0].to_s]['abv']%></div>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>
+<script>
+  if (window.matchMedia("(min-width: 641px)").matches) {
+    $(document).ready(function () {
+      $('.tname').each(function () {
+        let tou = this.title;
+        $(this).attr('title', $(this).text())
+        $(this).text(tou)
+      });
+    });
+  }
+</script>

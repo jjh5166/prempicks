@@ -1,49 +1,57 @@
-// .page_container{
-//   height: auto;
-//   width: auto;
-//   // position: absolute;
-// }
-// .all_matchdays_container{
-//   display: grid;
-//   grid-template-columns: 20% 20% 20% 20% 20%;
-//   grid-auto-rows: 50px;
-//   // outline: 2px solid green;
-// }
-// .matchday_container{
-//   grid-column-start: 1;
-//   grid-column-end: span 5;
-//   // height: 200px;
-//   // overflow: hidden;
-//   outline: 1px solid purple;
-// }
-// // .match_header{
-// //   position: relative;
-// //   height: 10%;
-// //   margin-top: 0;
-// //   width: 100%
-// // }
-// .matches{
-//
-// //
-// }
-// // .match_box{
-// //
-// //   outline: 2px solid lightgreen;
-// //   // float: left;
-// //   // position: relative;
-// //   // width: 20%;
-// //   // height: 50%;
-// //   // margin: 3px
-// // }
-// // .match_score{
-// //   float: right;
-// // }
-// // .match_team{
-// //   left: 2px
-// // }
-// // .score_line{
-// //   position: relative;
-// //   display: inline-block;
-// //   width: 100%;
-// //   line-height: 0
-// // }
+.container_schedule{
+  height: auto;
+  width: 100%;
+  // display: flex;
+  position: relative;
+}
+.sch_day{
+  width: 100%;
+}
+.container_day{
+  width: 100%;
+}
+.schedule_content{
+  @extend .rules_cnt;
+  padding: 0 3% 5% 3%;
+}
+.sch_date_range{
+  font-size: 21px;
+}
+.sch_match{
+  width:100%;
+  display: inline-grid;
+  grid-template-columns: 25% 12% 26% 12% 25%;
+  padding:1%;
+  outline: black solid 1px;
+  margin: 1% 0;
+  background: rgba(245, 245, 245, 0.7);
+  img{
+    height:25px;
+    width:25px;
+    place-self: center;
+  }
+  .score_span{
+    justify-self: center;
+  }
+  .hteam{
+    justify-self: end
+  }
+  .ateam{
+    justify-self: start
+  }
+}
+@media only screen and (min-width: 640px) {
+  /* For mobile landscape: */
+  .sch_date_range{
+    font-size: 24px;
+  }
+
+}
+@media only screen and (min-height: 668px) {
+
+}
+@media only screen and (min-width: 813px) {
+  .sch_date_range{
+    font-size: 27px;
+  }
+}

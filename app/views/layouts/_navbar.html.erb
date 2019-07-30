@@ -21,6 +21,11 @@
         <li class="nav-item">
           <%= link_to 'EPL Table', epl_table_path, :class => "nav-link" %>
         </li>
+        <li class="nav-item" data-toggle="tooltip" title="Schedule">
+          <%= link_to schedule_path(@current_matchday), :class => "nav-link" do %>
+          <i class="fa fa-calendar fa-2x"></i>
+          <% end %>
+        </li>
       </ul>
     </div>
     <!-- Title -->

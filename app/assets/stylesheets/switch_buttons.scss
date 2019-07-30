@@ -52,14 +52,18 @@
     .active-case{
         color: #151515;
     }
+    .disabled-case{
+        color: grey;
+        cursor: not-allowed !important;
+    }
 }
-.active_2_btn_first{
+.active_start_left{
     left: 0;
 }
 .active_2_btn_second{
     left: 50%;
 }
-.active_2h_st{
+.active_start_mid{
     left: 33.5%;
 }
 
@@ -67,6 +71,9 @@
     button{
         width: 32%
     }
+}
+.switch_3_btn_inactive{
+    @extend .switch_3_btn;
 }
 .switch_2_btn{
     button{

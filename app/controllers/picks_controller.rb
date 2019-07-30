@@ -6,7 +6,6 @@ class PicksController < ApplicationController
   include EpldataHelper
   before_action :lock_matchdays, only: %i[standings mypicks]
   before_action :authenticate_user!, :seed_picks, :set_my_picks, :pick_initialization, only: [:mypicks]
-  # before_action :set_current_matchday, only: :standings
 
   def standings
     all_standings = load_standings
@@ -15,14 +14,13 @@ class PicksController < ApplicationController
     @secondhalftotals = all_standings.order(Arel.sql('secondhalf DESC'))
     @unlocked_mds = unlocked_mds
     @upicks = Pick.all.group_by(&:user_id)
-    @current_matchday = 38 # testing
     @first_timer = @current_matchday < 20 ? @current_matchday : 19
     @second_timer = @current_matchday - @first_timer
   end
 
   def mypicks
     @locked_mds = locked_mds
-    matches_data = matches_and_current
+    matches_data = fetch_matches
     @matches = matches_data.sort_by { |match| [match['matchday'], match['utcDate']] }
     @teamcodes = team_codes
     @user = User.find(current_user.id)

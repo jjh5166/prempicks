@@ -6,13 +6,22 @@
 }
 
 .table_container{
-  width: 90%;
   margin: 0 auto;
   margin-top: -1%;
   background:var(--table_bkgd_color);
   overflow-y: hidden;
   max-height: 100%;
+}
+.stdgs_table_container{
+  @extend .table_container;
+  width: 90%;
   overflow: scroll;
+}
+.epl_table_container{
+  @extend .table_container;
+  overflow: hidden;
+  max-width:90%;
+  position: relative;
 }
 .table_top {
   background-color: #717274;
@@ -58,7 +67,13 @@
     overflow: scroll;
   };
 }
-
+.td_spacer, .th_spacer{
+  display: none
+}
+.td_spacer{
+  width:100%;
+  background-color: rgba(165, 165, 165, 0.8);
+}
 .standings_table>thead:first-child>tr:first-child>th:nth-child(3), .standings_table>tbody>tr>td:nth-child(3) {
   padding-left: var(--standings_col_padding) !important;
 }
@@ -71,7 +86,9 @@
     .table_container{
       margin-top: 0%
     }
-
+    .td_spacer, .th_spacer{
+    display: table-cell;
+    }
 }
 @media only screen and (min-width: 768px) {
   /* For desktop: */

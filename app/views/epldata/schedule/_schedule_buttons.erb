@@ -1,0 +1,21 @@
+<div class="switch-button switch_3_btn"><span class="active_3_btn active_start_mid"></span>
+  <% if params[:matchday].to_i > 1 %>
+  <a href="/schedule/<%= params[:matchday].to_i - 1 %>">
+    <button class="switch-button-case left-button">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </button>
+  </a>
+  <% else %>
+  <button class="switch-button-case left-button disabled-case">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+  </button>
+  <% end %>
+  <button class="switch-button-case center-button active-case">
+    Matchday <%=params[:matchday]%>
+    </button>
+  <a href="/schedule/<%= params[:matchday].to_i + 1 %>">
+    <button class="switch-button-case right-button">
+      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </button>
+  </a>
+</div>

@@ -123,18 +123,18 @@
     "name": "Fulham",
     "short": "Fulham",
     "abv": "FUL",
-    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/a/a8/Fulham_fc.svg"
+    "crestURL": "http://upload.wikimedia.org/wikipedia/de/a/a8/Fulham_fc.svg"
   },
   "715": {
     "name": "Cardiff City",
     "short": "Cardiff",
     "abv": "CAR",
-    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/3/3c/Cardiff_City_crest.svg"
+    "crestURL": "https://upload.wikimedia.org/wikipedia/en/3/3c/Cardiff_City_crest.svg"
   },
   "394": {
     "name": "Huddersfield Town",
     "short": "Huddersfield",
     "abv": "HUD",
-    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/5/5a/Huddersfield_Town_A.F.C._logo.svg"
+    "crestURL": "https://upload.wikimedia.org/wikipedia/en/7/7d/Huddersfield_Town_A.F.C._logo.png"
   }
 }
