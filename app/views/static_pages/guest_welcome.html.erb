@@ -1,12 +1,29 @@
-<div class="page_container">
+<br>
+<div class="rules_cnt">
   <h2 class="page_header">Welcome!</h2>
-
-  <div>
+  <div class="rules_sec">
+    <h4>About</h4>
     <p>
-      
+      This app was created to run a picks league for the English Premier League. The league was previously run in a
+      shared
+      spreadsheet, collecting picks via email and manually updating scores that updated the rest of the data using
+      vlookups.
+      Today, there is a fully functional application built on the Ruby on Rails framework.
+    </p>
+    <h4>How it works</h4>
+    <p>
+      Users are competing to score the most points based on selecting teams each round of games in the season.
+      <hr>
+      The app utilizes Postgres for its database. In addition to user data, league data is stored which is referenced to
+      control visibility and DOM interaction.
+      <hr>
+      Football-Data.org API is used to provide all league data.
+      <hr>
+      The backend jobs are controlled by Sidekiq. A job monitors the API for new match data and initiates other jobs to
+      perform tasks based on the
+      response. The scoring algorithm is written in a <a href="https://github.com/jjh5166/epl-scoring-script"
+        target="_blank">Python script</a>, which fetches data, calculates scores and saves a json
+      file on Amazon S3.
     </p>
   </div>
-
-
-
 </div>
