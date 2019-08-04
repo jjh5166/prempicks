@@ -7,6 +7,7 @@ class PicksController < ApplicationController
   before_action :lock_matchdays, only: %i[standings mypicks]
   before_action :authenticate_user!, :seed_picks, :set_my_picks, only: [:mypicks]
   before_action :seed_guest_picks, :set_guest_picks, only: [:guest_mypicks]
+  before_action :set_samples, only: [:guest_standings]
   before_action :pick_initialization, only: %i[mypicks guest_mypicks]
 
   def standings
@@ -36,6 +37,12 @@ class PicksController < ApplicationController
     @guser = User.find(guest_user.id)
   end
 
+  def guest_standings
+    @seasontotals = @all_standings.sort_by{|u| u['season']}.reverse
+    @firsthalftotals = @all_standings.sort_by{|u| u['firsthalf']}.reverse
+    @secondhalftotals = @all_standings.sort_by{|u| u['secondhalf']}.reverse
+  end
+
   private
 
   def load_standings
@@ -51,5 +58,13 @@ class PicksController < ApplicationController
     allteams.each do |t|
       @pickteams.push(t)
     end
+  end
+
+  def set_samples
+    s3 = Aws::S3::Client.new
+    standings_file = s3.get_object(bucket: ENV['S3_BUCKET'], key: 'sample/sample_standings.json')
+    @all_standings = JSON.parse(standings_file.body.read)
+    picks_file = s3.get_object(bucket: ENV['S3_BUCKET'], key: 'sample/sample_picks.json')
+    @sample_picks = JSON.parse(picks_file.body.read)
   end
 end
