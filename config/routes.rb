@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   #Guest Views
   get '/welcome' => 'static_pages#guest_welcome', as: :welcome
   get '/mypicks/g' => 'picks#guest_mypicks', as: :gpicks
+  get '/standings/g' => 'picks#guest_standings', as: :gstandings
 
   devise_scope :user do
     patch '/mypicks_update' => 'users/update_picks#update_picks', :as => :update_picks
