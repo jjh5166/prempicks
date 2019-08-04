@@ -35,7 +35,11 @@
       </ul>
     </div>
         <!-- Title -->
+      <% if session[:guest_user_id] != nil%>
+        <a href="/welcome" class="navbar-brand d-block text-center order-0 order-md-1 nav_title">PremPicks</a>
+      <% else %>
         <a href="/" class="navbar-brand d-block text-center order-0 order-md-1 nav_title">PremPicks</a>
+      <% end %>
     <%end%>
 
     <!-- right side -->
