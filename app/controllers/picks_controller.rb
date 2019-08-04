@@ -5,7 +5,9 @@ class PicksController < ApplicationController
   include AutopickHelper
   include EpldataHelper
   before_action :lock_matchdays, only: %i[standings mypicks]
-  before_action :authenticate_user!, :seed_picks, :set_my_picks, :pick_initialization, only: [:mypicks]
+  before_action :authenticate_user!, :seed_picks, :set_my_picks, only: [:mypicks]
+  before_action :seed_guest_picks, :set_guest_picks, only: [:guest_mypicks]
+  before_action :pick_initialization, only: %i[mypicks guest_mypicks]
 
   def standings
     all_standings = load_standings
@@ -26,6 +28,14 @@ class PicksController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def guest_mypicks
+    @locked_mds = locked_mds
+    matches_data = fetch_matches
+    @matches = matches_data.sort_by { |match| [match['matchday'], match['utcDate']] }
+    @teamcodes = team_codes
+    @guser = User.find(guest_user.id)
+  end
+
   private
 
   def load_standings
@@ -33,10 +43,6 @@ class PicksController < ApplicationController
     ' as firsthalf, sum(case when half = 2 then points else 0 end)'\
     ' as secondhalf, sum(points) as season'
     User.joins(:picks).group('users.id').select(points_query)
-  end
-
-  def pick_params
-    params.require(:pick).permit(:user_id, :matchday, :team_id)
   end
 
   def pick_initialization
