@@ -5,19 +5,25 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- left side -->
+   
     <div class="navbar-collapse collapse collapseNav w-50 order-1 order-md-0">
       <ul class="nav navbar-nav">
-        <% if user_signed_in? || session[:guest_user_id] %>
+      <% if user_signed_in? || session[:guest_user_id] %>
+        <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to 'Standings', standings_path, :class => "nav-link" %>
         </li>
         <li class="nav-item">
-          <% if user_signed_in? %>
           <%= link_to 'My Picks', mypicks_path, :class => "nav-link" %>
-          <% else %>
-          <%= link_to 'My Picks', gpicks_path, :class => "nav-link" %>
-          <%end%>
         </li>
+        <% elsif session[:guest_user_id] != nil%>
+        <li class="nav-item">
+          <%= link_to 'Standings', gstandings_path, :class => "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'My Picks', gpicks_path, :class => "nav-link" %>
+        </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to 'EPL Table', epl_table_path, :class => "nav-link" %>
         </li>
@@ -28,10 +34,12 @@
         </li>
       </ul>
     </div>
-    <!-- Title -->
-    <a href="/" class="navbar-brand d-block text-center order-0 order-md-1 nav_title">PremPicks</a>
+        <!-- Title -->
+        <a href="/" class="navbar-brand d-block text-center order-0 order-md-1 nav_title">PremPicks</a>
+    <%end%>
+
     <!-- right side -->
-    
+    <% if user_signed_in? || session[:guest_user_id] %>
     <div class="navbar-collapse collapse w-50 order-2 collapseNav">
       <ul class="navbar-nav ml-auto">
           <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Rules">
@@ -53,14 +61,13 @@
           </li>
       </ul>
     </div>
-   
-      <%else%>
-      <li class="nav-item"></li>
-        <%= link_to 'Sign in', new_user_session_path, :class => "nav-link" %>
-      </li>
-      <li class="nav-item"></li>
-        <%= link_to 'Sign up', new_user_registration_path, :class => "nav-link" %>
-      </li>
-      <%end%>
+    <%else%>
+    <li class="nav-item">
+      <%= link_to 'Sign in', new_user_session_path, :class => "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Sign up', new_user_registration_path, :class => "nav-link" %>
+    </li>
+    <%end%>
   </div>
 </nav>
