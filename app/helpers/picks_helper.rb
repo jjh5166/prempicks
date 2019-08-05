@@ -14,6 +14,15 @@ module PicksHelper
     end
   end
 
+  def seed_guest_picks
+    if GuestPick.where(user_id: guest_user.id).count.zero?
+      (1..38).each do |n|
+        h = n < 20 ? 1 : 2
+        GuestPick.new(user_id: guest_user.id, matchday: n, half: h).save
+      end
+    end
+  end
+
   def set_my_picks
     @user_picks_1h = []
     @user_picks_2h = []
@@ -26,12 +35,15 @@ module PicksHelper
     end
   end
 
-  def matchday_count
-    umds = unlocked_mds
-    unless umds.any?
-      38
-    else
-      umds.min - 1
+  def set_guest_picks
+    @user_picks_1h = []
+    @user_picks_2h = []
+    @all_picks = GuestPick.where(user_id: guest_user.id)
+    @all_picks.first(19).each do |pick|
+      @user_picks_1h.push(pick.team_id)
+    end
+    @all_picks.last(19).each do |pick|
+      @user_picks_2h.push(pick.team_id)
     end
   end
 

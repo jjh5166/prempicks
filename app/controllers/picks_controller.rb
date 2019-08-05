@@ -5,7 +5,10 @@ class PicksController < ApplicationController
   include AutopickHelper
   include EpldataHelper
   before_action :lock_matchdays, only: %i[standings mypicks]
-  before_action :authenticate_user!, :seed_picks, :set_my_picks, :pick_initialization, only: [:mypicks]
+  before_action :authenticate_user!, :seed_picks, :set_my_picks, only: [:mypicks]
+  before_action :seed_guest_picks, :set_guest_picks, only: [:guest_mypicks]
+  before_action :set_samples, only: [:guest_standings]
+  before_action :pick_initialization, only: %i[mypicks guest_mypicks]
 
   def standings
     all_standings = load_standings
@@ -26,6 +29,20 @@ class PicksController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def guest_mypicks
+    @locked_mds = locked_mds
+    matches_data = fetch_matches
+    @matches = matches_data.sort_by { |match| [match['matchday'], match['utcDate']] }
+    @teamcodes = team_codes
+    @guser = User.find(guest_user.id)
+  end
+
+  def guest_standings
+    @seasontotals = @all_standings.sort_by{|u| u['season']}.reverse
+    @firsthalftotals = @all_standings.sort_by{|u| u['firsthalf']}.reverse
+    @secondhalftotals = @all_standings.sort_by{|u| u['secondhalf']}.reverse
+  end
+
   private
 
   def load_standings
@@ -35,15 +52,19 @@ class PicksController < ApplicationController
     User.joins(:picks).group('users.id').select(points_query)
   end
 
-  def pick_params
-    params.require(:pick).permit(:user_id, :matchday, :team_id)
-  end
-
   def pick_initialization
     allteams = last_yr_standings
     @pickteams = []
     allteams.each do |t|
       @pickteams.push(t)
     end
+  end
+
+  def set_samples
+    s3 = Aws::S3::Client.new
+    standings_file = s3.get_object(bucket: ENV['S3_BUCKET'], key: 'sample/sample_standings.json')
+    @all_standings = JSON.parse(standings_file.body.read)
+    picks_file = s3.get_object(bucket: ENV['S3_BUCKET'], key: 'sample/sample_picks.json')
+    @sample_picks = JSON.parse(picks_file.body.read)
   end
 end

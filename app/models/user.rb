@@ -3,9 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :picks, inverse_of: :user
-  accepts_nested_attributes_for :picks
-  validates_associated :picks
+  has_many :picks, dependent: :destroy, inverse_of: :user
+  has_many :guest_picks, dependent: :destroy, inverse_of: :user
+  accepts_nested_attributes_for :picks, :guest_picks
+  # accepts_nested_attributes_for :guest_picks
+  validates_associated :picks, :guest_picks
   validate :password_complexity
   private
     def password_complexity

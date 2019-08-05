@@ -1,0 +1,38 @@
+<table class="table table-hover table-bordered standings_table" id="standings_second">
+  <thead>
+    <tr class="table_top">
+      <th>
+        <span>Team</span> /
+        <span>Owner</span>
+      </th>
+      <th class="secondColumn">Points</th>
+      <% (-22..-20).each do |n|%>
+      <th class="th_match" colspan="2">
+        <%= -n %>
+      </th>
+      <%end%>
+      <th class="th_spacer"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @secondhalftotals.each do |u|%>
+    <tr>
+      <td class="team_cell" title="<%=u['fname']%> <%=u['lname']%>">
+        <%= u['team_name']%>
+      </td>
+      <td class="secondColumn">
+        <%= u['secondhalf'] %>
+      </td>
+      <% @sample_picks[u['user_id'].to_s].last(19).first(3).reverse.each do |t|%>
+      <td>
+          <%= t['team_id'] %>
+      </td>
+      <td class="pt_cell">
+          <%= t['points']%>
+      </td>
+      <%end%>
+      <td class="td_spacer"></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>

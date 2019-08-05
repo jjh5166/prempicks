@@ -1,0 +1,17 @@
+<%= render 'picks/standings/guest/sample_buttons' %>
+<div class="table-responsive stdgs_table_container">
+  <%= render 'picks/standings/guest/sample_first_half_table' %>
+  <%= render 'picks/standings/guest/sample_second_half_table' %>
+  <%= render 'picks/standings/guest/sample_seasontable' %>
+</div>
+<script type="text/javascript">
+  highlightCells();
+  teamOrName();
+  var tableContainer = document.getElementsByClassName('stdgs_table_container')[0];
+  tableContainer.onLoad = setSecondColumn();
+  $(function () {
+    $(window).resize(function () {
+      setSecondColumn();
+    });
+  });
+</script>

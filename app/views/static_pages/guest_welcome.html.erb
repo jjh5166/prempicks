@@ -1,12 +1,37 @@
-<div class="page_container">
+<br>
+<div class="rules_cnt">
   <h2 class="page_header">Welcome!</h2>
-
-  <div>
+  <div class="rules_sec">
     <p>
+      Thanks for visiting. As a guest, you are free to explore the app and see how it works. All data relevant to users is 
+      sample data. If you'd like to sign up (and the season hasn't started), please go ahead and do so by clicking the sign
+       out icon in the upper right to access the Sign Up screen.
+    </p>
+    <h4>About</h4>
+    <p>
+      This app was created to run a picks league for the English Premier League. The league was previously run in a shared
+      spreadsheet which required manual entry for anything that a myriad of v-lookups couldn’t handle. Today, there is a fully
+      functional application built on the Ruby on Rails framework.
+    </p>
+    <h4>How it works</h4>
+    <p>
+      Users pick a team each week with the goal of scoring the most points based on the customized rules set. There are no
+      repeat picks per half of the season. The deadline to make a pick for each week of games is the kick off of the first
+      match, after which the selection is locked and a team is automatically assigned. A more in-depth explanation of the
+      rules is available <a href="/rules">here</a>.
+      <hr>
+      The app utilizes Postgres for its database. In addition to user data, league data is stored which is referenced to
+      control visibility and DOM interaction. The backend handles updates to the database with the use of scheduled jobs
+      through Sidekiq. The API is monitored for new match data and when new updates are available, subsequent jobs are
+      initiated to perform tasks based on the response. The scoring algorithm is written in a <a href="https://github.com/jjh5166/epl-scoring-script" target="_blank">Python script</a>, which fetches
+      data, calculates scores and saves a JSON file on Amazon S3.
       
+      For a more in-depth look, you can view the <a href="https://github.com/jjh5166/prempicks" target="_blank" >repository</a>.
+
+      <hr>
+      Football-Data.org API is used to provide all league data.
+      <hr>
+      Developed by <a href="https://jjhv.me" target="_blank">John Hartnett </a>
     </p>
   </div>
-
-
-
 </div>
