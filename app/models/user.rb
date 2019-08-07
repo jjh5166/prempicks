@@ -25,6 +25,7 @@ class User < ApplicationRecord
   end
 
   def seed_picks
+    return unless self.lname.nil?
     (1..38).each do |n|
       h = n < 20 ? 1 : 2
       Pick.new(user_id: self.id, matchday: n, half: h).save
