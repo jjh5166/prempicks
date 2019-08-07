@@ -13,5 +13,11 @@
     every: '14d'
     class: GuestClear
   set_matchday:
-    every: '24h'
+    every: '12h'
     class: SetMatchday
+  matchday_times:
+    every: '3d'
+    class: MatchdayTimes
+  lock_queuer:
+    every: '12h'
+    class: LockQueuer
