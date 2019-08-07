@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_03_215550) do
+ActiveRecord::Schema.define(version: 2019_08_07_020037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_08_03_215550) do
     t.datetime "updated_at", null: false
     t.boolean "scored", default: false
     t.boolean "current", default: false
+    t.datetime "lock_time"
   end
 
   create_table "picks", force: :cascade do |t|
