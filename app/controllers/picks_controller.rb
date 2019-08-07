@@ -4,7 +4,6 @@ class PicksController < ApplicationController
   include PicksHelper
   include AutopickHelper
   include EpldataHelper
-  before_action :lock_matchdays, only: %i[standings mypicks]
   before_action :authenticate_user!, :set_my_picks, only: [:mypicks]
   before_action :seed_guest_picks, :set_guest_picks, only: [:guest_mypicks]
   before_action :set_samples, only: [:guest_standings]

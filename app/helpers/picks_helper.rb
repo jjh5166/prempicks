@@ -71,25 +71,4 @@ module PicksHelper
     end
     locked_mds
   end
-
-  def unlocked_mds
-    Matchday.where(locked: false).pluck(:week)
-  end
-
-  # fetch kick off times for each matchday
-  def unlocked_matchday_times
-    mds = unlocked_mds
-    return unless mds.any?
-
-    all_matches = FootballData
-                    .fetch(:competitions, :matches, id: 2021)['matches']
-    matchtimes = {}
-    (mds.min..mds.max).each do |m|
-      matchtimes[m] = []
-      all_matches.each do |t|
-        t['matchday'] == m && matchtimes[m].push(t['utcDate'])
-      end
-    end
-    matchtimes
-  end
 end
