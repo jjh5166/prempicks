@@ -8,7 +8,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :picks, :guest_picks
   validates_associated :picks, :guest_picks
   validate :password_complexity
-  after_create :send_sign_up_emails
+  after_create :send_sign_up_emails, :seed_picks
 
   private
 
@@ -22,5 +22,12 @@ class User < ApplicationRecord
   def send_sign_up_emails
     UserMailer.welcome_email(self).deliver_later
     UserMailer.new_sign_up_email(self).deliver_later
+  end
+
+  def seed_picks
+    (1..38).each do |n|
+      h = n < 20 ? 1 : 2
+      Pick.new(user_id: self.id, matchday: n, half: h).save
+    end
   end
 end

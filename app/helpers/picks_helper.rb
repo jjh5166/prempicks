@@ -3,23 +3,13 @@
 # For Autopicking, Locking
 module PicksHelper
   include AutopickHelper
-  # seed picks for new user at first sign in
-  def seed_picks
-    if (current_user.sign_in_count == 1) &&
-       Pick.where(user_id: current_user.id).count.zero?
-      (1..38).each do |n|
-        h = n < 20 ? 1 : 2
-        Pick.new(user_id: current_user.id, matchday: n, half: h).save
-      end
-    end
-  end
 
   def seed_guest_picks
-    if GuestPick.where(user_id: guest_user.id).count.zero?
-      (1..38).each do |n|
-        h = n < 20 ? 1 : 2
-        GuestPick.new(user_id: guest_user.id, matchday: n, half: h).save
-      end
+    return unless GuestPick.where(user_id: guest_user.id).count.zero?
+
+    (1..38).each do |n|
+      h = n < 20 ? 1 : 2
+      GuestPick.new(user_id: guest_user.id, matchday: n, half: h).save
     end
   end
 
