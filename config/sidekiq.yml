@@ -21,3 +21,6 @@
   lock_queuer:
     every: '12h'
     class: LockQueuer
+  reminder_queuer:
+    every: '24h'
+    class: ReminderQueuer
