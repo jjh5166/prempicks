@@ -20,8 +20,10 @@ class User < ApplicationRecord
   end
 
   def send_sign_up_emails
-    UserMailer.welcome_email(self).deliver_later
     UserMailer.new_sign_up_email(self).deliver_later
+    return if self.lname.nil?
+
+    UserMailer.welcome_email(self).deliver_later
   end
 
   def seed_picks
