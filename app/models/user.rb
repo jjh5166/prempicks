@@ -21,13 +21,14 @@ class User < ApplicationRecord
 
   def send_sign_up_emails
     UserMailer.new_sign_up_email(self).deliver_later
-    return if self.lname.nil?
+    return if self.guest
 
     UserMailer.welcome_email(self).deliver_later
   end
 
   def seed_picks
-    return if self.lname.nil?
+    return if self.guest
+
     (1..38).each do |n|
       h = n < 20 ? 1 : 2
       Pick.new(user_id: self.id, matchday: n, half: h).save

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# manage guest users
 module AuthorizationHelper
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user
@@ -14,14 +17,14 @@ module AuthorizationHelper
     end
   end
 
- # find guest_user object associated with the current session,
- # creating one as needed
-  def guest_user
-   # Cache the value the first time it's gotten.
-   @cached_guest_user ||= User.find(session[:guest_user_id] ||= create_guest_user.id)
-
   # find guest_user object associated with the current session,
   # creating one as needed
+  def guest_user
+    # Cache the value the first time it's gotten.
+    @cached_guest_user ||= User.find(session[:guest_user_id] ||= create_guest_user.id)
+
+    # find guest_user object associated with the current session,
+    # creating one as needed
   rescue ActiveRecord::RecordNotFound # if session[:guest_user_id] invalid
     session[:guest_user_id] = nil
     guest_user if with_retry
@@ -30,25 +33,16 @@ module AuthorizationHelper
   def guest?
     !!guest_user
   end
- private
 
- # called (once) when the user logs in, insert any code your application needs
- # to hand off from guest_user to current_user.
- # def logging_in
- #   # put all your processing for transferring
- #   # from a guest user to a registered user
- #   # i.e. update votes, update comments, etc.
- # end
+  private
 
- # creates guest user by adding a record to the DB
- # with a guest name and email
- def create_guest_user
-   u = User.create(:fname => "guest", :email => "guest_#{Time.now.to_i}#{rand(99)}@example.com")
-   # u.skip_validate!
-   u.save!(:validate => false)
-   session[:guest_user_id] = u.id
-  #  flash[:alert] = "You have logged in as a guest!"
-   u
- end
-
+  # creates guest user by adding a record to the DB
+  # with a guest name and email
+  def create_guest_user
+    u = User.create(fname: 'guest', email: "guest_#{Time.now.to_i}#{rand(99)}@example.com", guest: true)
+    u.save!(validate: false)
+    session[:guest_user_id] = u.id
+    #  flash[:alert] = "You have logged in as a guest!"
+    u
+  end
 end
