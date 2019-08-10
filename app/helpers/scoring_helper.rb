@@ -34,6 +34,7 @@ module ScoringHelper
         next unless scores[r.team_id]
 
         r.update(points: scores[r.team_id])
+        Pick.where(matchday:m, team_id: r.team_id).update_all(points: scores[r.team_id])
       end
     end
   end
