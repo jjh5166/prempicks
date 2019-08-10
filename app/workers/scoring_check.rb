@@ -9,7 +9,7 @@ class ScoringCheck
   def perform
     return unless scoring_needed?
 
-    matchday = mds_needing_scoring.first
-    ScoringJob.perform_async(matchday)
+    matchdays = mds_needing_scoring
+    ScoringJob.perform_async(matchdays)
   end
 end
