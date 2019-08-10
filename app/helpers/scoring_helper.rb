@@ -27,10 +27,12 @@ module ScoringHelper
   def update_scores(*matchdays)
     s3 = Aws::S3::Client.new
     matchdays.each do |m|
-      file = s3.get_object({bucket:ENV['S3_BUCKET'],key:"scores/matchday#{m}.json",})
+      file = s3.get_object({ bucket: ENV['S3_BUCKET'], key: "scores/matchday#{m}.json" })
       scores = JSON.parse(file.body.read)
       records = scores_to_score(m)
       records.each do |r|
+        next unless scores[r.team_id]
+
         r.update(points: scores[r.team_id])
       end
     end
@@ -47,5 +49,4 @@ module ScoringHelper
   def scores_to_score(matchday)
     Score.where(matchday: matchday).where(points: 0)
   end
-
 end
