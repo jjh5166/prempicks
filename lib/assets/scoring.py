@@ -41,8 +41,8 @@ class ScoreMatch:
     def __init__(self, data):
         self.hGoals = data['score']['fullTime']['homeTeam']
         self.aGoals = data['score']['fullTime']['awayTeam']
-        self.hTeam = teamcodes[str(data['homeTeam']['id'])]['code']
-        self.aTeam = teamcodes[str(data['awayTeam']['id'])]['code']
+        self.hTeam = teamcodes[str(data['homeTeam']['id'])]['abv']
+        self.aTeam = teamcodes[str(data['awayTeam']['id'])]['abv']
 
         if self.hGoals == self.aGoals:
             self.draw(data)
@@ -52,8 +52,8 @@ class ScoreMatch:
             self.topSixOrNew(self.wTeam, self.lTeam)
 
     def draw(self, data):
-        self.wTeam = teamcodes[str(data['homeTeam']['id'])]['code']
-        self.lTeam = teamcodes[str(data['awayTeam']['id'])]['code']
+        self.wTeam = teamcodes[str(data['homeTeam']['id'])]['abv']
+        self.lTeam = teamcodes[str(data['awayTeam']['id'])]['abv']
         self.wScore = self.lScore = 1
 
     def tally(self, goals1, goals2):
@@ -73,11 +73,11 @@ class ScoreMatch:
 
     def assignTeams(self, data, diff):
         if diff > 0:
-            self.wTeam = teamcodes[str(data['homeTeam']['id'])]['code']
-            self.lTeam = teamcodes[str(data['awayTeam']['id'])]['code']
+            self.wTeam = teamcodes[str(data['homeTeam']['id'])]['abv']
+            self.lTeam = teamcodes[str(data['awayTeam']['id'])]['abv']
         else:
-            self.wTeam = teamcodes[str(data['awayTeam']['id'])]['code']
-            self.lTeam = teamcodes[str(data['homeTeam']['id'])]['code']
+            self.wTeam = teamcodes[str(data['awayTeam']['id'])]['abv']
+            self.lTeam = teamcodes[str(data['homeTeam']['id'])]['abv']
 
 
 scores = {}
