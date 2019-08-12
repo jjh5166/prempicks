@@ -2,7 +2,9 @@
 
 class LandingController < ApplicationController
   before_action :log_out_guest, only: [:landing_page]
-  def landing_page; end
+  def landing_page
+    @sign_up_deadline = Matchday.where(week:1)[0].lock_time
+  end
 
   private
 
