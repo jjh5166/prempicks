@@ -10,17 +10,17 @@
     cron: '0 * * * * *'
     class: ScoringCheck
   guest_clear:
-    every: '14d'
+    cron: '0 20 17 1 * *'
     class: GuestClear
   set_matchday:
-    every: '12h'
+    cron: '0 10 0 * * *'
     class: SetMatchday
   matchday_times:
-    every: '3d'
+    cron: '0 15 0 */3 * *'
     class: MatchdayTimes
   lock_queuer:
-    every: '12h'
+    cron: '0 0 */12 * * *'
     class: LockQueuer
   reminder_queuer:
-    every: '24h'
+    cron: '0 5 0 * * *'
     class: ReminderQueuer
