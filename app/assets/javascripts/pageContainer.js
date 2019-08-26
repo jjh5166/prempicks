@@ -8,7 +8,8 @@ $(window).resize(function () {
 });
 resizePageContainer = () => {
   $(function () {
-    x = ($(document.body).height() - $('.navbar').outerHeight(true))
+    navHeight = $('.navbar').is(':visible') ? $('.navbar').outerHeight(true) : 0
+    x = ($(document.body).height() - navHeight)
     $('.page_container').outerHeight(x)
   });
 }
