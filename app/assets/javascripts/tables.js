@@ -35,6 +35,5 @@ setColumn = () => {
   $(document).ready(function () {
     var tableContainer = document.getElementsByClassName('stdgs_table_container')[0];
     tableContainer.onLoad = setSecondColumn(tableContainer);
-    // e.preventDefault();
   })
 }
