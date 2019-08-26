@@ -1,7 +1,11 @@
+.schedule_content{
+  @extend .content_container;
+  padding: 0 3% 5% 3%;
+  margin-top:0;
+}
 .container_schedule{
   height: auto;
   width: 100%;
-  // display: flex;
   position: relative;
 }
 .sch_day{
@@ -9,10 +13,6 @@
 }
 .container_day{
   width: 100%;
-}
-.schedule_content{
-  @extend .rules_cnt;
-  padding: 0 3% 5% 3%;
 }
 .sch_date_range{
   font-size: 21px;
@@ -40,17 +40,23 @@
     justify-self: start
   }
 }
-@media only screen and (min-width: 640px) {
-  /* For mobile landscape: */
-  .sch_date_range{
+
+@media only screen
+and (min-width: 640px)
+and (max-width: 812px)
+and (orientation: landscape) {
+    /* For landscape mobile: */
+    .schedule_content{
+      height: 88%;
+    }
+   .sch_date_range{
     font-size: 24px;
   }
-
-}
-@media only screen and (min-height: 668px) {
-
 }
 @media only screen and (min-width: 813px) {
+    .schedule_content{
+      height: 84%;
+    }
   .sch_date_range{
     font-size: 27px;
   }

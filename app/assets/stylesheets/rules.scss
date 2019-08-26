@@ -1,22 +1,7 @@
 .rules_cnt{
-  position: relative;
-  color: black;
-  margin: 0 auto;
-  width: 85%;
-  height: 100%;
-  overflow: scroll;
-  background: var(--table_bkgd_color);
-  outline: solid black 1px;
-  h4{
-    text-align: center;
-    position: relative;
-    font-style: oblique;
-    margin: 0;
-    margin-bottom: 10px;
-  }
-  p{
-    position: relative;
-  }
+  @extend .content_container;
+  margin-top: -9% !important;
+  height:94%;
 }
 .rules_tb{
   position: relative;
@@ -41,4 +26,21 @@
 }
 .points_list{
   position: relative;
+}
+@media only screen
+and (min-width: 640px)
+and (max-width: 812px)
+and (orientation: landscape) {
+    /* For landscape mobile: */
+  .rules_cnt{
+    margin-top: -8%;
+    height: 104%;
+  }
+}
+@media only screen and (min-width: 813px) {
+  /* For desktop: */
+  .rules_cnt{
+    margin-top: -2% !important;
+    height: 90%;
+  }
 }
