@@ -1,6 +1,5 @@
 .switch-button{
     width: 90%;
-    margin-top: 7%;
     text-align: center;
     position: relative;
     left: 50%;
@@ -81,17 +80,19 @@
     }
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen
+and (min-width: 640px)
+and (max-width: 812px)
+and (orientation: landscape) {
     /* For landscape mobile: */
-  .switch-button{
-    margin-top: 4%
-    
-  }
+    .switch-button{
+        margin-top: -2%
+    }
 }
 @media only screen and (min-width: 813px) {
   /* For desktop: */
   .switch-button{
-    margin-top: 3%;
     width: 40%;
+    margin-top: 0;
   }
 }
