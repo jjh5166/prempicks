@@ -26,11 +26,14 @@ teamOrName = () => {
   });
 };
 // Sets second column for responsive on Standings View
-setSecondColumn = () => {
-  let tcStyle = tableContainer.currentStyle || window.getComputedStyle(tableContainer);
-  let tcLeftMargin = tcStyle.marginLeft
-  let bodyStyle = getComputedStyle(document.body);
-  let firstColumnWd = bodyStyle.getPropertyValue('--first_column_wd');
-  let secondColLeft = parseFloat(tcLeftMargin) + parseFloat(firstColumnWd) + 'px';
+setSecondColumn = (tableContainer) => {
+  let firstColumnWd = $('#firstColumn').outerWidth();
+  let secondColLeft = parseFloat(firstColumnWd) + 'px';
   $('.secondColumn').css('left', secondColLeft);
 };
+setColumn = () => {
+  $(document).ready(function () {
+    var tableContainer = document.getElementsByClassName('stdgs_table_container')[0];
+    tableContainer.onLoad = setSecondColumn(tableContainer);
+  })
+}

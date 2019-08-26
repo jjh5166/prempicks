@@ -1,4 +1,4 @@
-<div class="page_container">
+
   <br>
   <div class="rules_cnt">
     <div class="rules_sec">
@@ -59,13 +59,14 @@
     </div>
     <div class="rules_sec">
       <h4>Picking</h4>
-      <p>Picks must be in by kick off of the first match of the matchday. Any time a pick is not made by this time, the
+      <p>Picks must be in by kick off of the first match of the matchday. Automated reminders are sent by email 24 hours before any deadline to those who haven't picked. 
+        Any time a pick is not made by this time, the
         team that finished highest in the last years standings that is still available will be assigned. Any matches
         postponed still count for that same matchday and points will be tallied once the match is completed.</p>
     </div>
-    <!-- <%# if user_signed_in? %> -->
+    <% if user_signed_in? %>
     <div class="rules_sec">
-      <h4>Payouts (Last Season)</h4>
+      <h4>Payouts</h4>
       <table class="rules_tb">
         <tr>
           <th></th>
@@ -75,27 +76,26 @@
         <tr>
           <td>1st</td>
           <td>14%</td>
-          <td>$143</td>
+          <td>$263</td>
           <td>28%</td>
-          <td>$286</td>
+          <td>$526</td>
         </tr>
         <tr>
           <td>2nd</td>
           <td>8%</td>
-          <td>$82</td>
-          <td>15%</td>
           <td>$150</td>
+          <td>15%</td>
+          <td>$282</td>
         </tr>
         <tr>
           <td>3rd</td>
           <td>3%</td>
-          <td>$31</td>
+          <td>$56</td>
           <td>7%</td>
-          <td>$72</td>
+          <td>$132</td>
         </tr>
       </table>
-      <p>There were 34 players last year and that number is expected to grow. If we reach 50 players this season, there will be an additional payout for the longest win streak of the season. If not, the payout structure percentages will remain the same. </p>
+      <p>This season there are 47 players with a buy in of $40 each, totalling $1,880. The are payouts for each half of the season as well as the full season.</p>
     </div>
-    <!-- <%#end%> -->
+    <%end%>
   </div>
-</div>

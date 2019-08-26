@@ -20,7 +20,7 @@
 }
 .mp_container{
   position: relative;
-  height: 70%;
+  height: 77%;
   left: 0;
   right: 0;
   display: grid;
@@ -141,11 +141,14 @@
     width: 90%
 }
 
-@media only screen and (min-width: 640px) {
-  /* For mobile landscape: */
+@media only screen
+and (min-width: 640px)
+and (max-width: 812px)
+and (orientation: landscape) {
+    /* For landscape mobile: */
   .mp_container{
-    margin-top: -2%;
-    height: 72%
+    margin-top: -1%;
+    height: 79%
   }
   .mp_select1, .mp_select2 {
     width: 100% !important;
@@ -153,7 +156,7 @@
 }
 @media only screen and (min-height: 668px) {
   .mp_container{
-    height: 75%;
+    height: 80%;
   }
 }
 @media only screen and (min-width: 813px) {
@@ -164,7 +167,7 @@
     grid-template-columns: 13% 87%;
     margin: 0 auto;
     margin-top: - 0.5%;
-    height: 72%
+    height: 76%
   }
   .mypicks_sub{
     margin-top: 1%;

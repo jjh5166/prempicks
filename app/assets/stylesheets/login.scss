@@ -54,6 +54,14 @@
   margin-top: 0;
   width: 80%;
 }
+@media only screen
+and (min-width: 640px)
+and (max-width: 812px)
+and (orientation: landscape) {
+  .edit_form{
+    margin-top:-10%;
+  }
+}
 @media only screen and (min-width: 768px) {
     /* For desktop: */
   .dev_cnt{

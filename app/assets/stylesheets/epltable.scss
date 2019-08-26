@@ -8,7 +8,6 @@
 .epl_table {
   text-align: center;
   line-height: 1;
-  // background: white;
   background-color: var(--table_bkgd_color) !important;
   border: 1px solid black;
   border-bottom: 1px solid black;
@@ -36,7 +35,10 @@
   visibility: hidden;
 }
 
-@media only screen and (min-width: 667px) {
+@media only screen
+and (min-width: 640px)
+and (max-width: 812px)
+and (orientation: landscape) {
     /* For landscape mobile: */
   .no_phone{
     display: table-cell !important;
@@ -44,4 +46,7 @@
 }
 @media only screen and (min-width: 768px) {
   /* For desktop: */
+    .no_phone{
+    display: table-cell !important;
+  }
 }
