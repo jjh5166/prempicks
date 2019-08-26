@@ -3,24 +3,42 @@
   scrollbar-width: none; //FF
 }
 html{
-  height: 100% !important;
+  height: 100vh;
 }
 body{
   font-family: 'Kanit', sans-serif;
   position: relative;
-  min-height: 100%;
-  height: auto;
+  height: 100vh;
+  overflow: hidden;
 }
 h2 {
   font-style: oblique;
   text-align: center;
 }
 .page_container{
-  min-height: 100%;
-  height: auto;
+  max-height: 100%;
   width: 100%;
-  padding-bottom: 15%;
+  padding-top:7%;
+}
+.content_container{
+  position: relative;
+  color: black;
+  margin: 0 auto;
+  width: 85%;
+  overflow: scroll;
+  background: var(--table_bkgd_color);
+  outline: solid black 1px;
+  h4{
+    text-align: center;
+    position: relative;
+    font-style: oblique;
+    margin: 0;
+    margin-bottom: 10px;
   }
+  p{
+    position: relative;
+  }
+}
 .hero_img{
   background: image-url('blur.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -38,6 +56,7 @@ h2 {
   font-size: 12px;
   width: 100%;
   bottom: 0;
+  line-height: .5;
   .foot_link{
     text-decoration: none;
     color: inherit;
@@ -50,35 +69,20 @@ and (min-width: 640px)
 and (max-width: 812px)
 and (orientation: landscape) {
     /* For landscape mobile: */
-.navbar, .foot{
-  display:none;
-}
-.page_container{
-padding-bottom: 3%;
-}
-}
-@media only screen and (min-width: 640px) {
-    /* For landscape mobile: */
-  // .page_container{
-  // padding-bottom: 12%
-  // }
-}
-@media only screen and (min-width: 813px) {
-  /* For desktop: */
-  .page_container{
-  padding-bottom: 10%
+  .navbar, .foot{
+    display:none;
   }
 }
 
-// .flashes{
-//   position: relative;
-//   left: 0;
-//   right: 0;
-//   text-align: center;
-//   height: 12px;
-//   margin-bottom: 4px;
-//   color: white;
-//   p{
-//     margin: 0 auto;
-//   }
-// }
+@media only screen and (min-width: 813px) {
+  /* For desktop: */
+  html, body{
+    height:100%;
+    overflow: scroll;
+  }
+  .page_container{
+    padding-top: 3%;
+    height:100%;
+    max-height: unset;
+  }
+}
