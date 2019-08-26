@@ -27,13 +27,5 @@
   </div>
 </div>
 <script>
-  if (window.matchMedia("(min-width: 641px)").matches) {
-    $(document).ready(function () {
-      $('.tname').each(function () {
-        let tou = this.title;
-        $(this).attr('title', $(this).text())
-        $(this).text(tou)
-      });
-    });
-  }
+  scheduleNames();
 </script>
