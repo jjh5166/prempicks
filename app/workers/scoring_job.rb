@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'sidekiq-scheduler'
-# runs scpring script, updates scores, updates matchdays
+# runs scoring script, updates scores and matchdays tables
 class ScoringJob
   include Sidekiq::Worker
   include ScoringHelper
