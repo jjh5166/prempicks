@@ -5,6 +5,7 @@ require 'sidekiq-scheduler'
 class ReminderWorker
   include Sidekiq::Worker
   include AutopickHelper
+  sidekiq_options queue: 'mailers'
   def perform(matchday)
     user_ids = users_no_pick(matchday)
     return unless user_ids.any?

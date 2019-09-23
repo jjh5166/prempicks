@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'sidekiq-scheduler'
-
+# monitors API for finished matches
 class ScoringCheck
   include Sidekiq::Worker
   include ScoringHelper
