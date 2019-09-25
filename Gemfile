@@ -38,16 +38,17 @@ gem 'aws-sdk-s3', require: false
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 # No blank values in db, set blanks to nil
-gem "strip_attributes"
+gem 'strip_attributes'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
+gem 'scout_apm'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development, :test do
-gem 'foreman'
+  gem 'foreman'
 end
 
 group :development do
