@@ -2,13 +2,13 @@
   -ms-overflow-style: none;
   scrollbar-width: none; //FF
 }
-html{
+html, body{
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 body{
   font-family: 'Kanit', sans-serif;
   position: relative;
-  height: 100vh;
   overflow: hidden;
 }
 h2 {
@@ -18,7 +18,7 @@ h2 {
 .page_container{
   max-height: 100%;
   width: 100%;
-  padding-top:7%;
+  padding-top:1%;
 }
 .content_container{
   position: relative;
@@ -56,7 +56,7 @@ h2 {
   font-size: 12px;
   width: 100%;
   bottom: 0;
-  line-height: .5;
+  line-height: .25;
   .foot_link{
     text-decoration: none;
     color: inherit;
@@ -77,12 +77,6 @@ and (orientation: landscape) {
 @media only screen and (min-width: 813px) {
   /* For desktop: */
   html, body{
-    height:100%;
     overflow: scroll;
-  }
-  .page_container{
-    padding-top: 3%;
-    height:100%;
-    max-height: unset;
   }
 }
