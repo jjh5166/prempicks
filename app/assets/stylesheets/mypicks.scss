@@ -20,7 +20,7 @@
 }
 .mp_container{
   position: relative;
-  height: 78%;
+  height: 74%;
   left: 0;
   right: 0;
   display: grid;
@@ -148,10 +148,16 @@ and (max-width: 812px)
 and (orientation: landscape) {
     /* For landscape mobile: */
   .mp_container{
-    height: 71%
+    height: 71%;
+    margin: 0 .5% 1% .5%
   }
   .mp_select1, .mp_select2 {
     width: 100% !important;
+  }
+}
+@media only screen and (min-height: 640px) {
+ .mp_container{
+    height: 77%;
   }
 }
 @media only screen and (min-height: 668px) {
