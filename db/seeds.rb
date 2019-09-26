@@ -6,6 +6,7 @@ if !Matchday.any?
   (1..38).each do |week|
     Matchday.create(week:week)
   end
+  update_locktimes
 end
 if !Score.any?
   teams = last_yr_standings
