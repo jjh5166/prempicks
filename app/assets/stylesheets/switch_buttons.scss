@@ -1,9 +1,8 @@
 .switch-button{
-    width: 90%;
+    width: 98%;
     text-align: center;
     position: relative;
-    left: 50%;
-    transform: translate3D(-50%, -50%, 0);
+    margin: 0 auto;
     will-change: transform;
     z-index: 197 !important;
     cursor: pointer;
@@ -11,6 +10,7 @@
     border: 1px solid white;
     height: 40px;
     font-size: 11px;
+    margin-bottom: 1%;
     &-case{
         display: inline-block;
         background: none;
@@ -85,14 +85,11 @@ and (min-width: 640px)
 and (max-width: 812px)
 and (orientation: landscape) {
     /* For landscape mobile: */
-    .switch-button{
-        margin-top: -2%
-    }
+
 }
 @media only screen and (min-width: 813px) {
   /* For desktop: */
   .switch-button{
     width: 40%;
-    margin-top: 0;
   }
 }
