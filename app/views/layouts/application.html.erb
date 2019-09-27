@@ -17,7 +17,9 @@
   <% end %>
     <div class="page_container">
       <%= yield %>
+    <% unless controller_name == "landing" %>
       <%= render 'layouts/footer'%>
+    <% end %>
     </div>
   </body>
 </html>
