@@ -27,7 +27,7 @@ teamOrName = () => {
 };
 // Sets second column for responsive on Standings View
 setSecondColumn = (tableContainer) => {
-  let firstColumnWd = $('#firstColumn').outerWidth();
+  let firstColumnWd = $('.firstColumn:visible').outerWidth();
   let secondColLeft = parseFloat(firstColumnWd) + 'px';
   $('.secondColumn').css('left', secondColLeft);
 };
