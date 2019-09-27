@@ -1,12 +1,12 @@
 document.addEventListener("turbolinks:load", (e) => {
   $(function () {
-    resizePageContainer();
     setVhHeight();
+    resizePageContainer();
   });
 })
 $(window).resize(function () {
-  resizePageContainer();
   setVhHeight();
+  resizePageContainer();
 });
 resizePageContainer = () => {
   $(function () {
