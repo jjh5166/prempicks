@@ -8,9 +8,8 @@
 .table_container{
   margin: 0 auto;
   background:var(--table_bkgd_color);
-  // overflow-y: hidden;
   overflow: scroll;
-  max-height: 86%;
+  max-height: 82%;
 }
 .stdgs_table_container{
   @extend .table_container;
@@ -76,11 +75,25 @@
   width:100%;
   background-color: rgba(165, 165, 165, 0.8);
 }
-
 #standings_second{
   display: none;
 }
-
+@media only screen and (min-height: 640px) {
+  .table_container{
+    max-height: 86%
+  }
+}
+@media only screen and (min-height: 668px) {
+  .table_container{
+    max-height: 88%
+  }
+}
+@media only screen and (min-width: 813px) {
+  /* For desktop: */
+  .table_container{
+      max-height: 84%
+    }
+}
 @media only screen
 and (min-width: 640px)
 and (max-width: 812px)
