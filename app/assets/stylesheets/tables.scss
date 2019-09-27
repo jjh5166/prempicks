@@ -10,6 +10,7 @@
   background:var(--table_bkgd_color);
   overflow: scroll;
   max-height: 82%;
+  outline: .5px solid grey;
 }
 .stdgs_table_container{
   @extend .table_container;
