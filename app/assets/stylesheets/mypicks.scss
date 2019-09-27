@@ -20,7 +20,7 @@
 }
 .mp_container{
   position: relative;
-  height: 74%;
+  height: 71%;
   left: 0;
   right: 0;
   display: grid;
@@ -162,7 +162,7 @@ and (orientation: landscape) {
 }
 @media only screen and (min-height: 668px) {
   .mp_container{
-    height: 82%;
+    height: 80%;
   }
 }
 @media only screen and (min-width: 813px) {
