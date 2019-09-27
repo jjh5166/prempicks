@@ -1,101 +1,99 @@
-
-  <br>
-  <div class="rules_cnt">
-    <div class="rules_sec">
-      <h4>General Rules</h4>
-      <p>Every week, you pick a team to win. Points are received or deducted based on the result. The season is divided
-        into two halves, you cannot pick the same team twice in a half. There are 19 matches in each half of the season,
-        meaning one team goes unpicked each half.
-      </p>
-    </div>
-    <div class="rules_sec">
-      <h4>Scoring</h4>
-      <table class="rules_tb">
-        <tr>
-          <th></th>
-          <th>Pts</th>
-        </tr>
-        <tr>
-          <td>Win</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>Loss</td>
-          <td>-3</td>
-        </tr>
-        <tr>
-          <td>Draw</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>Clean Sheet Win</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>GD Factor</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>Top 6 Loss</td>
-          <td>-1</td>
-        </tr>
-        <tr>
-          <td>Beat a Top Six team</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>Newly Promoted Win</td>
-          <td>1</td>
-        </tr>
-
-      </table>
-      <ul class="points_list">
-        <li>Goal Difference Factor: If the team you pick wins by 3 or more goals, you receive a bonus point. If the team you pick loses by 3 or more goals, you are penalized an additional point. </li>
-        <li>Top 6 Loss: Any time a <u class="tool_tip" title="MCI, LIV, CHE, TOT, MUN, ARS">top 6 team</u> is picked and they lose, there is an additional point deduction.</li>
-        <li>Beat a Top Six: Any time the team you select beats a <u class="tool_tip" title="MCI, LIV, CHE, TOT, MUN, ARS">top 6 team</u> you will receive a bonus point</li>
-        <li>Newly Promoted Win: If you pick any of the <u class="tool_tip" title="NOR, SHU, AVL">newly promoted teams</u> and they win, you will receive a bonus
-          point.</li>
-      </ul>
-    </div>
-    <div class="rules_sec">
-      <h4>Picking</h4>
-      <p>Picks must be in by kick off of the first match of the matchday. Automated reminders are sent by email 24 hours before any deadline to those who haven't picked. 
-        Any time a pick is not made by this time, the
-        team that finished highest in the last years standings that is still available will be assigned. Any matches
-        postponed still count for that same matchday and points will be tallied once the match is completed.</p>
-    </div>
-    <% if user_signed_in? %>
-    <div class="rules_sec">
-      <h4>Payouts</h4>
-      <table class="rules_tb">
-        <tr>
-          <th></th>
-          <th colspan="2">Per Half</th>
-          <th colspan="2">Overall</th>
-        </tr>
-        <tr>
-          <td>1st</td>
-          <td>14%</td>
-          <td>$263</td>
-          <td>28%</td>
-          <td>$526</td>
-        </tr>
-        <tr>
-          <td>2nd</td>
-          <td>8%</td>
-          <td>$150</td>
-          <td>15%</td>
-          <td>$282</td>
-        </tr>
-        <tr>
-          <td>3rd</td>
-          <td>3%</td>
-          <td>$56</td>
-          <td>7%</td>
-          <td>$132</td>
-        </tr>
-      </table>
-      <p>This season there are 47 players with a buy in of $40 each, totalling $1,880. The are payouts for each half of the season as well as the full season.</p>
-    </div>
-    <%end%>
+<div class="content_container">
+  <div class="rules_sec">
+    <h4>General Rules</h4>
+    <p>Every week, you pick a team to win. Points are received or deducted based on the result. The season is divided
+      into two halves, you cannot pick the same team twice in a half. There are 19 matches in each half of the season,
+      meaning one team goes unpicked each half.
+    </p>
   </div>
+  <div class="rules_sec">
+    <h4>Scoring</h4>
+    <table class="rules_table">
+      <tr>
+        <th></th>
+        <th>Pts</th>
+      </tr>
+      <tr>
+        <td>Win</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>Loss</td>
+        <td>-3</td>
+      </tr>
+      <tr>
+        <td>Draw</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Clean Sheet Win</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>GD Factor</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Top 6 Loss</td>
+        <td>-1</td>
+      </tr>
+      <tr>
+        <td>Beat a Top Six team</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Newly Promoted Win</td>
+        <td>1</td>
+      </tr>
+
+    </table>
+    <ul class="points_list">
+      <li>Goal Difference Factor: If the team you pick wins by 3 or more goals, you receive a bonus point. If the team you pick loses by 3 or more goals, you are penalized an additional point. </li>
+      <li>Top 6 Loss: Any time a <u class="tool_tip" title="MCI, LIV, CHE, TOT, MUN, ARS">top 6 team</u> is picked and they lose, there is an additional point deduction.</li>
+      <li>Beat a Top Six: Any time the team you select beats a <u class="tool_tip" title="MCI, LIV, CHE, TOT, MUN, ARS">top 6 team</u> you will receive a bonus point</li>
+      <li>Newly Promoted Win: If you pick any of the <u class="tool_tip" title="NOR, SHU, AVL">newly promoted teams</u> and they win, you will receive a bonus
+        point.</li>
+    </ul>
+  </div>
+  <div class="rules_sec">
+    <h4>Picking</h4>
+    <p>Picks must be in by kick off of the first match of the matchday. Automated reminders are sent by email 24 hours before any deadline to those who haven't picked. 
+      Any time a pick is not made by this time, the
+      team that finished highest in the last years standings that is still available will be assigned. Any matches
+      postponed still count for that same matchday and points will be tallied once the match is completed.</p>
+  </div>
+  <% if user_signed_in? %>
+  <div class="rules_sec">
+    <h4>Payouts</h4>
+    <table class="rules_tb">
+      <tr>
+        <th></th>
+        <th colspan="2">Per Half</th>
+        <th colspan="2">Overall</th>
+      </tr>
+      <tr>
+        <td>1st</td>
+        <td>14%</td>
+        <td>$263</td>
+        <td>28%</td>
+        <td>$526</td>
+      </tr>
+      <tr>
+        <td>2nd</td>
+        <td>8%</td>
+        <td>$150</td>
+        <td>15%</td>
+        <td>$282</td>
+      </tr>
+      <tr>
+        <td>3rd</td>
+        <td>3%</td>
+        <td>$56</td>
+        <td>7%</td>
+        <td>$132</td>
+      </tr>
+    </table>
+    <p>This season there are 47 players with a buy in of $40 each, totalling $1,880. The are payouts for each half of the season as well as the full season.</p>
+  </div>
+  <%end%>
+</div>
