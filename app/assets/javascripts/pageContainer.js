@@ -3,7 +3,7 @@ document.addEventListener("turbolinks:load", (e) => {
     setVhHeight();
     resizePageContainer();
   });
-  window.addEventListener('resize', () => { 
+  $(window).on('resize orientationchange', function () {
     setVhHeight();
     resizePageContainer();
   });
