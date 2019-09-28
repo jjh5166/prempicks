@@ -3,11 +3,12 @@ document.addEventListener("turbolinks:load", (e) => {
     setVhHeight();
     resizePageContainer();
   });
+  window.addEventListener('resize', () => { 
+    setVhHeight();
+    resizePageContainer();
+  });
 })
-$(window).resize(function () {
-  setVhHeight();
-  resizePageContainer();
-});
+
 resizePageContainer = () => {
   $(function () {
     navHeight = $('.navbar').is(':visible') ? $('.navbar').outerHeight(true) : 0
