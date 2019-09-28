@@ -2,11 +2,12 @@
   -ms-overflow-style: none;
   scrollbar-width: none; //FF
 }
-html, body{
+html{
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
 }
 body{
+  height: 100%;
   font-family: 'Kanit', sans-serif;
   position: relative;
   overflow: hidden;
