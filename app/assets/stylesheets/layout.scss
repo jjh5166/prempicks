@@ -4,11 +4,12 @@
 }
 html{
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 body{
+  height: 100%;
   font-family: 'Kanit', sans-serif;
   position: relative;
-  height: 100vh;
   overflow: hidden;
 }
 h2 {
@@ -18,7 +19,7 @@ h2 {
 .page_container{
   max-height: 100%;
   width: 100%;
-  padding-top:7%;
+  padding-top:1%;
 }
 .content_container{
   position: relative;
@@ -28,6 +29,7 @@ h2 {
   overflow: scroll;
   background: var(--table_bkgd_color);
   outline: solid black 1px;
+  max-height: 90%;
   h4{
     text-align: center;
     position: relative;
@@ -56,14 +58,38 @@ h2 {
   font-size: 12px;
   width: 100%;
   bottom: 0;
-  line-height: .5;
+  line-height: .25;
   .foot_link{
     text-decoration: none;
     color: inherit;
     font-size: inherit
   }
 }
-
+@media only screen and (min-height: 640px) {
+  .content_container{
+    max-height: 92%
+  }
+}
+@media only screen and (min-height: 668px) {
+  .content_container{
+    max-height: 94%
+  }
+}
+@media only screen
+and (min-width: 640px)
+and (max-width: 812px)
+and (orientation: landscape) {
+    /* For landscape mobile: */
+  .content_container{
+    max-height: 97%
+  }
+}
+@media only screen and (min-width: 813px) {
+  /* For desktop: */
+  .content_container{
+    height: 90%;
+  }
+}
 @media only screen
 and (min-width: 640px)
 and (max-width: 812px)
@@ -77,12 +103,6 @@ and (orientation: landscape) {
 @media only screen and (min-width: 813px) {
   /* For desktop: */
   html, body{
-    height:100%;
     overflow: scroll;
-  }
-  .page_container{
-    padding-top: 3%;
-    height:100%;
-    max-height: unset;
   }
 }

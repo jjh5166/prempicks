@@ -1,10 +1,12 @@
 document.addEventListener("turbolinks:load", (e) => {
   $(function () {
-    resizePageContainer();
+    setVhAndPageCont();
   });
 })
-$(window).resize(function () {
-  resizePageContainer();
+$(window).on('orientationchange', function () {
+  $(window).one('resize', function () {
+    setTimeout(setVhAndPageCont, 100);
+  });
 });
 resizePageContainer = () => {
   $(function () {
@@ -12,4 +14,12 @@ resizePageContainer = () => {
     x = ($(document.body).height() - navHeight)
     $('.page_container').outerHeight(x)
   });
+}
+setVhHeight = () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+setVhAndPageCont = () => {
+  setVhHeight();
+  resizePageContainer();
 }

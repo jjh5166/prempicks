@@ -20,7 +20,7 @@
 }
 .mp_container{
   position: relative;
-  height: 77%;
+  height: 71%;
   left: 0;
   right: 0;
   display: grid;
@@ -49,7 +49,7 @@
 }
 .mp_matchday{
   max-width: none;
-  outline: 1px solid black;
+  border-bottom: 1px solid black;
   overflow: hidden;
   padding: 0 2%;
   .matchday_scroll{
@@ -98,6 +98,7 @@
   }
   .score_span{
     place-self: center;
+    text-align: center;
     grid-column-start: 3;
     position: relative;
     margin: 0 auto;
@@ -147,11 +148,16 @@ and (max-width: 812px)
 and (orientation: landscape) {
     /* For landscape mobile: */
   .mp_container{
-    margin-top: -1%;
-    height: 79%
+    height: 71%;
+    margin: 0 .5% 1% .5%
   }
   .mp_select1, .mp_select2 {
     width: 100% !important;
+  }
+}
+@media only screen and (min-height: 640px) {
+ .mp_container{
+    height: 77%;
   }
 }
 @media only screen and (min-height: 668px) {

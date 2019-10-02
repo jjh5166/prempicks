@@ -7,11 +7,10 @@
 
 .table_container{
   margin: 0 auto;
-  margin-top: -1%;
   background:var(--table_bkgd_color);
-  // overflow-y: hidden;
   overflow: scroll;
-  max-height: 86%;
+  max-height: 82%;
+  outline: .5px solid grey;
 }
 .stdgs_table_container{
   @extend .table_container;
@@ -25,7 +24,7 @@
 .table_top {
   background-color: #717274;
   color: #00ace6;
-  text-shadow: black 0 0 10px;
+  text-shadow: black 0 0 2px;
 }
 .standings_table{
   margin-bottom: 0;
@@ -64,7 +63,6 @@
     background-color: #EDEAEA;
   };
   th:nth-child(2), td:nth-child(2) {
-    // left: var(--first_column_wd);
     width: var(--second_column_wd);
     white-space: nowrap;
     overflow: scroll;
@@ -77,11 +75,25 @@
   width:100%;
   background-color: rgba(165, 165, 165, 0.8);
 }
-
 #standings_second{
   display: none;
 }
-
+@media only screen and (min-height: 640px) {
+  .table_container{
+    max-height: 86%
+  }
+}
+@media only screen and (min-height: 668px) {
+  .table_container{
+    max-height: 88%
+  }
+}
+@media only screen and (min-width: 813px) {
+  /* For desktop: */
+  .table_container{
+      max-height: 84%
+    }
+}
 @media only screen
 and (min-width: 640px)
 and (max-width: 812px)

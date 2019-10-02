@@ -7,11 +7,5 @@
 <script type="text/javascript">
   highlightCells();
   teamOrName();
-  var tableContainer = document.getElementsByClassName('stdgs_table_container')[0];
-  tableContainer.onLoad = setSecondColumn();
-  $(function () {
-    $(window).resize(function () {
-      setSecondColumn();
-    });
-  });
+  setColumn();
 </script>

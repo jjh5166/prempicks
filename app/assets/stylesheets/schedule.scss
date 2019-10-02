@@ -2,6 +2,7 @@
   @extend .content_container;
   padding: 0 3% 5% 3%;
   margin-top:0;
+  max-height: 83% !important;
 }
 .container_schedule{
   height: auto;
@@ -40,23 +41,32 @@
     justify-self: start
   }
 }
-
+@media only screen and (min-height: 640px) {
+ .schedule_content{
+    max-height: 86% !important;
+  }
+}
+@media only screen and (min-height: 668px) {
+  .schedule_content{
+    max-height: 90% !important;
+  }
+}
 @media only screen
 and (min-width: 640px)
 and (max-width: 812px)
 and (orientation: landscape) {
     /* For landscape mobile: */
-    .schedule_content{
-      height: 88%;
-    }
-   .sch_date_range{
-    font-size: 24px;
+  .schedule_content{
+    height: 84%;
+  }
+  .sch_date_range{
+  font-size: 24px;
   }
 }
 @media only screen and (min-width: 813px) {
-    .schedule_content{
-      height: 84%;
-    }
+  .schedule_content{
+    height: 84% !important;
+  }
   .sch_date_range{
     font-size: 27px;
   }
