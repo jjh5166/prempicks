@@ -22,10 +22,11 @@ teamOrName = () => {
       var tou = this.title;
       $(this).attr('title', $(this).text())
       $(this).text(tou)
+      setColumn();
     });
   });
 };
-// Sets second column for responsive on Standings View
+// Sets second column for sticky scroll
 setSecondColumn = (tableContainer) => {
   let firstColumnWd = $('.firstColumn:visible').outerWidth();
   let secondColLeft = parseFloat(firstColumnWd) + 'px';
