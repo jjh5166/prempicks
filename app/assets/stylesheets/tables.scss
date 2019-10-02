@@ -24,7 +24,7 @@
 .table_top {
   background-color: #717274;
   color: #00ace6;
-  text-shadow: black 0 0 10px;
+  text-shadow: black 0 0 2px;
 }
 .standings_table{
   margin-bottom: 0;
@@ -63,7 +63,6 @@
     background-color: #EDEAEA;
   };
   th:nth-child(2), td:nth-child(2) {
-    // left: var(--first_column_wd);
     width: var(--second_column_wd);
     white-space: nowrap;
     overflow: scroll;
