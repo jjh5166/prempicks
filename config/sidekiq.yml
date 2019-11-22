@@ -3,9 +3,9 @@
 
 :timeout: 8
 :queues:
-  - [default, 2]
-  - mailers
-  - scoring
+  - [default, 4]
+  - [mailers, 2]
+  - [scoring, 1]
 :schedule:
   scoring_check:
     cron: '0 * * * * *'
