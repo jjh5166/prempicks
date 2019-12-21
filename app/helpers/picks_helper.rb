@@ -50,8 +50,9 @@ module PicksHelper
   end
 
   def lock_matchday(matchday)
-    matchday.update(locked: true)
-    autopick_on_lock(matchday.week)
+    md = Matchday.find_by(week: matchday)
+    md.update(locked: true)
+    autopick_on_lock(matchday)
   end
 
   def autopick_on_lock(matchday)

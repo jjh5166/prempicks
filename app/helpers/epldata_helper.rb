@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# epl data fetching
 module EpldataHelper
   def fetch_matches
     FootballData.fetch(:competitions, :matches, id: 2021)['matches']
@@ -23,6 +24,7 @@ module EpldataHelper
     Matchday.where(locked: false).pluck(:week)
   end
 
+  # returns hash of arrays with kick off times for given matchdays
   def matchdays_times_for(matchdays)
     all_matches = fetch_matches_scheduled
     matchtimes = Hash[matchdays.collect { |md| [md, []] }]
@@ -34,6 +36,7 @@ module EpldataHelper
     matchtimes
   end
 
+  # update locktimes for all unlocked Matchdays
   def update_locktimes
     matchdays = Matchday.where(locked: false)
     digits = matchdays.pluck(:week)
