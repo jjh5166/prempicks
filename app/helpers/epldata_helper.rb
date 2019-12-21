@@ -5,6 +5,10 @@ module EpldataHelper
     FootballData.fetch(:competitions, :matches, id: 2021)['matches']
   end
 
+  def fetch_matches_scheduled
+    FootballData.fetch(:competitions, :matches, id: 2021, status: 'SCHEDULED')['matches']
+  end
+
   def fetch_current_matchday
     fetch_matches[0]['season']['currentMatchday']
   end
@@ -19,25 +23,22 @@ module EpldataHelper
     Matchday.where(locked: false).pluck(:week)
   end
 
-  def unlocked_matchday_times
-    mds = unlocked_mds
-    return unless mds.any?
+  def matchdays_times_for(matchdays)
+    all_matches = fetch_matches_scheduled
+    matchtimes = Hash[matchdays.collect { |md| [md, []] }]
+    all_matches.each do |m|
+      next unless matchdays.include?(m['matchday'])
 
-    all_matches = fetch_matches
-    matchtimes = {}
-    mds.each do |m|
-      matchtimes[m] = []
-      all_matches.each do |t|
-        t['matchday'] == m && matchtimes[m].push(t['utcDate'])
-      end
+      matchtimes[m['matchday']].push(m['utcDate'])
     end
     matchtimes
   end
 
   def update_locktimes
-    mds = Matchday.where(locked: false)
-    mdtimes = unlocked_matchday_times
-    mds.each do |md|
+    matchdays = Matchday.where(locked: false)
+    digits = matchdays.pluck(:week)
+    mdtimes = matchdays_times_for(digits)
+    matchdays.each do |md|
       md.update(lock_time: mdtimes[md.week].min)
     end
   end
