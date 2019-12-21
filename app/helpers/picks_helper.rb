@@ -39,20 +39,19 @@ module PicksHelper
 
   def lock_matchdays
     time_now = Time.now.utc
-    matchdays = unlocked_matchday_times
+    matchdays = Matchday.where(locked: false)
     return if matchdays.nil?
 
     matchdays.each do |md|
-      next unless time_now > md[1].min.in_time_zone('UTC')
+      next unless time_now > md.lock_time
 
-      lock_matchday(md[0])
+      lock_matchday(md)
     end
   end
 
   def lock_matchday(matchday)
-    md = Matchday.where(week: matchday)
-    md.update(locked: true)
-    autopick_on_lock(matchday)
+    matchday.update(locked: true)
+    autopick_on_lock(matchday.week)
   end
 
   def autopick_on_lock(matchday)
