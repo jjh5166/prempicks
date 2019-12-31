@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Standings and MyPicks views for users and guests
 class PicksController < ApplicationController
   include PicksHelper
   include AutopickHelper
@@ -23,23 +24,25 @@ class PicksController < ApplicationController
   def mypicks
     @locked_mds = locked_mds
     matches_data = fetch_matches
-    @matches = matches_data.sort_by { |match| [match['matchday'], match['utcDate']] }
+    @matches =
+      matches_data.sort_by { |match| [match['matchday'], match['utcDate']] }
     @teamcodes = team_codes
-    @user = User.find(current_user.id)
+    @user = current_user
   end
 
   def guest_mypicks
     @locked_mds = locked_mds
     matches_data = fetch_matches
-    @matches = matches_data.sort_by { |match| [match['matchday'], match['utcDate']] }
+    @matches =
+      matches_data.sort_by { |match| [match['matchday'], match['utcDate']] }
     @teamcodes = team_codes
     @guser = User.find(guest_user.id)
   end
 
   def guest_standings
-    @seasontotals = @all_standings.sort_by{|u| u['season']}.reverse
-    @firsthalftotals = @all_standings.sort_by{|u| u['firsthalf']}.reverse
-    @secondhalftotals = @all_standings.sort_by{|u| u['secondhalf']}.reverse
+    @seasontotals = @all_standings.sort_by { |u| u['season'] }.reverse
+    @firsthalftotals = @all_standings.sort_by { |u| u['firsthalf'] }.reverse
+    @secondhalftotals = @all_standings.sort_by { |u| u['secondhalf'] }.reverse
   end
 
   private
@@ -61,9 +64,11 @@ class PicksController < ApplicationController
 
   def set_samples
     s3 = Aws::S3::Client.new
-    standings_file = s3.get_object(bucket: ENV['S3_BUCKET'], key: 'sample/sample_standings.json')
+    standings_file = s3.get_object(bucket: ENV['S3_BUCKET'], key: '/
+      sample/sample_standings.json')
     @all_standings = JSON.parse(standings_file.body.read)
-    picks_file = s3.get_object(bucket: ENV['S3_BUCKET'], key: 'sample/sample_picks.json')
+    picks_file = s3.get_object(bucket: ENV['S3_BUCKET'], key: '/
+      sample/sample_picks.json')
     @sample_picks = JSON.parse(picks_file.body.read)
   end
 end
