@@ -1,6 +1,8 @@
-Aws.config.update({
-  region: 'us-east-1',
-  credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY']),
-})
+# frozen_string_literal: true
 
-s3 = Aws::S3::Client.new
+Aws.config.update(
+  region: 'us-east-1',
+  credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'],
+                                    ENV['AWS_SECRET_ACCESS_KEY'])
+)
+Aws.eager_autoload!(services: %w[S3])
