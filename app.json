@@ -84,5 +84,5 @@
   "name": "prempicks",
   "scripts": {
   },
-  "stack": "heroku-16"
+  "stack": "heroku-18"
 }
