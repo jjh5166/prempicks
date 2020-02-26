@@ -9,8 +9,14 @@ module ScoringHelper
     end
   end
 
+  def locked_not_scored
+    Matchday.where(locked: true, scored: false)
+  end
+
   # True if more games finished than scored
   def scoring_needed?
+    return false if locked_not_scored.none?
+
     finished = FootballData.fetch(:competitions, :matches, id: 2021, status: 'FINISHED')['count'].to_i
     scored = Score.where.not(points: 0).count / 2
     return false unless finished > scored
@@ -34,7 +40,7 @@ module ScoringHelper
         next unless scores[r.team_id]
 
         r.update(points: scores[r.team_id])
-        Pick.where(matchday:m, team_id: r.team_id).update_all(points: scores[r.team_id])
+        Pick.where(matchday: m, team_id: r.team_id).update_all(points: scores[r.team_id])
       end
     end
   end
