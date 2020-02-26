@@ -1,21 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# frozen_string_literal: true
+
 include AutopickHelper
 include EpldataHelper
-if !Matchday.any?
+if Matchday.none?
   (1..38).each do |week|
-    Matchday.create(week:week)
+    Matchday.create(week: week)
   end
-  update_locktimes
+  update_all_locktimes
 end
-if !Score.any?
+if Score.none?
   teams = last_yr_standings
   teams.each do |t|
     (1..38).each do |week|
-      Score.create(team_id:t, matchday:week)
+      Score.create(team_id: t, matchday: week)
     end
   end
 end
-if !CurrentMatchday.any?
+if CurrentMatchday.none?
   CurrentMatchday.first_or_create!(singleton_guard: 0, matchday: 1)
 end

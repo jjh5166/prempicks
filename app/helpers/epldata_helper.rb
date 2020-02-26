@@ -36,11 +36,30 @@ module EpldataHelper
     matchtimes
   end
 
+  # returns hash of arrays with kick off times for all matchdays
+  def all_matchday_times
+    all_matches = fetch_matches
+    matchtimes = Hash[(1..38).collect { |md| [md, []] }]
+    all_matches.each do |m|
+      matchtimes[m['matchday']].push(m['utcDate'])
+    end
+    matchtimes
+  end
+
   # update locktimes for all unlocked Matchdays
   def update_locktimes
     matchdays = Matchday.where(locked: false)
     digits = matchdays.pluck(:week)
     mdtimes = matchdays_times_for(digits)
+    matchdays.each do |md|
+      md.update(lock_time: mdtimes[md.week].min)
+    end
+  end
+
+  # update all locktimes regardless of past date or locked
+  def update_all_locktimes
+    matchdays = Matchday.all
+    mdtimes = all_matchday_times
     matchdays.each do |md|
       md.update(lock_time: mdtimes[md.week].min)
     end
