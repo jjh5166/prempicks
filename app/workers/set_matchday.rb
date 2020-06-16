@@ -7,6 +7,7 @@ class SetMatchday
   include EpldataHelper
   def perform
     md = fetch_current_matchday
-    CurrentMatchday.find(1).update(matchday: md)
+    cm = CurrentMatchday.find(1)
+    update_matchday_if_later(cm, md)
   end
 end

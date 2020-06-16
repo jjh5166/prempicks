@@ -64,4 +64,9 @@ module EpldataHelper
       md.update(lock_time: mdtimes[md.week].min)
     end
   end
+
+  # update matchday if api returns a later current matchday than saved in db
+  def update_matchday_if_later(current_matchday, md_from_api)
+    current_matchday.update(matchday: md_from_api) if md_from_api > current_matchday.matchday
+  end
 end
