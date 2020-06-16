@@ -93,6 +93,10 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     e2mmap (0.1.0)
     erubi (1.9.0)
     et-orbi (1.2.4)
@@ -297,6 +301,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15, < 4.0)
   devise
+  dotenv-rails
   football__data
   foreman
   jbuilder (~> 2.5)

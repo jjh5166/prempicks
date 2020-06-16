@@ -62,6 +62,7 @@ end
 
 group :test do
   gem 'rspec-sidekiq'
+  gem 'dotenv-rails'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'selenium-webdriver'
