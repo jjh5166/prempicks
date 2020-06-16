@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 FootballData.configure do |config|
   # get api key at 'http://api.football-data.org/register'
   config.api_key = ENV['FOOTBALL_API_KEY']
