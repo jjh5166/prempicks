@@ -1,5 +1,5 @@
-# PremPicks
+# [PremPicks](http://prempicks.herokuapp.com/)
 
-A custom app built to run a picks league for the EPL.
+An application built in Ruby on Rails to run a picks league for the Premier League. 
 
 created by [John Hartnett](https://jjhv.me)
