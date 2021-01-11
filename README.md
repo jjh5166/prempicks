@@ -1,4 +1,4 @@
-# [PremPicks](http://prempicks.herokuapp.com/)
+# PremPicks
 
 An application built in Ruby on Rails to run a picks league for the Premier League. 
 
